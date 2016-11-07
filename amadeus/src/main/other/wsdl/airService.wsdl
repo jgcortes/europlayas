@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://ws.amadeus.fr/air" targetNamespace="http://ws.amadeus.fr/air">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://ws.amadeus.fr/air" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.amadeus.fr/air">
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/AvailabilitySearchRequest.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/AvailabilitySearchResponse.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/LowFareSearchRequest.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/LowFareSearchResponse.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/PriceWithInfoRequest.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/PriceWithInfoResponse.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/GetInfoRequest.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/GetInfoResponse.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/BookRequest.xsd"/>
+			<xs:include schemaLocation="https://demo.amadeus.fr/air-5/ws/airService?xsd=schema/BookResponse.xsd"/>
+		</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="lowFareSearchRequest">
+    <wsdl:part element="lowFareSearchRequest" name="lowFareSearchRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unsupportedPaymentCardTypeFault">
+    <wsdl:part element="unsupportedPaymentCardTypeFault" name="unsupportedPaymentCardTypeFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="passengerPriceDiscrepancyFault">
+    <wsdl:part element="passengerPriceDiscrepancyFault" name="passengerPriceDiscrepancyFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unknownErrorFault">
+    <wsdl:part element="unknownErrorFault" name="unknownErrorFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="priceDiscrepancyFault">
+    <wsdl:part element="priceDiscrepancyFault" name="priceDiscrepancyFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="availabilitySearchResponse">
+    <wsdl:part element="availabilitySearchResponse" name="availabilitySearchResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ticketIssuanceFailureFault">
+    <wsdl:part element="ticketIssuanceFailureFault" name="ticketIssuanceFailureFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="duplicateBookingFault">
+    <wsdl:part element="duplicateBookingFault" name="duplicateBookingFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inconsistentAvailabilitySearchRequestFault">
+    <wsdl:part element="inconsistentAvailabilitySearchRequestFault" name="inconsistentAvailabilitySearchRequestFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inconsistentLowFareSearchRequestFault">
+    <wsdl:part element="inconsistentLowFareSearchRequestFault" name="inconsistentLowFareSearchRequestFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="availabilitySearchRequest">
+    <wsdl:part element="availabilitySearchRequest" name="availabilitySearchRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="priceWithInfoResponse">
+    <wsdl:part element="priceWithInfoResponse" name="priceWithInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookingFailureFault">
+    <wsdl:part element="bookingFailureFault" name="bookingFailureFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="priceWithInfoRequest">
+    <wsdl:part element="priceWithInfoRequest" name="priceWithInfoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookRequest">
+    <wsdl:part element="bookRequest" name="bookRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInfoResponse">
+    <wsdl:part element="getInfoResponse" name="getInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInfoRequest">
+    <wsdl:part element="getInfoRequest" name="getInfoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bookResponse">
+    <wsdl:part element="bookResponse" name="bookResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="segmentSellFailureFault">
+    <wsdl:part element="segmentSellFailureFault" name="segmentSellFailureFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lowFareSearchResponse">
+    <wsdl:part element="lowFareSearchResponse" name="lowFareSearchResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inconsistentGetInfoRequestFault">
+    <wsdl:part element="inconsistentGetInfoRequestFault" name="inconsistentGetInfoRequestFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="noFareApplicableFault">
+    <wsdl:part element="noFareApplicableFault" name="noFareApplicableFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inconsistentPriceWithInfoRequestFault">
+    <wsdl:part element="inconsistentPriceWithInfoRequestFault" name="inconsistentPriceWithInfoRequestFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="supplierSideFault">
+    <wsdl:part element="supplierSideFault" name="supplierSideFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inconsistentBookRequestFault">
+    <wsdl:part element="inconsistentBookRequestFault" name="inconsistentBookRequestFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="servicePortType">
+    <wsdl:operation name="availabilitySearch">
+      <wsdl:input message="availabilitySearchRequest" name="availabilitySearchRequest">
+    </wsdl:input>
+      <wsdl:output message="availabilitySearchResponse" name="availabilitySearchResponse">
+    </wsdl:output>
+      <wsdl:fault message="supplierSideFault" name="supplierSideFault">
+    </wsdl:fault>
+      <wsdl:fault message="inconsistentAvailabilitySearchRequestFault" name="inconsistentAvailabilitySearchRequestFault">
+    </wsdl:fault>
+      <wsdl:fault message="unknownErrorFault" name="unknownErrorFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="lowFareSearch">
+      <wsdl:input message="lowFareSearchRequest" name="lowFareSearchRequest">
+    </wsdl:input>
+      <wsdl:output message="lowFareSearchResponse" name="lowFareSearchResponse">
+    </wsdl:output>
+      <wsdl:fault message="supplierSideFault" name="supplierSideFault">
+    </wsdl:fault>
+      <wsdl:fault message="inconsistentLowFareSearchRequestFault" name="inconsistentLowFareSearchRequestFault">
+    </wsdl:fault>
+      <wsdl:fault message="unknownErrorFault" name="unknownErrorFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="priceWithInfo">
+      <wsdl:input message="priceWithInfoRequest" name="priceWithInfoRequest">
+    </wsdl:input>
+      <wsdl:output message="priceWithInfoResponse" name="priceWithInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="supplierSideFault" name="supplierSideFault">
+    </wsdl:fault>
+      <wsdl:fault message="inconsistentPriceWithInfoRequestFault" name="inconsistentPriceWithInfoRequestFault">
+    </wsdl:fault>
+      <wsdl:fault message="noFareApplicableFault" name="noFareApplicableFault">
+    </wsdl:fault>
+      <wsdl:fault message="unknownErrorFault" name="unknownErrorFault">
+    </wsdl:fault>
+      <wsdl:fault message="unsupportedPaymentCardTypeFault" name="unsupportedPaymentCardTypeFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <wsdl:input message="getInfoRequest" name="getInfoRequest">
+    </wsdl:input>
+      <wsdl:output message="getInfoResponse" name="getInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="supplierSideFault" name="supplierSideFault">
+    </wsdl:fault>
+      <wsdl:fault message="noFareApplicableFault" name="noFareApplicableFault">
+    </wsdl:fault>
+      <wsdl:fault message="unknownErrorFault" name="unknownErrorFault">
+    </wsdl:fault>
+      <wsdl:fault message="inconsistentGetInfoRequestFault" name="inconsistentGetInfoRequestFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="book">
+      <wsdl:input message="bookRequest" name="bookRequest">
+    </wsdl:input>
+      <wsdl:output message="bookResponse" name="bookResponse">
+    </wsdl:output>
+      <wsdl:fault message="inconsistentBookRequestFault" name="inconsistentBookRequestFault">
+    </wsdl:fault>
+      <wsdl:fault message="segmentSellFailureFault" name="segmentSellFailureFault">
+    </wsdl:fault>
+      <wsdl:fault message="supplierSideFault" name="supplierSideFault">
+    </wsdl:fault>
+      <wsdl:fault message="bookingFailureFault" name="bookingFailureFault">
+    </wsdl:fault>
+      <wsdl:fault message="ticketIssuanceFailureFault" name="ticketIssuanceFailureFault">
+    </wsdl:fault>
+      <wsdl:fault message="duplicateBookingFault" name="duplicateBookingFault">
+    </wsdl:fault>
+      <wsdl:fault message="noFareApplicableFault" name="noFareApplicableFault">
+    </wsdl:fault>
+      <wsdl:fault message="priceDiscrepancyFault" name="priceDiscrepancyFault">
+    </wsdl:fault>
+      <wsdl:fault message="passengerPriceDiscrepancyFault" name="passengerPriceDiscrepancyFault">
+    </wsdl:fault>
+      <wsdl:fault message="unknownErrorFault" name="unknownErrorFault">
+    </wsdl:fault>
+      <wsdl:fault message="unsupportedPaymentCardTypeFault" name="unsupportedPaymentCardTypeFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="serviceBinding" type="servicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="availabilitySearch">
+      <soap:operation soapAction="http://ws.amadeus.fr/air/availabilitySearch"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="supplierSideFault">
+        <soap:fault name="supplierSideFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="inconsistentAvailabilitySearchRequestFault">
+        <soap:fault name="inconsistentAvailabilitySearchRequestFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownErrorFault">
+        <soap:fault name="unknownErrorFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="lowFareSearch">
+      <soap:operation soapAction="http://ws.amadeus.fr/air/lowFareSearch"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="supplierSideFault">
+        <soap:fault name="supplierSideFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="inconsistentLowFareSearchRequestFault">
+        <soap:fault name="inconsistentLowFareSearchRequestFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownErrorFault">
+        <soap:fault name="unknownErrorFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="priceWithInfo">
+      <soap:operation soapAction="http://ws.amadeus.fr/air/priceWithInfo"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="supplierSideFault">
+        <soap:fault name="supplierSideFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="inconsistentPriceWithInfoRequestFault">
+        <soap:fault name="inconsistentPriceWithInfoRequestFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="noFareApplicableFault">
+        <soap:fault name="noFareApplicableFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownErrorFault">
+        <soap:fault name="unknownErrorFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unsupportedPaymentCardTypeFault">
+        <soap:fault name="unsupportedPaymentCardTypeFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <soap:operation soapAction="http://ws.amadeus.fr/air/getInfo"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="supplierSideFault">
+        <soap:fault name="supplierSideFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="noFareApplicableFault">
+        <soap:fault name="noFareApplicableFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownErrorFault">
+        <soap:fault name="unknownErrorFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="inconsistentGetInfoRequestFault">
+        <soap:fault name="inconsistentGetInfoRequestFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="book">
+      <soap:operation soapAction="http://ws.amadeus.fr/air/book"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="inconsistentBookRequestFault">
+        <soap:fault name="inconsistentBookRequestFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="segmentSellFailureFault">
+        <soap:fault name="segmentSellFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="supplierSideFault">
+        <soap:fault name="supplierSideFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="bookingFailureFault">
+        <soap:fault name="bookingFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ticketIssuanceFailureFault">
+        <soap:fault name="ticketIssuanceFailureFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="duplicateBookingFault">
+        <soap:fault name="duplicateBookingFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="noFareApplicableFault">
+        <soap:fault name="noFareApplicableFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="priceDiscrepancyFault">
+        <soap:fault name="priceDiscrepancyFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="passengerPriceDiscrepancyFault">
+        <soap:fault name="passengerPriceDiscrepancyFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownErrorFault">
+        <soap:fault name="unknownErrorFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unsupportedPaymentCardTypeFault">
+        <soap:fault name="unsupportedPaymentCardTypeFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="service">
+    <wsdl:port binding="serviceBinding" name="servicePort">
+      <soap:address location="https://demo.amadeus.fr/air-5/ws/airService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
