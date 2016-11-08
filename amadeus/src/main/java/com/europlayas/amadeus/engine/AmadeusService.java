@@ -92,20 +92,22 @@ public class AmadeusService {
         final BindingProvider provider = (BindingProvider) port;
         //Ponemos el usuario y password en variables dependientes del thread
         provider.getRequestContext().put(WSHandlerConstants.USER, user);
-        try {
-            byte[] passwordSha1 = MessageDigest.getInstance("SHA-1").digest(password.getBytes());
+        provider.getRequestContext().put("password", password);
+        /*try {
+             byte[] passwordSha1 = MessageDigest.getInstance("SHA-1").digest(password.getBytes());
             provider.getRequestContext().put("password", Base64.encode(passwordSha1));
+
         } catch (NoSuchAlgorithmException ex) {
             throw new IllegalArgumentException("Algoritmo no soportado", ex);
-        }
+        }*/
     }
 
 
     private static void addSecurityInterceptor(Client client) {
         Map<String, Object> outProps = new HashMap<String, Object>();
         outProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
-        outProps.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_DIGEST);
-        outProps.put(WSHandlerConstants.USE_ENCODED_PASSWORDS, "true");
+        outProps.put(WSHandlerConstants.PASSWORD_TYPE,  WSConstants.PW_TEXT);
+
         WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
         client.getOutInterceptors().add(wssOut);
     }

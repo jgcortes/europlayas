@@ -1,13 +1,12 @@
 <jaxb:bindings
-    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-    jaxb:extensionBindingPrefixes="xjc"
-    jaxb:version="1.0">
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        jaxb:extensionBindingPrefixes="xjc"
+        jaxb:version="1.0">
     <jaxb:globalBindings generateElementProperty="false" >
         <xjc:serializable/>
         <xjc:simple></xjc:simple>
-        <xjc:javaType adapter="com.tr2.binding.util.DateTimeAdapter"  name="java.time.LocalDateTime" xmlType="xs:dateTime" />
-        <xjc:javaType adapter="com.tr2.binding.util.DateAdapter"  name="java.time.LocalDate" xmlType="xs:date" />
+        <xjc:javaType adapter="com.europlayas.amadeus.util.DateTimeAdapter"  name="java.time.LocalDateTime"  xmlType="xs:dateTime" />
     </jaxb:globalBindings>
 </jaxb:bindings>
