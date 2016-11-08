@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -58,7 +59,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "LuggageAllowance", propOrder = {
 
 })
-public class LuggageAllowance {
+public class LuggageAllowance implements Serializable
+{
 
     @XmlElement(required = true)
     protected LuggageAllowance.Passengers passengers;
@@ -206,12 +208,13 @@ public class LuggageAllowance {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passengerId"
+        "passengerIds"
     })
-    public static class Passengers {
+    public static class Passengers implements Serializable
+    {
 
-        @XmlElement(type = Integer.class)
-        protected List<Integer> passengerId;
+        @XmlElement(name = "passengerId", type = Integer.class)
+        protected List<Integer> passengerIds;
 
         /**
          * Default no-arg constructor
@@ -225,23 +228,23 @@ public class LuggageAllowance {
          * Fully-initialising value constructor
          * 
          */
-        public Passengers(final List<Integer> passengerId) {
-            this.passengerId = passengerId;
+        public Passengers(final List<Integer> passengerIds) {
+            this.passengerIds = passengerIds;
         }
 
         /**
-         * Gets the value of the passengerId property.
+         * Gets the value of the passengerIds property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passengerId property.
+         * This is why there is not a <CODE>set</CODE> method for the passengerIds property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassengerId().add(newItem);
+         *    getPassengerIds().add(newItem);
          * </pre>
          * 
          * 
@@ -251,11 +254,11 @@ public class LuggageAllowance {
          * 
          * 
          */
-        public List<Integer> getPassengerId() {
-            if (passengerId == null) {
-                passengerId = new ArrayList<Integer>();
+        public List<Integer> getPassengerIds() {
+            if (passengerIds == null) {
+                passengerIds = new ArrayList<Integer>();
             }
-            return this.passengerId;
+            return this.passengerIds;
         }
 
     }
@@ -282,12 +285,13 @@ public class LuggageAllowance {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "segmentId"
+        "segmentIds"
     })
-    public static class Segments {
+    public static class Segments implements Serializable
+    {
 
-        @XmlElement(type = Integer.class)
-        protected List<Integer> segmentId;
+        @XmlElement(name = "segmentId", type = Integer.class)
+        protected List<Integer> segmentIds;
 
         /**
          * Default no-arg constructor
@@ -301,23 +305,23 @@ public class LuggageAllowance {
          * Fully-initialising value constructor
          * 
          */
-        public Segments(final List<Integer> segmentId) {
-            this.segmentId = segmentId;
+        public Segments(final List<Integer> segmentIds) {
+            this.segmentIds = segmentIds;
         }
 
         /**
-         * Gets the value of the segmentId property.
+         * Gets the value of the segmentIds property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the segmentId property.
+         * This is why there is not a <CODE>set</CODE> method for the segmentIds property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getSegmentId().add(newItem);
+         *    getSegmentIds().add(newItem);
          * </pre>
          * 
          * 
@@ -327,11 +331,11 @@ public class LuggageAllowance {
          * 
          * 
          */
-        public List<Integer> getSegmentId() {
-            if (segmentId == null) {
-                segmentId = new ArrayList<Integer>();
+        public List<Integer> getSegmentIds() {
+            if (segmentIds == null) {
+                segmentIds = new ArrayList<Integer>();
             }
-            return this.segmentId;
+            return this.segmentIds;
         }
 
     }

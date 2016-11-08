@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -47,7 +48,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "InconsistentSegmentDetail", propOrder = {
 
 })
-public class InconsistentSegmentDetail {
+public class InconsistentSegmentDetail implements Serializable
+{
 
     @XmlElement(required = true)
     protected InconsistentSegmentDetail.SegmentDetailInconsistencies segmentDetailInconsistencies;
@@ -133,13 +135,14 @@ public class InconsistentSegmentDetail {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "segmentDetailInconsistency"
+        "segmentDetailInconsistencies"
     })
-    public static class SegmentDetailInconsistencies {
+    public static class SegmentDetailInconsistencies implements Serializable
+    {
 
-        @XmlElement(required = true)
+        @XmlElement(name = "segmentDetailInconsistency", required = true)
         @XmlSchemaType(name = "string")
-        protected List<SegmentDetailInconsistency> segmentDetailInconsistency;
+        protected List<SegmentDetailInconsistency> segmentDetailInconsistencies;
 
         /**
          * Default no-arg constructor
@@ -153,23 +156,23 @@ public class InconsistentSegmentDetail {
          * Fully-initialising value constructor
          * 
          */
-        public SegmentDetailInconsistencies(final List<SegmentDetailInconsistency> segmentDetailInconsistency) {
-            this.segmentDetailInconsistency = segmentDetailInconsistency;
+        public SegmentDetailInconsistencies(final List<SegmentDetailInconsistency> segmentDetailInconsistencies) {
+            this.segmentDetailInconsistencies = segmentDetailInconsistencies;
         }
 
         /**
-         * Gets the value of the segmentDetailInconsistency property.
+         * Gets the value of the segmentDetailInconsistencies property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the segmentDetailInconsistency property.
+         * This is why there is not a <CODE>set</CODE> method for the segmentDetailInconsistencies property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getSegmentDetailInconsistency().add(newItem);
+         *    getSegmentDetailInconsistencies().add(newItem);
          * </pre>
          * 
          * 
@@ -179,11 +182,11 @@ public class InconsistentSegmentDetail {
          * 
          * 
          */
-        public List<SegmentDetailInconsistency> getSegmentDetailInconsistency() {
-            if (segmentDetailInconsistency == null) {
-                segmentDetailInconsistency = new ArrayList<SegmentDetailInconsistency>();
+        public List<SegmentDetailInconsistency> getSegmentDetailInconsistencies() {
+            if (segmentDetailInconsistencies == null) {
+                segmentDetailInconsistencies = new ArrayList<SegmentDetailInconsistency>();
             }
-            return this.segmentDetailInconsistency;
+            return this.segmentDetailInconsistencies;
         }
 
     }

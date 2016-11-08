@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -34,12 +35,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PassengerFareOptionList", propOrder = {
-    "passengerFareOption"
+    "passengerFareOptions"
 })
-public class PassengerFareOptionList {
+public class PassengerFareOptionList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<PassengerFareOption> passengerFareOption;
+    @XmlElement(name = "passengerFareOption", required = true)
+    protected List<PassengerFareOption> passengerFareOptions;
     @XmlAttribute(name = "defaultToStandard")
     protected Boolean defaultToStandard;
 
@@ -55,24 +57,24 @@ public class PassengerFareOptionList {
      * Fully-initialising value constructor
      * 
      */
-    public PassengerFareOptionList(final List<PassengerFareOption> passengerFareOption, final Boolean defaultToStandard) {
-        this.passengerFareOption = passengerFareOption;
+    public PassengerFareOptionList(final List<PassengerFareOption> passengerFareOptions, final Boolean defaultToStandard) {
+        this.passengerFareOptions = passengerFareOptions;
         this.defaultToStandard = defaultToStandard;
     }
 
     /**
-     * Gets the value of the passengerFareOption property.
+     * Gets the value of the passengerFareOptions property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the passengerFareOption property.
+     * This is why there is not a <CODE>set</CODE> method for the passengerFareOptions property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPassengerFareOption().add(newItem);
+     *    getPassengerFareOptions().add(newItem);
      * </pre>
      * 
      * 
@@ -82,11 +84,11 @@ public class PassengerFareOptionList {
      * 
      * 
      */
-    public List<PassengerFareOption> getPassengerFareOption() {
-        if (passengerFareOption == null) {
-            passengerFareOption = new ArrayList<PassengerFareOption>();
+    public List<PassengerFareOption> getPassengerFareOptions() {
+        if (passengerFareOptions == null) {
+            passengerFareOptions = new ArrayList<PassengerFareOption>();
         }
-        return this.passengerFareOption;
+        return this.passengerFareOptions;
     }
 
     /**

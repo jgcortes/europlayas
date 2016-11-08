@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -25,13 +26,14 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SimpleAirlineCodeRestrictions", propOrder = {
-    "includedAirlines",
-    "excludedAirlines"
+    "excludedAirlines",
+    "includedAirlines"
 })
-public class SimpleAirlineCodeRestrictions {
+public class SimpleAirlineCodeRestrictions implements Serializable
+{
 
-    protected AirlineCodeList includedAirlines;
     protected AirlineCodeList excludedAirlines;
+    protected AirlineCodeList includedAirlines;
 
     /**
      * Default no-arg constructor
@@ -45,33 +47,9 @@ public class SimpleAirlineCodeRestrictions {
      * Fully-initialising value constructor
      * 
      */
-    public SimpleAirlineCodeRestrictions(final AirlineCodeList includedAirlines, final AirlineCodeList excludedAirlines) {
-        this.includedAirlines = includedAirlines;
+    public SimpleAirlineCodeRestrictions(final AirlineCodeList excludedAirlines, final AirlineCodeList includedAirlines) {
         this.excludedAirlines = excludedAirlines;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad includedAirlines.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AirlineCodeList }
-     *     
-     */
-    public AirlineCodeList getIncludedAirlines() {
-        return includedAirlines;
-    }
-
-    /**
-     * Define el valor de la propiedad includedAirlines.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AirlineCodeList }
-     *     
-     */
-    public void setIncludedAirlines(AirlineCodeList value) {
-        this.includedAirlines = value;
+        this.includedAirlines = includedAirlines;
     }
 
     /**
@@ -96,6 +74,30 @@ public class SimpleAirlineCodeRestrictions {
      */
     public void setExcludedAirlines(AirlineCodeList value) {
         this.excludedAirlines = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad includedAirlines.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AirlineCodeList }
+     *     
+     */
+    public AirlineCodeList getIncludedAirlines() {
+        return includedAirlines;
+    }
+
+    /**
+     * Define el valor de la propiedad includedAirlines.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AirlineCodeList }
+     *     
+     */
+    public void setIncludedAirlines(AirlineCodeList value) {
+        this.includedAirlines = value;
     }
 
 }

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -47,6 +48,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class OptionDiscardedSearchWarning
     extends LowFareSearchWarning
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -115,13 +117,14 @@ public class OptionDiscardedSearchWarning
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "searchOption"
+        "searchOptions"
     })
-    public static class SearchOptions {
+    public static class SearchOptions implements Serializable
+    {
 
-        @XmlElement(required = true)
+        @XmlElement(name = "searchOption", required = true)
         @XmlSchemaType(name = "string")
-        protected List<SearchOption> searchOption;
+        protected List<SearchOption> searchOptions;
 
         /**
          * Default no-arg constructor
@@ -135,23 +138,23 @@ public class OptionDiscardedSearchWarning
          * Fully-initialising value constructor
          * 
          */
-        public SearchOptions(final List<SearchOption> searchOption) {
-            this.searchOption = searchOption;
+        public SearchOptions(final List<SearchOption> searchOptions) {
+            this.searchOptions = searchOptions;
         }
 
         /**
-         * Gets the value of the searchOption property.
+         * Gets the value of the searchOptions property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the searchOption property.
+         * This is why there is not a <CODE>set</CODE> method for the searchOptions property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getSearchOption().add(newItem);
+         *    getSearchOptions().add(newItem);
          * </pre>
          * 
          * 
@@ -161,11 +164,11 @@ public class OptionDiscardedSearchWarning
          * 
          * 
          */
-        public List<SearchOption> getSearchOption() {
-            if (searchOption == null) {
-                searchOption = new ArrayList<SearchOption>();
+        public List<SearchOption> getSearchOptions() {
+            if (searchOptions == null) {
+                searchOptions = new ArrayList<SearchOption>();
             }
-            return this.searchOption;
+            return this.searchOptions;
         }
 
     }

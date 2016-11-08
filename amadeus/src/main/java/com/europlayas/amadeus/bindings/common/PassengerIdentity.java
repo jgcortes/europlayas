@@ -1,12 +1,15 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -76,7 +79,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlSeeAlso({
     InfantPassengerIdentity.class
 })
-public class PassengerIdentity {
+public class PassengerIdentity implements Serializable
+{
 
     @XmlAttribute(name = "firstName", required = true)
     protected String firstName;
@@ -85,7 +89,8 @@ public class PassengerIdentity {
     @XmlAttribute(name = "surname", required = true)
     protected String surname;
     @XmlAttribute(name = "dateOfBirth")
-    protected XMLGregorianCalendar dateOfBirth;
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    protected LocalDate dateOfBirth;
     @XmlAttribute(name = "gender")
     protected Gender gender;
 
@@ -101,7 +106,7 @@ public class PassengerIdentity {
      * Fully-initialising value constructor
      * 
      */
-    public PassengerIdentity(final String firstName, final String middleName, final String surname, final XMLGregorianCalendar dateOfBirth, final Gender gender) {
+    public PassengerIdentity(final String firstName, final String middleName, final String surname, final LocalDate dateOfBirth, final Gender gender) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.surname = surname;
@@ -186,10 +191,10 @@ public class PassengerIdentity {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -198,10 +203,10 @@ public class PassengerIdentity {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDateOfBirth(XMLGregorianCalendar value) {
+    public void setDateOfBirth(LocalDate value) {
         this.dateOfBirth = value;
     }
 

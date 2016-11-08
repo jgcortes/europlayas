@@ -1,6 +1,8 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,7 +10,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -43,12 +46,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TicketingRequirements", propOrder = {
-    "ticketingRequirement"
+    "ticketingRequirements"
 })
-public class TicketingRequirements {
+public class TicketingRequirements implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<TicketingRequirements.TicketingRequirement> ticketingRequirement;
+    @XmlElement(name = "ticketingRequirement", required = true)
+    protected List<TicketingRequirements.TicketingRequirement> ticketingRequirements;
 
     /**
      * Default no-arg constructor
@@ -62,23 +66,23 @@ public class TicketingRequirements {
      * Fully-initialising value constructor
      * 
      */
-    public TicketingRequirements(final List<TicketingRequirements.TicketingRequirement> ticketingRequirement) {
-        this.ticketingRequirement = ticketingRequirement;
+    public TicketingRequirements(final List<TicketingRequirements.TicketingRequirement> ticketingRequirements) {
+        this.ticketingRequirements = ticketingRequirements;
     }
 
     /**
-     * Gets the value of the ticketingRequirement property.
+     * Gets the value of the ticketingRequirements property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the ticketingRequirement property.
+     * This is why there is not a <CODE>set</CODE> method for the ticketingRequirements property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTicketingRequirement().add(newItem);
+     *    getTicketingRequirements().add(newItem);
      * </pre>
      * 
      * 
@@ -88,11 +92,11 @@ public class TicketingRequirements {
      * 
      * 
      */
-    public List<TicketingRequirements.TicketingRequirement> getTicketingRequirement() {
-        if (ticketingRequirement == null) {
-            ticketingRequirement = new ArrayList<TicketingRequirements.TicketingRequirement>();
+    public List<TicketingRequirements.TicketingRequirement> getTicketingRequirements() {
+        if (ticketingRequirements == null) {
+            ticketingRequirements = new ArrayList<TicketingRequirements.TicketingRequirement>();
         }
-        return this.ticketingRequirement;
+        return this.ticketingRequirements;
     }
 
 
@@ -120,11 +124,13 @@ public class TicketingRequirements {
     @XmlType(name = "", propOrder = {
         "itineraries"
     })
-    public static class TicketingRequirement {
+    public static class TicketingRequirement implements Serializable
+    {
 
         protected ItineraryIdList itineraries;
         @XmlAttribute(name = "lastTicketingDate")
-        protected XMLGregorianCalendar lastTicketingDate;
+        @XmlJavaTypeAdapter(DateAdapter.class)
+        protected LocalDate lastTicketingDate;
 
         /**
          * Default no-arg constructor
@@ -138,7 +144,7 @@ public class TicketingRequirements {
          * Fully-initialising value constructor
          * 
          */
-        public TicketingRequirement(final ItineraryIdList itineraries, final XMLGregorianCalendar lastTicketingDate) {
+        public TicketingRequirement(final ItineraryIdList itineraries, final LocalDate lastTicketingDate) {
             this.itineraries = itineraries;
             this.lastTicketingDate = lastTicketingDate;
         }
@@ -172,10 +178,10 @@ public class TicketingRequirements {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getLastTicketingDate() {
+        public LocalDate getLastTicketingDate() {
             return lastTicketingDate;
         }
 
@@ -184,10 +190,10 @@ public class TicketingRequirements {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setLastTicketingDate(XMLGregorianCalendar value) {
+        public void setLastTicketingDate(LocalDate value) {
             this.lastTicketingDate = value;
         }
 

@@ -1,12 +1,14 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.Duration;
@@ -112,7 +114,9 @@ import javax.xml.datatype.Duration;
 @XmlType(name = "LowFareSearchRequest", propOrder = {
 
 })
-public class LowFareSearchRequest {
+@XmlRootElement(name = "lowFareSearchRequest")
+public class LowFareSearchRequest implements Serializable
+{
 
     @XmlElement(required = true)
     protected LowFareSearchRequest.Journey journey;
@@ -322,7 +326,8 @@ public class LowFareSearchRequest {
     @XmlType(name = "", propOrder = {
 
     })
-    public static class Journey {
+    public static class Journey implements Serializable
+    {
 
         @XmlElement(required = true)
         protected LowFareSearchRequest.Journey.OriginDestinations originDestinations;
@@ -389,12 +394,13 @@ public class LowFareSearchRequest {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "originDestination"
+            "originDestinations"
         })
-        public static class OriginDestinations {
+        public static class OriginDestinations implements Serializable
+        {
 
-            @XmlElement(required = true)
-            protected List<OriginDestination> originDestination;
+            @XmlElement(name = "originDestination", required = true)
+            protected List<OriginDestination> originDestinations;
 
             /**
              * Default no-arg constructor
@@ -408,23 +414,23 @@ public class LowFareSearchRequest {
              * Fully-initialising value constructor
              * 
              */
-            public OriginDestinations(final List<OriginDestination> originDestination) {
-                this.originDestination = originDestination;
+            public OriginDestinations(final List<OriginDestination> originDestinations) {
+                this.originDestinations = originDestinations;
             }
 
             /**
-             * Gets the value of the originDestination property.
+             * Gets the value of the originDestinations property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the originDestination property.
+             * This is why there is not a <CODE>set</CODE> method for the originDestinations property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getOriginDestination().add(newItem);
+             *    getOriginDestinations().add(newItem);
              * </pre>
              * 
              * 
@@ -434,11 +440,11 @@ public class LowFareSearchRequest {
              * 
              * 
              */
-            public List<OriginDestination> getOriginDestination() {
-                if (originDestination == null) {
-                    originDestination = new ArrayList<OriginDestination>();
+            public List<OriginDestination> getOriginDestinations() {
+                if (originDestinations == null) {
+                    originDestinations = new ArrayList<OriginDestination>();
                 }
-                return this.originDestination;
+                return this.originDestinations;
             }
 
         }
@@ -502,7 +508,8 @@ public class LowFareSearchRequest {
         "oneWayCombinable",
         "disableProviders"
     })
-    public static class SearchPreferences {
+    public static class SearchPreferences implements Serializable
+    {
 
         protected LowFareSearchRequest.SearchPreferences.OneWayCombinable oneWayCombinable;
         protected LowFareSearchRequest.SearchPreferences.DisableProviders disableProviders;
@@ -729,13 +736,14 @@ public class LowFareSearchRequest {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "provider"
+            "providers"
         })
-        public static class DisableProviders {
+        public static class DisableProviders implements Serializable
+        {
 
-            @XmlElement(required = true)
+            @XmlElement(name = "provider", required = true)
             @XmlSchemaType(name = "string")
-            protected List<Provider> provider;
+            protected List<Provider> providers;
 
             /**
              * Default no-arg constructor
@@ -749,23 +757,23 @@ public class LowFareSearchRequest {
              * Fully-initialising value constructor
              * 
              */
-            public DisableProviders(final List<Provider> provider) {
-                this.provider = provider;
+            public DisableProviders(final List<Provider> providers) {
+                this.providers = providers;
             }
 
             /**
-             * Gets the value of the provider property.
+             * Gets the value of the providers property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the provider property.
+             * This is why there is not a <CODE>set</CODE> method for the providers property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getProvider().add(newItem);
+             *    getProviders().add(newItem);
              * </pre>
              * 
              * 
@@ -775,11 +783,11 @@ public class LowFareSearchRequest {
              * 
              * 
              */
-            public List<Provider> getProvider() {
-                if (provider == null) {
-                    provider = new ArrayList<Provider>();
+            public List<Provider> getProviders() {
+                if (providers == null) {
+                    providers = new ArrayList<Provider>();
                 }
-                return this.provider;
+                return this.providers;
             }
 
         }
@@ -805,7 +813,8 @@ public class LowFareSearchRequest {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class OneWayCombinable {
+        public static class OneWayCombinable implements Serializable
+        {
 
             @XmlAttribute(name = "maximumNumberOfRecommendationOutbound")
             protected Integer maximumNumberOfRecommendationOutbound;
@@ -901,7 +910,8 @@ public class LowFareSearchRequest {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class TicketingRequirements {
+    public static class TicketingRequirements implements Serializable
+    {
 
         @XmlAttribute(name = "minimumDelayBeforeTicketing")
         protected Duration minimumDelayBeforeTicketing;

@@ -8,5 +8,7 @@
         <xjc:serializable/>
         <xjc:simple></xjc:simple>
         <xjc:javaType adapter="com.europlayas.amadeus.util.DateTimeAdapter"  name="java.time.LocalDateTime"  xmlType="xs:dateTime" />
+        <xjc:javaType adapter="com.europlayas.amadeus.util.DateAdapter"  name="java.time.LocalDate" xmlType="xs:date" />
+
     </jaxb:globalBindings>
 </jaxb:bindings>

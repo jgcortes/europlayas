@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -39,15 +40,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PassengerFareOptionGroupsInconsistency", propOrder = {
-    "noDefaultFareOption",
     "incompleteGroups",
-    "duplicatedGroups"
+    "duplicatedGroups",
+    "noDefaultFareOption"
 })
-public class PassengerFareOptionGroupsInconsistency {
+public class PassengerFareOptionGroupsInconsistency implements Serializable
+{
 
-    protected Boolean noDefaultFareOption;
     protected PassengerFareOptionGroups incompleteGroups;
     protected PassengerFareOptionGroups duplicatedGroups;
+    protected Boolean noDefaultFareOption;
 
     /**
      * Default no-arg constructor
@@ -61,34 +63,10 @@ public class PassengerFareOptionGroupsInconsistency {
      * Fully-initialising value constructor
      * 
      */
-    public PassengerFareOptionGroupsInconsistency(final Boolean noDefaultFareOption, final PassengerFareOptionGroups incompleteGroups, final PassengerFareOptionGroups duplicatedGroups) {
-        this.noDefaultFareOption = noDefaultFareOption;
+    public PassengerFareOptionGroupsInconsistency(final PassengerFareOptionGroups incompleteGroups, final PassengerFareOptionGroups duplicatedGroups, final Boolean noDefaultFareOption) {
         this.incompleteGroups = incompleteGroups;
         this.duplicatedGroups = duplicatedGroups;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad noDefaultFareOption.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isNoDefaultFareOption() {
-        return noDefaultFareOption;
-    }
-
-    /**
-     * Define el valor de la propiedad noDefaultFareOption.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setNoDefaultFareOption(Boolean value) {
-        this.noDefaultFareOption = value;
+        this.noDefaultFareOption = noDefaultFareOption;
     }
 
     /**
@@ -137,6 +115,30 @@ public class PassengerFareOptionGroupsInconsistency {
      */
     public void setDuplicatedGroups(PassengerFareOptionGroups value) {
         this.duplicatedGroups = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad noDefaultFareOption.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isNoDefaultFareOption() {
+        return noDefaultFareOption;
+    }
+
+    /**
+     * Define el valor de la propiedad noDefaultFareOption.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setNoDefaultFareOption(Boolean value) {
+        this.noDefaultFareOption = value;
     }
 
 }

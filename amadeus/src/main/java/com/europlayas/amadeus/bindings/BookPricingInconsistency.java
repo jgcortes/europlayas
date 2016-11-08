@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -45,7 +46,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "BookPricingInconsistency", propOrder = {
 
 })
-public class BookPricingInconsistency {
+public class BookPricingInconsistency implements Serializable
+{
 
     protected FareTypeInconsistencyWithCause fareTypeInconsistency;
     protected BookPricingInconsistency.PassengerPricingInconsistencies passengerPricingInconsistencies;
@@ -164,12 +166,13 @@ public class BookPricingInconsistency {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passengerPricingInconsistency"
+        "passengerPricingInconsistencies"
     })
-    public static class PassengerPricingInconsistencies {
+    public static class PassengerPricingInconsistencies implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<BookPassengerPricingInconsistency> passengerPricingInconsistency;
+        @XmlElement(name = "passengerPricingInconsistency", required = true)
+        protected List<BookPassengerPricingInconsistency> passengerPricingInconsistencies;
 
         /**
          * Default no-arg constructor
@@ -183,23 +186,23 @@ public class BookPricingInconsistency {
          * Fully-initialising value constructor
          * 
          */
-        public PassengerPricingInconsistencies(final List<BookPassengerPricingInconsistency> passengerPricingInconsistency) {
-            this.passengerPricingInconsistency = passengerPricingInconsistency;
+        public PassengerPricingInconsistencies(final List<BookPassengerPricingInconsistency> passengerPricingInconsistencies) {
+            this.passengerPricingInconsistencies = passengerPricingInconsistencies;
         }
 
         /**
-         * Gets the value of the passengerPricingInconsistency property.
+         * Gets the value of the passengerPricingInconsistencies property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passengerPricingInconsistency property.
+         * This is why there is not a <CODE>set</CODE> method for the passengerPricingInconsistencies property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassengerPricingInconsistency().add(newItem);
+         *    getPassengerPricingInconsistencies().add(newItem);
          * </pre>
          * 
          * 
@@ -209,11 +212,11 @@ public class BookPricingInconsistency {
          * 
          * 
          */
-        public List<BookPassengerPricingInconsistency> getPassengerPricingInconsistency() {
-            if (passengerPricingInconsistency == null) {
-                passengerPricingInconsistency = new ArrayList<BookPassengerPricingInconsistency>();
+        public List<BookPassengerPricingInconsistency> getPassengerPricingInconsistencies() {
+            if (passengerPricingInconsistencies == null) {
+                passengerPricingInconsistencies = new ArrayList<BookPassengerPricingInconsistency>();
             }
-            return this.passengerPricingInconsistency;
+            return this.passengerPricingInconsistencies;
         }
 
     }

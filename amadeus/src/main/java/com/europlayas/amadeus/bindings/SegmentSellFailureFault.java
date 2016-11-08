@@ -1,11 +1,13 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -48,8 +50,10 @@ import javax.xml.bind.annotation.XmlType;
     "passengers",
     "passengerPricings"
 })
+@XmlRootElement(name = "segmentSellFailureFault")
 public class SegmentSellFailureFault
     extends BookFault
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -172,12 +176,13 @@ public class SegmentSellFailureFault
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passenger"
+        "passengers"
     })
-    public static class Passengers {
+    public static class Passengers implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<NamedPassenger> passenger;
+        @XmlElement(name = "passenger", required = true)
+        protected List<NamedPassenger> passengers;
 
         /**
          * Default no-arg constructor
@@ -191,23 +196,23 @@ public class SegmentSellFailureFault
          * Fully-initialising value constructor
          * 
          */
-        public Passengers(final List<NamedPassenger> passenger) {
-            this.passenger = passenger;
+        public Passengers(final List<NamedPassenger> passengers) {
+            this.passengers = passengers;
         }
 
         /**
-         * Gets the value of the passenger property.
+         * Gets the value of the passengers property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passenger property.
+         * This is why there is not a <CODE>set</CODE> method for the passengers property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassenger().add(newItem);
+         *    getPassengers().add(newItem);
          * </pre>
          * 
          * 
@@ -217,11 +222,11 @@ public class SegmentSellFailureFault
          * 
          * 
          */
-        public List<NamedPassenger> getPassenger() {
-            if (passenger == null) {
-                passenger = new ArrayList<NamedPassenger>();
+        public List<NamedPassenger> getPassengers() {
+            if (passengers == null) {
+                passengers = new ArrayList<NamedPassenger>();
             }
-            return this.passenger;
+            return this.passengers;
         }
 
     }

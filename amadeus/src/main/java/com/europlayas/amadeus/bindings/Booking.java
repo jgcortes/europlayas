@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,7 +51,8 @@ import javax.xml.bind.annotation.XmlType;
     "records",
     "luggageAllowances"
 })
-public class Booking {
+public class Booking implements Serializable
+{
 
     @XmlElement(required = true)
     protected DetailedJourney journey;
@@ -196,11 +198,13 @@ public class Booking {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "record"
+        "records"
     })
-    public static class Records {
+    public static class Records implements Serializable
+    {
 
-        protected List<AirRecord> record;
+        @XmlElement(name = "record")
+        protected List<AirRecord> records;
 
         /**
          * Default no-arg constructor
@@ -214,23 +218,23 @@ public class Booking {
          * Fully-initialising value constructor
          * 
          */
-        public Records(final List<AirRecord> record) {
-            this.record = record;
+        public Records(final List<AirRecord> records) {
+            this.records = records;
         }
 
         /**
-         * Gets the value of the record property.
+         * Gets the value of the records property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the record property.
+         * This is why there is not a <CODE>set</CODE> method for the records property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getRecord().add(newItem);
+         *    getRecords().add(newItem);
          * </pre>
          * 
          * 
@@ -240,11 +244,11 @@ public class Booking {
          * 
          * 
          */
-        public List<AirRecord> getRecord() {
-            if (record == null) {
-                record = new ArrayList<AirRecord>();
+        public List<AirRecord> getRecords() {
+            if (records == null) {
+                records = new ArrayList<AirRecord>();
             }
-            return this.record;
+            return this.records;
         }
 
     }

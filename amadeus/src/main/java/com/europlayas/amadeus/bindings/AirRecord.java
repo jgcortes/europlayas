@@ -1,6 +1,9 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,7 +11,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateAdapter;
+import com.europlayas.amadeus.util.DateTimeAdapter;
 
 
 /**
@@ -73,7 +78,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "AirRecord", propOrder = {
 
 })
-public class AirRecord {
+public class AirRecord implements Serializable
+{
 
     @XmlElement(required = true)
     protected ItineraryIdList itineraries;
@@ -86,9 +92,11 @@ public class AirRecord {
     @XmlAttribute(name = "locator", required = true)
     protected String locator;
     @XmlAttribute(name = "creationDateTime", required = true)
-    protected XMLGregorianCalendar creationDateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime creationDateTime;
     @XmlAttribute(name = "lastTicketingDate")
-    protected XMLGregorianCalendar lastTicketingDate;
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    protected LocalDate lastTicketingDate;
 
     /**
      * Default no-arg constructor
@@ -102,7 +110,7 @@ public class AirRecord {
      * Fully-initialising value constructor
      * 
      */
-    public AirRecord(final ItineraryIdList itineraries, final AirRecord.Passengers passengers, final AirRecord.ExternalRecords externalRecords, final AirRecord.AutomaticProcesses automaticProcesses, final Provider provider, final String locator, final XMLGregorianCalendar creationDateTime, final XMLGregorianCalendar lastTicketingDate) {
+    public AirRecord(final ItineraryIdList itineraries, final AirRecord.Passengers passengers, final AirRecord.ExternalRecords externalRecords, final AirRecord.AutomaticProcesses automaticProcesses, final Provider provider, final String locator, final LocalDateTime creationDateTime, final LocalDate lastTicketingDate) {
         this.itineraries = itineraries;
         this.passengers = passengers;
         this.externalRecords = externalRecords;
@@ -262,10 +270,10 @@ public class AirRecord {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getCreationDateTime() {
+    public LocalDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
@@ -274,10 +282,10 @@ public class AirRecord {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setCreationDateTime(XMLGregorianCalendar value) {
+    public void setCreationDateTime(LocalDateTime value) {
         this.creationDateTime = value;
     }
 
@@ -286,10 +294,10 @@ public class AirRecord {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getLastTicketingDate() {
+    public LocalDate getLastTicketingDate() {
         return lastTicketingDate;
     }
 
@@ -298,10 +306,10 @@ public class AirRecord {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setLastTicketingDate(XMLGregorianCalendar value) {
+    public void setLastTicketingDate(LocalDate value) {
         this.lastTicketingDate = value;
     }
 
@@ -327,12 +335,13 @@ public class AirRecord {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "unticketedCancellation"
+        "unticketedCancellations"
     })
-    public static class AutomaticProcesses {
+    public static class AutomaticProcesses implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<UnticketedCancellation> unticketedCancellation;
+        @XmlElement(name = "unticketedCancellation", required = true)
+        protected List<UnticketedCancellation> unticketedCancellations;
 
         /**
          * Default no-arg constructor
@@ -346,23 +355,23 @@ public class AirRecord {
          * Fully-initialising value constructor
          * 
          */
-        public AutomaticProcesses(final List<UnticketedCancellation> unticketedCancellation) {
-            this.unticketedCancellation = unticketedCancellation;
+        public AutomaticProcesses(final List<UnticketedCancellation> unticketedCancellations) {
+            this.unticketedCancellations = unticketedCancellations;
         }
 
         /**
-         * Gets the value of the unticketedCancellation property.
+         * Gets the value of the unticketedCancellations property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the unticketedCancellation property.
+         * This is why there is not a <CODE>set</CODE> method for the unticketedCancellations property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getUnticketedCancellation().add(newItem);
+         *    getUnticketedCancellations().add(newItem);
          * </pre>
          * 
          * 
@@ -372,11 +381,11 @@ public class AirRecord {
          * 
          * 
          */
-        public List<UnticketedCancellation> getUnticketedCancellation() {
-            if (unticketedCancellation == null) {
-                unticketedCancellation = new ArrayList<UnticketedCancellation>();
+        public List<UnticketedCancellation> getUnticketedCancellations() {
+            if (unticketedCancellations == null) {
+                unticketedCancellations = new ArrayList<UnticketedCancellation>();
             }
-            return this.unticketedCancellation;
+            return this.unticketedCancellations;
         }
 
     }
@@ -403,12 +412,13 @@ public class AirRecord {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "externalRecord"
+        "externalRecords"
     })
-    public static class ExternalRecords {
+    public static class ExternalRecords implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<AirExternalRecord> externalRecord;
+        @XmlElement(name = "externalRecord", required = true)
+        protected List<AirExternalRecord> externalRecords;
 
         /**
          * Default no-arg constructor
@@ -422,23 +432,23 @@ public class AirRecord {
          * Fully-initialising value constructor
          * 
          */
-        public ExternalRecords(final List<AirExternalRecord> externalRecord) {
-            this.externalRecord = externalRecord;
+        public ExternalRecords(final List<AirExternalRecord> externalRecords) {
+            this.externalRecords = externalRecords;
         }
 
         /**
-         * Gets the value of the externalRecord property.
+         * Gets the value of the externalRecords property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the externalRecord property.
+         * This is why there is not a <CODE>set</CODE> method for the externalRecords property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getExternalRecord().add(newItem);
+         *    getExternalRecords().add(newItem);
          * </pre>
          * 
          * 
@@ -448,11 +458,11 @@ public class AirRecord {
          * 
          * 
          */
-        public List<AirExternalRecord> getExternalRecord() {
-            if (externalRecord == null) {
-                externalRecord = new ArrayList<AirExternalRecord>();
+        public List<AirExternalRecord> getExternalRecords() {
+            if (externalRecords == null) {
+                externalRecords = new ArrayList<AirExternalRecord>();
             }
-            return this.externalRecord;
+            return this.externalRecords;
         }
 
     }
@@ -479,12 +489,13 @@ public class AirRecord {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passengerId"
+        "passengerIds"
     })
-    public static class Passengers {
+    public static class Passengers implements Serializable
+    {
 
-        @XmlElement(type = Integer.class)
-        protected List<Integer> passengerId;
+        @XmlElement(name = "passengerId", type = Integer.class)
+        protected List<Integer> passengerIds;
 
         /**
          * Default no-arg constructor
@@ -498,23 +509,23 @@ public class AirRecord {
          * Fully-initialising value constructor
          * 
          */
-        public Passengers(final List<Integer> passengerId) {
-            this.passengerId = passengerId;
+        public Passengers(final List<Integer> passengerIds) {
+            this.passengerIds = passengerIds;
         }
 
         /**
-         * Gets the value of the passengerId property.
+         * Gets the value of the passengerIds property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passengerId property.
+         * This is why there is not a <CODE>set</CODE> method for the passengerIds property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassengerId().add(newItem);
+         *    getPassengerIds().add(newItem);
          * </pre>
          * 
          * 
@@ -524,11 +535,11 @@ public class AirRecord {
          * 
          * 
          */
-        public List<Integer> getPassengerId() {
-            if (passengerId == null) {
-                passengerId = new ArrayList<Integer>();
+        public List<Integer> getPassengerIds() {
+            if (passengerIds == null) {
+                passengerIds = new ArrayList<Integer>();
             }
-            return this.passengerId;
+            return this.passengerIds;
         }
 
     }

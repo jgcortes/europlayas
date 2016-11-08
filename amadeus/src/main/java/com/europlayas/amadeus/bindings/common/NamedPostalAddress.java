@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -27,6 +28,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "NamedPostalAddress")
 public class NamedPostalAddress
     extends PostalAddress
+    implements Serializable
 {
 
 

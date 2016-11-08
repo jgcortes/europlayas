@@ -24,31 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _UnknownErrorFault_QNAME = new QName("http://ws.amadeus.fr/air", "unknownErrorFault");
-    private final static QName _NoFareApplicableFault_QNAME = new QName("http://ws.amadeus.fr/air", "noFareApplicableFault");
-    private final static QName _UnsupportedPaymentCardTypeFault_QNAME = new QName("http://ws.amadeus.fr/air", "unsupportedPaymentCardTypeFault");
-    private final static QName _SupplierSideFault_QNAME = new QName("http://ws.amadeus.fr/air", "supplierSideFault");
-    private final static QName _BookRequest_QNAME = new QName("http://ws.amadeus.fr/air", "bookRequest");
-    private final static QName _LowFareSearchResponse_QNAME = new QName("http://ws.amadeus.fr/air", "lowFareSearchResponse");
-    private final static QName _InconsistentLowFareSearchRequestFault_QNAME = new QName("http://ws.amadeus.fr/air", "inconsistentLowFareSearchRequestFault");
-    private final static QName _GetInfoResponse_QNAME = new QName("http://ws.amadeus.fr/air", "getInfoResponse");
     private final static QName _InconsistentGetInfoRequestFault_QNAME = new QName("http://ws.amadeus.fr/air", "inconsistentGetInfoRequestFault");
-    private final static QName _PriceWithInfoResponse_QNAME = new QName("http://ws.amadeus.fr/air", "priceWithInfoResponse");
-    private final static QName _InconsistentPriceWithInfoRequestFault_QNAME = new QName("http://ws.amadeus.fr/air", "inconsistentPriceWithInfoRequestFault");
-    private final static QName _LowFareSearchRequest_QNAME = new QName("http://ws.amadeus.fr/air", "lowFareSearchRequest");
-    private final static QName _PriceWithInfoRequest_QNAME = new QName("http://ws.amadeus.fr/air", "priceWithInfoRequest");
-    private final static QName _AvailabilitySearchRequest_QNAME = new QName("http://ws.amadeus.fr/air", "availabilitySearchRequest");
-    private final static QName _AvailabilitySearchResponse_QNAME = new QName("http://ws.amadeus.fr/air", "availabilitySearchResponse");
-    private final static QName _InconsistentAvailabilitySearchRequestFault_QNAME = new QName("http://ws.amadeus.fr/air", "inconsistentAvailabilitySearchRequestFault");
-    private final static QName _GetInfoRequest_QNAME = new QName("http://ws.amadeus.fr/air", "getInfoRequest");
-    private final static QName _BookResponse_QNAME = new QName("http://ws.amadeus.fr/air", "bookResponse");
-    private final static QName _BookingFailureFault_QNAME = new QName("http://ws.amadeus.fr/air", "bookingFailureFault");
-    private final static QName _TicketIssuanceFailureFault_QNAME = new QName("http://ws.amadeus.fr/air", "ticketIssuanceFailureFault");
-    private final static QName _SegmentSellFailureFault_QNAME = new QName("http://ws.amadeus.fr/air", "segmentSellFailureFault");
-    private final static QName _PassengerPriceDiscrepancyFault_QNAME = new QName("http://ws.amadeus.fr/air", "passengerPriceDiscrepancyFault");
-    private final static QName _PriceDiscrepancyFault_QNAME = new QName("http://ws.amadeus.fr/air", "priceDiscrepancyFault");
-    private final static QName _InconsistentBookRequestFault_QNAME = new QName("http://ws.amadeus.fr/air", "inconsistentBookRequestFault");
-    private final static QName _DuplicateBookingFault_QNAME = new QName("http://ws.amadeus.fr/air", "duplicateBookingFault");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.europlayas.amadeus.bindings
@@ -58,11 +34,115 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Booking }
+     * Create an instance of {@link BookRequest }
      * 
      */
-    public Booking createBooking() {
-        return new Booking();
+    public BookRequest createBookRequest() {
+        return new BookRequest();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchResponse }
+     * 
+     */
+    public LowFareSearchResponse createLowFareSearchResponse() {
+        return new LowFareSearchResponse();
+    }
+
+    /**
+     * Create an instance of {@link InconsistentLowFareSearchRequestFault }
+     * 
+     */
+    public InconsistentLowFareSearchRequestFault createInconsistentLowFareSearchRequestFault() {
+        return new InconsistentLowFareSearchRequestFault();
+    }
+
+    /**
+     * Create an instance of {@link GetInfoResponse }
+     * 
+     */
+    public GetInfoResponse createGetInfoResponse() {
+        return new GetInfoResponse();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoResponse }
+     * 
+     */
+    public PriceWithInfoResponse createPriceWithInfoResponse() {
+        return new PriceWithInfoResponse();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchRequest }
+     * 
+     */
+    public LowFareSearchRequest createLowFareSearchRequest() {
+        return new LowFareSearchRequest();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoRequest }
+     * 
+     */
+    public PriceWithInfoRequest createPriceWithInfoRequest() {
+        return new PriceWithInfoRequest();
+    }
+
+    /**
+     * Create an instance of {@link AvailabilitySearchRequest }
+     * 
+     */
+    public AvailabilitySearchRequest createAvailabilitySearchRequest() {
+        return new AvailabilitySearchRequest();
+    }
+
+    /**
+     * Create an instance of {@link AvailabilitySearchResponse }
+     * 
+     */
+    public AvailabilitySearchResponse createAvailabilitySearchResponse() {
+        return new AvailabilitySearchResponse();
+    }
+
+    /**
+     * Create an instance of {@link InconsistentAvailabilitySearchRequestFault }
+     * 
+     */
+    public InconsistentAvailabilitySearchRequestFault createInconsistentAvailabilitySearchRequestFault() {
+        return new InconsistentAvailabilitySearchRequestFault();
+    }
+
+    /**
+     * Create an instance of {@link BookResponse }
+     * 
+     */
+    public BookResponse createBookResponse() {
+        return new BookResponse();
+    }
+
+    /**
+     * Create an instance of {@link SegmentSellFailureFault }
+     * 
+     */
+    public SegmentSellFailureFault createSegmentSellFailureFault() {
+        return new SegmentSellFailureFault();
+    }
+
+    /**
+     * Create an instance of {@link PassengerPriceDiscrepancyFault }
+     * 
+     */
+    public PassengerPriceDiscrepancyFault createPassengerPriceDiscrepancyFault() {
+        return new PassengerPriceDiscrepancyFault();
+    }
+
+    /**
+     * Create an instance of {@link PriceDiscrepancyFault }
+     * 
+     */
+    public PriceDiscrepancyFault createPriceDiscrepancyFault() {
+        return new PriceDiscrepancyFault();
     }
 
     /**
@@ -90,51 +170,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AdditionalRecordDataInconsistency }
-     * 
-     */
-    public AdditionalRecordDataInconsistency createAdditionalRecordDataInconsistency() {
-        return new AdditionalRecordDataInconsistency();
-    }
-
-    /**
      * Create an instance of {@link InconsistentPassenger }
      * 
      */
     public InconsistentPassenger createInconsistentPassenger() {
         return new InconsistentPassenger();
-    }
-
-    /**
-     * Create an instance of {@link PassengersInconsistency }
-     * 
-     */
-    public PassengersInconsistency createPassengersInconsistency() {
-        return new PassengersInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link NamedPassengersInconsistency }
-     * 
-     */
-    public NamedPassengersInconsistency createNamedPassengersInconsistency() {
-        return new NamedPassengersInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link NamedPassengersInconsistency.AccommodationPreferenceInconsistency }
-     * 
-     */
-    public NamedPassengersInconsistency.AccommodationPreferenceInconsistency createNamedPassengersInconsistencyAccommodationPreferenceInconsistency() {
-        return new NamedPassengersInconsistency.AccommodationPreferenceInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link BookPricingInconsistency }
-     * 
-     */
-    public BookPricingInconsistency createBookPricingInconsistency() {
-        return new BookPricingInconsistency();
     }
 
     /**
@@ -167,14 +207,6 @@ public class ObjectFactory {
      */
     public LowFareSearchTravelClassRestrictions createLowFareSearchTravelClassRestrictions() {
         return new LowFareSearchTravelClassRestrictions();
-    }
-
-    /**
-     * Create an instance of {@link LowFareSearchTravelPreferences }
-     * 
-     */
-    public LowFareSearchTravelPreferences createLowFareSearchTravelPreferences() {
-        return new LowFareSearchTravelPreferences();
     }
 
     /**
@@ -215,46 +247,6 @@ public class ObjectFactory {
      */
     public AirAmadeusQueue createAirAmadeusQueue() {
         return new AirAmadeusQueue();
-    }
-
-    /**
-     * Create an instance of {@link com.europlayas.amadeus.bindings.TicketingRequirements }
-     * 
-     */
-    public com.europlayas.amadeus.bindings.TicketingRequirements createTicketingRequirements() {
-        return new com.europlayas.amadeus.bindings.TicketingRequirements();
-    }
-
-    /**
-     * Create an instance of {@link BookingRequirements }
-     * 
-     */
-    public BookingRequirements createBookingRequirements() {
-        return new BookingRequirements();
-    }
-
-    /**
-     * Create an instance of {@link BookingRequirements.Passengers }
-     * 
-     */
-    public BookingRequirements.Passengers createBookingRequirementsPassengers() {
-        return new BookingRequirements.Passengers();
-    }
-
-    /**
-     * Create an instance of {@link BookingRequirements.Passengers.Passenger }
-     * 
-     */
-    public BookingRequirements.Passengers.Passenger createBookingRequirementsPassengersPassenger() {
-        return new BookingRequirements.Passengers.Passenger();
-    }
-
-    /**
-     * Create an instance of {@link TravelPreferences }
-     * 
-     */
-    public TravelPreferences createTravelPreferences() {
-        return new TravelPreferences();
     }
 
     /**
@@ -314,35 +306,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AdditionalRecordData }
-     * 
-     */
-    public AdditionalRecordData createAdditionalRecordData() {
-        return new AdditionalRecordData();
-    }
-
-    /**
      * Create an instance of {@link Redress }
      * 
      */
     public Redress createRedress() {
         return new Redress();
-    }
-
-    /**
-     * Create an instance of {@link DetailedJourney }
-     * 
-     */
-    public DetailedJourney createDetailedJourney() {
-        return new DetailedJourney();
-    }
-
-    /**
-     * Create an instance of {@link com.europlayas.amadeus.bindings.Journey }
-     * 
-     */
-    public com.europlayas.amadeus.bindings.Journey createJourney() {
-        return new com.europlayas.amadeus.bindings.Journey();
     }
 
     /**
@@ -354,43 +322,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceDiscrepancyFault }
+     * Create an instance of {@link AdditionalRecordDataInconsistency }
      * 
      */
-    public PriceDiscrepancyFault createPriceDiscrepancyFault() {
-        return new PriceDiscrepancyFault();
+    public AdditionalRecordDataInconsistency createAdditionalRecordDataInconsistency() {
+        return new AdditionalRecordDataInconsistency();
     }
 
     /**
-     * Create an instance of {@link PassengerPriceDiscrepancyFault }
+     * Create an instance of {@link PassengersInconsistency }
      * 
      */
-    public PassengerPriceDiscrepancyFault createPassengerPriceDiscrepancyFault() {
-        return new PassengerPriceDiscrepancyFault();
+    public PassengersInconsistency createPassengersInconsistency() {
+        return new PassengersInconsistency();
     }
 
     /**
-     * Create an instance of {@link SegmentSellFailureFault }
+     * Create an instance of {@link NamedPassengersInconsistency }
      * 
      */
-    public SegmentSellFailureFault createSegmentSellFailureFault() {
-        return new SegmentSellFailureFault();
+    public NamedPassengersInconsistency createNamedPassengersInconsistency() {
+        return new NamedPassengersInconsistency();
     }
 
     /**
-     * Create an instance of {@link BookResponse }
+     * Create an instance of {@link NamedPassengersInconsistency.AccommodationPreferenceInconsistency }
      * 
      */
-    public BookResponse createBookResponse() {
-        return new BookResponse();
+    public NamedPassengersInconsistency.AccommodationPreferenceInconsistency createNamedPassengersInconsistencyAccommodationPreferenceInconsistency() {
+        return new NamedPassengersInconsistency.AccommodationPreferenceInconsistency();
     }
 
     /**
-     * Create an instance of {@link InconsistentAvailabilitySearchRequestFault }
+     * Create an instance of {@link BookPricingInconsistency }
      * 
      */
-    public InconsistentAvailabilitySearchRequestFault createInconsistentAvailabilitySearchRequestFault() {
-        return new InconsistentAvailabilitySearchRequestFault();
+    public BookPricingInconsistency createBookPricingInconsistency() {
+        return new BookPricingInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link Booking }
+     * 
+     */
+    public Booking createBooking() {
+        return new Booking();
     }
 
     /**
@@ -399,14 +375,6 @@ public class ObjectFactory {
      */
     public InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency createInconsistentAvailabilitySearchRequestFaultConnectionInconsistency() {
         return new InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link AvailabilitySearchResponse }
-     * 
-     */
-    public AvailabilitySearchResponse createAvailabilitySearchResponse() {
-        return new AvailabilitySearchResponse();
     }
 
     /**
@@ -426,11 +394,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AvailabilitySearchRequest }
+     * Create an instance of {@link TravelPreferences }
      * 
      */
-    public AvailabilitySearchRequest createAvailabilitySearchRequest() {
-        return new AvailabilitySearchRequest();
+    public TravelPreferences createTravelPreferences() {
+        return new TravelPreferences();
     }
 
     /**
@@ -458,27 +426,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceWithInfoRequest }
-     * 
-     */
-    public PriceWithInfoRequest createPriceWithInfoRequest() {
-        return new PriceWithInfoRequest();
-    }
-
-    /**
-     * Create an instance of {@link LowFareSearchRequest }
-     * 
-     */
-    public LowFareSearchRequest createLowFareSearchRequest() {
-        return new LowFareSearchRequest();
-    }
-
-    /**
      * Create an instance of {@link LowFareSearchRequest.SearchPreferences }
      * 
      */
     public LowFareSearchRequest.SearchPreferences createLowFareSearchRequestSearchPreferences() {
         return new LowFareSearchRequest.SearchPreferences();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchTravelPreferences }
+     * 
+     */
+    public LowFareSearchTravelPreferences createLowFareSearchTravelPreferences() {
+        return new LowFareSearchTravelPreferences();
     }
 
     /**
@@ -490,22 +450,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceWithInfoResponse }
-     * 
-     */
-    public PriceWithInfoResponse createPriceWithInfoResponse() {
-        return new PriceWithInfoResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetInfoResponse }
-     * 
-     */
-    public GetInfoResponse createGetInfoResponse() {
-        return new GetInfoResponse();
-    }
-
-    /**
      * Create an instance of {@link GetInfoResponse.FareRules }
      * 
      */
@@ -514,19 +458,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InconsistentLowFareSearchRequestFault }
+     * Create an instance of {@link com.europlayas.amadeus.bindings.TicketingRequirements }
      * 
      */
-    public InconsistentLowFareSearchRequestFault createInconsistentLowFareSearchRequestFault() {
-        return new InconsistentLowFareSearchRequestFault();
+    public com.europlayas.amadeus.bindings.TicketingRequirements createTicketingRequirements() {
+        return new com.europlayas.amadeus.bindings.TicketingRequirements();
     }
 
     /**
-     * Create an instance of {@link LowFareSearchResponse }
+     * Create an instance of {@link BookingRequirements }
      * 
      */
-    public LowFareSearchResponse createLowFareSearchResponse() {
-        return new LowFareSearchResponse();
+    public BookingRequirements createBookingRequirements() {
+        return new BookingRequirements();
+    }
+
+    /**
+     * Create an instance of {@link BookingRequirements.Passengers }
+     * 
+     */
+    public BookingRequirements.Passengers createBookingRequirementsPassengers() {
+        return new BookingRequirements.Passengers();
+    }
+
+    /**
+     * Create an instance of {@link BookingRequirements.Passengers.Passenger }
+     * 
+     */
+    public BookingRequirements.Passengers.Passenger createBookingRequirementsPassengersPassenger() {
+        return new BookingRequirements.Passengers.Passenger();
+    }
+
+    /**
+     * Create an instance of {@link DetailedJourney }
+     * 
+     */
+    public DetailedJourney createDetailedJourney() {
+        return new DetailedJourney();
     }
 
     /**
@@ -546,14 +514,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BookRequest }
-     * 
-     */
-    public BookRequest createBookRequest() {
-        return new BookRequest();
-    }
-
-    /**
      * Create an instance of {@link BookRequest.AmadeusRecordQueuing }
      * 
      */
@@ -562,11 +522,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AdditionalRecordData }
+     * 
+     */
+    public AdditionalRecordData createAdditionalRecordData() {
+        return new AdditionalRecordData();
+    }
+
+    /**
+     * Create an instance of {@link com.europlayas.amadeus.bindings.Journey }
+     * 
+     */
+    public com.europlayas.amadeus.bindings.Journey createJourney() {
+        return new com.europlayas.amadeus.bindings.Journey();
+    }
+
+    /**
      * Create an instance of {@link UnknownErrorFault }
      * 
      */
     public UnknownErrorFault createUnknownErrorFault() {
         return new UnknownErrorFault();
+    }
+
+    /**
+     * Create an instance of {@link ItineraryIdList }
+     * 
+     */
+    public ItineraryIdList createItineraryIdList() {
+        return new ItineraryIdList();
     }
 
     /**
@@ -594,11 +578,147 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BookRequestPricing }
+     * 
+     */
+    public BookRequestPricing createBookRequestPricing() {
+        return new BookRequestPricing();
+    }
+
+    /**
+     * Create an instance of {@link BookRequest.Passengers }
+     * 
+     */
+    public BookRequest.Passengers createBookRequestPassengers() {
+        return new BookRequest.Passengers();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchResponse.Recommendations }
+     * 
+     */
+    public LowFareSearchResponse.Recommendations createLowFareSearchResponseRecommendations() {
+        return new LowFareSearchResponse.Recommendations();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchResponse.Warnings }
+     * 
+     */
+    public LowFareSearchResponse.Warnings createLowFareSearchResponseWarnings() {
+        return new LowFareSearchResponse.Warnings();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchFault }
+     * 
+     */
+    public LowFareSearchFault createLowFareSearchFault() {
+        return new LowFareSearchFault();
+    }
+
+    /**
+     * Create an instance of {@link OriginDestinationIdList }
+     * 
+     */
+    public OriginDestinationIdList createOriginDestinationIdList() {
+        return new OriginDestinationIdList();
+    }
+
+    /**
+     * Create an instance of {@link PricingInconsistency }
+     * 
+     */
+    public PricingInconsistency createPricingInconsistency() {
+        return new PricingInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link ProviderInconsistency }
+     * 
+     */
+    public ProviderInconsistency createProviderInconsistency() {
+        return new ProviderInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link SearchOptionInconsistency }
+     * 
+     */
+    public SearchOptionInconsistency createSearchOptionInconsistency() {
+        return new SearchOptionInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency }
+     * 
+     */
+    public InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency createInconsistentLowFareSearchRequestFaultTicketingRequirementsInconsistency() {
+        return new InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link OriginDestinationInconsistency }
+     * 
+     */
+    public OriginDestinationInconsistency createOriginDestinationInconsistency() {
+        return new OriginDestinationInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link GetInfoResponse.Warnings }
+     * 
+     */
+    public GetInfoResponse.Warnings createGetInfoResponseWarnings() {
+        return new GetInfoResponse.Warnings();
+    }
+
+    /**
+     * Create an instance of {@link GetInfoResponse.LuggageFees }
+     * 
+     */
+    public GetInfoResponse.LuggageFees createGetInfoResponseLuggageFees() {
+        return new GetInfoResponse.LuggageFees();
+    }
+
+    /**
+     * Create an instance of {@link GetInfoResponse.PaymentCardFees }
+     * 
+     */
+    public GetInfoResponse.PaymentCardFees createGetInfoResponsePaymentCardFees() {
+        return new GetInfoResponse.PaymentCardFees();
+    }
+
+    /**
+     * Create an instance of {@link LuggageAllowances }
+     * 
+     */
+    public LuggageAllowances createLuggageAllowances() {
+        return new LuggageAllowances();
+    }
+
+    /**
      * Create an instance of {@link InconsistentGetInfoRequestFault }
      * 
      */
     public InconsistentGetInfoRequestFault createInconsistentGetInfoRequestFault() {
         return new InconsistentGetInfoRequestFault();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoResponsePricing }
+     * 
+     */
+    public PriceWithInfoResponsePricing createPriceWithInfoResponsePricing() {
+        return new PriceWithInfoResponsePricing();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoResponse.Warnings }
+     * 
+     */
+    public PriceWithInfoResponse.Warnings createPriceWithInfoResponseWarnings() {
+        return new PriceWithInfoResponse.Warnings();
     }
 
     /**
@@ -610,11 +730,123 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SegmentList }
+     * 
+     */
+    public SegmentList createSegmentList() {
+        return new SegmentList();
+    }
+
+    /**
+     * Create an instance of {@link ItineraryInconsistency }
+     * 
+     */
+    public ItineraryInconsistency createItineraryInconsistency() {
+        return new ItineraryInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link FareTypeInconsistency }
+     * 
+     */
+    public FareTypeInconsistency createFareTypeInconsistency() {
+        return new FareTypeInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoPricingInconsistency }
+     * 
+     */
+    public PriceWithInfoPricingInconsistency createPriceWithInfoPricingInconsistency() {
+        return new PriceWithInfoPricingInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link SeatedPassengerList }
+     * 
+     */
+    public SeatedPassengerList createSeatedPassengerList() {
+        return new SeatedPassengerList();
+    }
+
+    /**
+     * Create an instance of {@link SearchPricingMode }
+     * 
+     */
+    public SearchPricingMode createSearchPricingMode() {
+        return new SearchPricingMode();
+    }
+
+    /**
+     * Create an instance of {@link LowFareSearchRequest.TicketingRequirements }
+     * 
+     */
+    public LowFareSearchRequest.TicketingRequirements createLowFareSearchRequestTicketingRequirements() {
+        return new LowFareSearchRequest.TicketingRequirements();
+    }
+
+    /**
+     * Create an instance of {@link SeatedPassengerWithServicesList }
+     * 
+     */
+    public SeatedPassengerWithServicesList createSeatedPassengerWithServicesList() {
+        return new SeatedPassengerWithServicesList();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoPricingMode }
+     * 
+     */
+    public PriceWithInfoPricingMode createPriceWithInfoPricingMode() {
+        return new PriceWithInfoPricingMode();
+    }
+
+    /**
+     * Create an instance of {@link PriceWithInfoRequest.Payment }
+     * 
+     */
+    public PriceWithInfoRequest.Payment createPriceWithInfoRequestPayment() {
+        return new PriceWithInfoRequest.Payment();
+    }
+
+    /**
+     * Create an instance of {@link AvailabilitySearchResponse.Warnings }
+     * 
+     */
+    public AvailabilitySearchResponse.Warnings createAvailabilitySearchResponseWarnings() {
+        return new AvailabilitySearchResponse.Warnings();
+    }
+
+    /**
+     * Create an instance of {@link SearchPassengersInconsistency }
+     * 
+     */
+    public SearchPassengersInconsistency createSearchPassengersInconsistency() {
+        return new SearchPassengersInconsistency();
+    }
+
+    /**
      * Create an instance of {@link GetInfoRequest }
      * 
      */
     public GetInfoRequest createGetInfoRequest() {
         return new GetInfoRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetInfoPricingMode }
+     * 
+     */
+    public GetInfoPricingMode createGetInfoPricingMode() {
+        return new GetInfoPricingMode();
+    }
+
+    /**
+     * Create an instance of {@link BookResponse.Warnings }
+     * 
+     */
+    public BookResponse.Warnings createBookResponseWarnings() {
+        return new BookResponse.Warnings();
     }
 
     /**
@@ -626,6 +858,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BookFault }
+     * 
+     */
+    public BookFault createBookFault() {
+        return new BookFault();
+    }
+
+    /**
      * Create an instance of {@link TicketIssuanceFailureFault }
      * 
      */
@@ -634,11 +874,75 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Segment }
+     * 
+     */
+    public Segment createSegment() {
+        return new Segment();
+    }
+
+    /**
+     * Create an instance of {@link SegmentSellFailureFault.Passengers }
+     * 
+     */
+    public SegmentSellFailureFault.Passengers createSegmentSellFailureFaultPassengers() {
+        return new SegmentSellFailureFault.Passengers();
+    }
+
+    /**
+     * Create an instance of {@link BookRequestPassengerPricingList }
+     * 
+     */
+    public BookRequestPassengerPricingList createBookRequestPassengerPricingList() {
+        return new BookRequestPassengerPricingList();
+    }
+
+    /**
+     * Create an instance of {@link PassengerPriceDiscrepancyFault.Discrepancies }
+     * 
+     */
+    public PassengerPriceDiscrepancyFault.Discrepancies createPassengerPriceDiscrepancyFaultDiscrepancies() {
+        return new PassengerPriceDiscrepancyFault.Discrepancies();
+    }
+
+    /**
+     * Create an instance of {@link PriceDiscrepancyFault.RequestedPrice }
+     * 
+     */
+    public PriceDiscrepancyFault.RequestedPrice createPriceDiscrepancyFaultRequestedPrice() {
+        return new PriceDiscrepancyFault.RequestedPrice();
+    }
+
+    /**
+     * Create an instance of {@link PriceDiscrepancyFault.ActualPrice }
+     * 
+     */
+    public PriceDiscrepancyFault.ActualPrice createPriceDiscrepancyFaultActualPrice() {
+        return new PriceDiscrepancyFault.ActualPrice();
+    }
+
+    /**
      * Create an instance of {@link InconsistentBookRequestFault }
      * 
      */
     public InconsistentBookRequestFault createInconsistentBookRequestFault() {
         return new InconsistentBookRequestFault();
+    }
+
+    /**
+     * Create an instance of {@link CurrencyInconsistency }
+     * 
+     */
+    public CurrencyInconsistency createCurrencyInconsistency() {
+        return new CurrencyInconsistency();
+    }
+
+    /**
+     * Create an instance of {@link ContactInformationInconsistency }
+     * 
+     */
+    public ContactInformationInconsistency createContactInformationInconsistency() {
+        return new ContactInformationInconsistency();
     }
 
     /**
@@ -679,22 +983,6 @@ public class ObjectFactory {
      */
     public Airport createAirport() {
         return new Airport();
-    }
-
-    /**
-     * Create an instance of {@link Segment }
-     * 
-     */
-    public Segment createSegment() {
-        return new Segment();
-    }
-
-    /**
-     * Create an instance of {@link SegmentList }
-     * 
-     */
-    public SegmentList createSegmentList() {
-        return new SegmentList();
     }
 
     /**
@@ -850,14 +1138,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SeatedPassengerList }
-     * 
-     */
-    public SeatedPassengerList createSeatedPassengerList() {
-        return new SeatedPassengerList();
-    }
-
-    /**
      * Create an instance of {@link NonInfantHoldingSeatedPassenger }
      * 
      */
@@ -879,14 +1159,6 @@ public class ObjectFactory {
      */
     public Luggage createLuggage() {
         return new Luggage();
-    }
-
-    /**
-     * Create an instance of {@link SeatedPassengerWithServicesList }
-     * 
-     */
-    public SeatedPassengerWithServicesList createSeatedPassengerWithServicesList() {
-        return new SeatedPassengerWithServicesList();
     }
 
     /**
@@ -1202,14 +1474,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BookRequestPassengerPricingList }
-     * 
-     */
-    public BookRequestPassengerPricingList createBookRequestPassengerPricingList() {
-        return new BookRequestPassengerPricingList();
-    }
-
-    /**
      * Create an instance of {@link SearchPassengerPricingList }
      * 
      */
@@ -1223,14 +1487,6 @@ public class ObjectFactory {
      */
     public ValidatingAirlineCodeList createValidatingAirlineCodeList() {
         return new ValidatingAirlineCodeList();
-    }
-
-    /**
-     * Create an instance of {@link ItineraryIdList }
-     * 
-     */
-    public ItineraryIdList createItineraryIdList() {
-        return new ItineraryIdList();
     }
 
     /**
@@ -1263,14 +1519,6 @@ public class ObjectFactory {
      */
     public FareTypeInconsistencyWithCause createFareTypeInconsistencyWithCause() {
         return new FareTypeInconsistencyWithCause();
-    }
-
-    /**
-     * Create an instance of {@link SearchPassengersInconsistency }
-     * 
-     */
-    public SearchPassengersInconsistency createSearchPassengersInconsistency() {
-        return new SearchPassengersInconsistency();
     }
 
     /**
@@ -1386,14 +1634,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CurrencyInconsistency }
-     * 
-     */
-    public CurrencyInconsistency createCurrencyInconsistency() {
-        return new CurrencyInconsistency();
-    }
-
-    /**
      * Create an instance of {@link AirlinesRestrictionsList }
      * 
      */
@@ -1407,30 +1647,6 @@ public class ObjectFactory {
      */
     public NegotiatedSpace createNegotiatedSpace() {
         return new NegotiatedSpace();
-    }
-
-    /**
-     * Create an instance of {@link OriginDestinationInconsistency }
-     * 
-     */
-    public OriginDestinationInconsistency createOriginDestinationInconsistency() {
-        return new OriginDestinationInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link ItineraryInconsistency }
-     * 
-     */
-    public ItineraryInconsistency createItineraryInconsistency() {
-        return new ItineraryInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link FareTypeInconsistency }
-     * 
-     */
-    public FareTypeInconsistency createFareTypeInconsistency() {
-        return new FareTypeInconsistency();
     }
 
     /**
@@ -1514,14 +1730,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LuggageAllowances }
-     * 
-     */
-    public LuggageAllowances createLuggageAllowances() {
-        return new LuggageAllowances();
-    }
-
-    /**
      * Create an instance of {@link ConnectionPoints }
      * 
      */
@@ -1535,22 +1743,6 @@ public class ObjectFactory {
      */
     public ConnectionPoint createConnectionPoint() {
         return new ConnectionPoint();
-    }
-
-    /**
-     * Create an instance of {@link ProviderInconsistency }
-     * 
-     */
-    public ProviderInconsistency createProviderInconsistency() {
-        return new ProviderInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link GetInfoPricingMode }
-     * 
-     */
-    public GetInfoPricingMode createGetInfoPricingMode() {
-        return new GetInfoPricingMode();
     }
 
     /**
@@ -1607,22 +1799,6 @@ public class ObjectFactory {
      */
     public BookRequestAdditionalServices createBookRequestAdditionalServices() {
         return new BookRequestAdditionalServices();
-    }
-
-    /**
-     * Create an instance of {@link OriginDestinationIdList }
-     * 
-     */
-    public OriginDestinationIdList createOriginDestinationIdList() {
-        return new OriginDestinationIdList();
-    }
-
-    /**
-     * Create an instance of {@link BookRequestPricing }
-     * 
-     */
-    public BookRequestPricing createBookRequestPricing() {
-        return new BookRequestPricing();
     }
 
     /**
@@ -1730,35 +1906,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LowFareSearchFault }
-     * 
-     */
-    public LowFareSearchFault createLowFareSearchFault() {
-        return new LowFareSearchFault();
-    }
-
-    /**
-     * Create an instance of {@link SearchOptionInconsistency }
-     * 
-     */
-    public SearchOptionInconsistency createSearchOptionInconsistency() {
-        return new SearchOptionInconsistency();
-    }
-
-    /**
      * Create an instance of {@link PassengerFareOptionGroupsInconsistency }
      * 
      */
     public PassengerFareOptionGroupsInconsistency createPassengerFareOptionGroupsInconsistency() {
         return new PassengerFareOptionGroupsInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link PricingInconsistency }
-     * 
-     */
-    public PricingInconsistency createPricingInconsistency() {
-        return new PricingInconsistency();
     }
 
     /**
@@ -1842,14 +1994,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceWithInfoResponsePricing }
-     * 
-     */
-    public PriceWithInfoResponsePricing createPriceWithInfoResponsePricing() {
-        return new PriceWithInfoResponsePricing();
-    }
-
-    /**
      * Create an instance of {@link PriceWithInfoResponsePricingsByItineraryGroup }
      * 
      */
@@ -1863,14 +2007,6 @@ public class ObjectFactory {
      */
     public PriceWithInfoResponsePricingByItineraryGroup createPriceWithInfoResponsePricingByItineraryGroup() {
         return new PriceWithInfoResponsePricingByItineraryGroup();
-    }
-
-    /**
-     * Create an instance of {@link PriceWithInfoPricingInconsistency }
-     * 
-     */
-    public PriceWithInfoPricingInconsistency createPriceWithInfoPricingInconsistency() {
-        return new PriceWithInfoPricingInconsistency();
     }
 
     /**
@@ -1962,14 +2098,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SearchPricingMode }
-     * 
-     */
-    public SearchPricingMode createSearchPricingMode() {
-        return new SearchPricingMode();
-    }
-
-    /**
      * Create an instance of {@link PriceRequestPricingDetail }
      * 
      */
@@ -2010,14 +2138,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceWithInfoPricingMode }
-     * 
-     */
-    public PriceWithInfoPricingMode createPriceWithInfoPricingMode() {
-        return new PriceWithInfoPricingMode();
-    }
-
-    /**
      * Create an instance of {@link PriceWithInfoRequestPassengerPricingList }
      * 
      */
@@ -2047,14 +2167,6 @@ public class ObjectFactory {
      */
     public MissingSearchWarning createMissingSearchWarning() {
         return new MissingSearchWarning();
-    }
-
-    /**
-     * Create an instance of {@link ContactInformationInconsistency }
-     * 
-     */
-    public ContactInformationInconsistency createContactInformationInconsistency() {
-        return new ContactInformationInconsistency();
     }
 
     /**
@@ -2159,14 +2271,6 @@ public class ObjectFactory {
      */
     public BookWarning createBookWarning() {
         return new BookWarning();
-    }
-
-    /**
-     * Create an instance of {@link BookFault }
-     * 
-     */
-    public BookFault createBookFault() {
-        return new BookFault();
     }
 
     /**
@@ -2282,14 +2386,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Booking.Records }
-     * 
-     */
-    public Booking.Records createBookingRecords() {
-        return new Booking.Records();
-    }
-
-    /**
      * Create an instance of {@link ErrorAfterBookingWhileDisplayingTSTWarning.Records }
      * 
      */
@@ -2306,67 +2402,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AdditionalRecordDataInconsistency.InconsistentPayments }
-     * 
-     */
-    public AdditionalRecordDataInconsistency.InconsistentPayments createAdditionalRecordDataInconsistencyInconsistentPayments() {
-        return new AdditionalRecordDataInconsistency.InconsistentPayments();
-    }
-
-    /**
      * Create an instance of {@link InconsistentPassenger.PersonalInformationInconsistencies }
      * 
      */
     public InconsistentPassenger.PersonalInformationInconsistencies createInconsistentPassengerPersonalInformationInconsistencies() {
         return new InconsistentPassenger.PersonalInformationInconsistencies();
-    }
-
-    /**
-     * Create an instance of {@link PassengersInconsistency.UnsupportedPassengers }
-     * 
-     */
-    public PassengersInconsistency.UnsupportedPassengers createPassengersInconsistencyUnsupportedPassengers() {
-        return new PassengersInconsistency.UnsupportedPassengers();
-    }
-
-    /**
-     * Create an instance of {@link NamedPassengersInconsistency.InconsistentPassengers }
-     * 
-     */
-    public NamedPassengersInconsistency.InconsistentPassengers createNamedPassengersInconsistencyInconsistentPassengers() {
-        return new NamedPassengersInconsistency.InconsistentPassengers();
-    }
-
-    /**
-     * Create an instance of {@link NamedPassengersInconsistency.LoyaltyProgramInconsistency }
-     * 
-     */
-    public NamedPassengersInconsistency.LoyaltyProgramInconsistency createNamedPassengersInconsistencyLoyaltyProgramInconsistency() {
-        return new NamedPassengersInconsistency.LoyaltyProgramInconsistency();
-    }
-
-    /**
-     * Create an instance of {@link NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes }
-     * 
-     */
-    public NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes createNamedPassengersInconsistencyAccommodationPreferenceInconsistencyMealCodes() {
-        return new NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes();
-    }
-
-    /**
-     * Create an instance of {@link NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers }
-     * 
-     */
-    public NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers createNamedPassengersInconsistencyAccommodationPreferenceInconsistencySeatNumbers() {
-        return new NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers();
-    }
-
-    /**
-     * Create an instance of {@link BookPricingInconsistency.PassengerPricingInconsistencies }
-     * 
-     */
-    public BookPricingInconsistency.PassengerPricingInconsistencies createBookPricingInconsistencyPassengerPricingInconsistencies() {
-        return new BookPricingInconsistency.PassengerPricingInconsistencies();
     }
 
     /**
@@ -2399,14 +2439,6 @@ public class ObjectFactory {
      */
     public LowFareSearchTravelClassRestrictions.TravelClassRestriction createLowFareSearchTravelClassRestrictionsTravelClassRestriction() {
         return new LowFareSearchTravelClassRestrictions.TravelClassRestriction();
-    }
-
-    /**
-     * Create an instance of {@link LowFareSearchTravelPreferences.DirectItineraryRestriction }
-     * 
-     */
-    public LowFareSearchTravelPreferences.DirectItineraryRestriction createLowFareSearchTravelPreferencesDirectItineraryRestriction() {
-        return new LowFareSearchTravelPreferences.DirectItineraryRestriction();
     }
 
     /**
@@ -2455,38 +2487,6 @@ public class ObjectFactory {
      */
     public AirAmadeusQueue.Category createAirAmadeusQueueCategory() {
         return new AirAmadeusQueue.Category();
-    }
-
-    /**
-     * Create an instance of {@link com.europlayas.amadeus.bindings.TicketingRequirements.TicketingRequirement }
-     * 
-     */
-    public com.europlayas.amadeus.bindings.TicketingRequirements.TicketingRequirement createTicketingRequirementsTicketingRequirement() {
-        return new com.europlayas.amadeus.bindings.TicketingRequirements.TicketingRequirement();
-    }
-
-    /**
-     * Create an instance of {@link BookingRequirements.PaymentCardRequired }
-     * 
-     */
-    public BookingRequirements.PaymentCardRequired createBookingRequirementsPaymentCardRequired() {
-        return new BookingRequirements.PaymentCardRequired();
-    }
-
-    /**
-     * Create an instance of {@link BookingRequirements.Passengers.Passenger.ContactInformation }
-     * 
-     */
-    public BookingRequirements.Passengers.Passenger.ContactInformation createBookingRequirementsPassengersPassengerContactInformation() {
-        return new BookingRequirements.Passengers.Passenger.ContactInformation();
-    }
-
-    /**
-     * Create an instance of {@link TravelPreferences.DirectItineraryRestriction }
-     * 
-     */
-    public TravelPreferences.DirectItineraryRestriction createTravelPreferencesDirectItineraryRestriction() {
-        return new TravelPreferences.DirectItineraryRestriction();
     }
 
     /**
@@ -2586,22 +2586,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AdditionalRecordData.Remarks }
-     * 
-     */
-    public AdditionalRecordData.Remarks createAdditionalRecordDataRemarks() {
-        return new AdditionalRecordData.Remarks();
-    }
-
-    /**
-     * Create an instance of {@link AdditionalRecordData.Payments }
-     * 
-     */
-    public AdditionalRecordData.Payments createAdditionalRecordDataPayments() {
-        return new AdditionalRecordData.Payments();
-    }
-
-    /**
      * Create an instance of {@link Redress.Issuance }
      * 
      */
@@ -2626,22 +2610,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DetailedJourney.Itineraries }
-     * 
-     */
-    public DetailedJourney.Itineraries createDetailedJourneyItineraries() {
-        return new DetailedJourney.Itineraries();
-    }
-
-    /**
-     * Create an instance of {@link com.europlayas.amadeus.bindings.Journey.Itineraries }
-     * 
-     */
-    public com.europlayas.amadeus.bindings.Journey.Itineraries createJourneyItineraries() {
-        return new com.europlayas.amadeus.bindings.Journey.Itineraries();
-    }
-
-    /**
      * Create an instance of {@link DetailedItinerary.Segments }
      * 
      */
@@ -2650,43 +2618,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceDiscrepancyFault.RequestedPrice }
+     * Create an instance of {@link AdditionalRecordDataInconsistency.InconsistentPayments }
      * 
      */
-    public PriceDiscrepancyFault.RequestedPrice createPriceDiscrepancyFaultRequestedPrice() {
-        return new PriceDiscrepancyFault.RequestedPrice();
+    public AdditionalRecordDataInconsistency.InconsistentPayments createAdditionalRecordDataInconsistencyInconsistentPayments() {
+        return new AdditionalRecordDataInconsistency.InconsistentPayments();
     }
 
     /**
-     * Create an instance of {@link PriceDiscrepancyFault.ActualPrice }
+     * Create an instance of {@link PassengersInconsistency.UnsupportedPassengers }
      * 
      */
-    public PriceDiscrepancyFault.ActualPrice createPriceDiscrepancyFaultActualPrice() {
-        return new PriceDiscrepancyFault.ActualPrice();
+    public PassengersInconsistency.UnsupportedPassengers createPassengersInconsistencyUnsupportedPassengers() {
+        return new PassengersInconsistency.UnsupportedPassengers();
     }
 
     /**
-     * Create an instance of {@link PassengerPriceDiscrepancyFault.Discrepancies }
+     * Create an instance of {@link NamedPassengersInconsistency.InconsistentPassengers }
      * 
      */
-    public PassengerPriceDiscrepancyFault.Discrepancies createPassengerPriceDiscrepancyFaultDiscrepancies() {
-        return new PassengerPriceDiscrepancyFault.Discrepancies();
+    public NamedPassengersInconsistency.InconsistentPassengers createNamedPassengersInconsistencyInconsistentPassengers() {
+        return new NamedPassengersInconsistency.InconsistentPassengers();
     }
 
     /**
-     * Create an instance of {@link SegmentSellFailureFault.Passengers }
+     * Create an instance of {@link NamedPassengersInconsistency.LoyaltyProgramInconsistency }
      * 
      */
-    public SegmentSellFailureFault.Passengers createSegmentSellFailureFaultPassengers() {
-        return new SegmentSellFailureFault.Passengers();
+    public NamedPassengersInconsistency.LoyaltyProgramInconsistency createNamedPassengersInconsistencyLoyaltyProgramInconsistency() {
+        return new NamedPassengersInconsistency.LoyaltyProgramInconsistency();
     }
 
     /**
-     * Create an instance of {@link BookResponse.Warnings }
+     * Create an instance of {@link NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes }
      * 
      */
-    public BookResponse.Warnings createBookResponseWarnings() {
-        return new BookResponse.Warnings();
+    public NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes createNamedPassengersInconsistencyAccommodationPreferenceInconsistencyMealCodes() {
+        return new NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes();
+    }
+
+    /**
+     * Create an instance of {@link NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers }
+     * 
+     */
+    public NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers createNamedPassengersInconsistencyAccommodationPreferenceInconsistencySeatNumbers() {
+        return new NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers();
+    }
+
+    /**
+     * Create an instance of {@link BookPricingInconsistency.PassengerPricingInconsistencies }
+     * 
+     */
+    public BookPricingInconsistency.PassengerPricingInconsistencies createBookPricingInconsistencyPassengerPricingInconsistencies() {
+        return new BookPricingInconsistency.PassengerPricingInconsistencies();
+    }
+
+    /**
+     * Create an instance of {@link Booking.Records }
+     * 
+     */
+    public Booking.Records createBookingRecords() {
+        return new Booking.Records();
     }
 
     /**
@@ -2698,14 +2690,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AvailabilitySearchResponse.Warnings }
-     * 
-     */
-    public AvailabilitySearchResponse.Warnings createAvailabilitySearchResponseWarnings() {
-        return new AvailabilitySearchResponse.Warnings();
-    }
-
-    /**
      * Create an instance of {@link AvailabilitySearchResponse.OriginDestinations.OriginDestination.Itineraries }
      * 
      */
@@ -2714,11 +2698,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime }
+     * Create an instance of {@link TravelPreferences.DirectItineraryRestriction }
      * 
      */
-    public AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime createAvailabilitySearchRequestJourneyOriginDestinationsOriginDestinationDepartureDateTime() {
-        return new AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime();
+    public TravelPreferences.DirectItineraryRestriction createTravelPreferencesDirectItineraryRestriction() {
+        return new TravelPreferences.DirectItineraryRestriction();
     }
 
     /**
@@ -2730,19 +2714,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PriceWithInfoRequest.Payment }
+     * Create an instance of {@link AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime }
      * 
      */
-    public PriceWithInfoRequest.Payment createPriceWithInfoRequestPayment() {
-        return new PriceWithInfoRequest.Payment();
-    }
-
-    /**
-     * Create an instance of {@link LowFareSearchRequest.TicketingRequirements }
-     * 
-     */
-    public LowFareSearchRequest.TicketingRequirements createLowFareSearchRequestTicketingRequirements() {
-        return new LowFareSearchRequest.TicketingRequirements();
+    public AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime createAvailabilitySearchRequestJourneyOriginDestinationsOriginDestinationDepartureDateTime() {
+        return new AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime();
     }
 
     /**
@@ -2762,43 +2738,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LowFareSearchTravelPreferences.DirectItineraryRestriction }
+     * 
+     */
+    public LowFareSearchTravelPreferences.DirectItineraryRestriction createLowFareSearchTravelPreferencesDirectItineraryRestriction() {
+        return new LowFareSearchTravelPreferences.DirectItineraryRestriction();
+    }
+
+    /**
      * Create an instance of {@link LowFareSearchRequest.Journey.OriginDestinations }
      * 
      */
     public LowFareSearchRequest.Journey.OriginDestinations createLowFareSearchRequestJourneyOriginDestinations() {
         return new LowFareSearchRequest.Journey.OriginDestinations();
-    }
-
-    /**
-     * Create an instance of {@link PriceWithInfoResponse.Warnings }
-     * 
-     */
-    public PriceWithInfoResponse.Warnings createPriceWithInfoResponseWarnings() {
-        return new PriceWithInfoResponse.Warnings();
-    }
-
-    /**
-     * Create an instance of {@link GetInfoResponse.Warnings }
-     * 
-     */
-    public GetInfoResponse.Warnings createGetInfoResponseWarnings() {
-        return new GetInfoResponse.Warnings();
-    }
-
-    /**
-     * Create an instance of {@link GetInfoResponse.LuggageFees }
-     * 
-     */
-    public GetInfoResponse.LuggageFees createGetInfoResponseLuggageFees() {
-        return new GetInfoResponse.LuggageFees();
-    }
-
-    /**
-     * Create an instance of {@link GetInfoResponse.PaymentCardFees }
-     * 
-     */
-    public GetInfoResponse.PaymentCardFees createGetInfoResponsePaymentCardFees() {
-        return new GetInfoResponse.PaymentCardFees();
     }
 
     /**
@@ -2810,27 +2762,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency }
+     * Create an instance of {@link com.europlayas.amadeus.bindings.TicketingRequirements.TicketingRequirement }
      * 
      */
-    public InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency createInconsistentLowFareSearchRequestFaultTicketingRequirementsInconsistency() {
-        return new InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency();
+    public com.europlayas.amadeus.bindings.TicketingRequirements.TicketingRequirement createTicketingRequirementsTicketingRequirement() {
+        return new com.europlayas.amadeus.bindings.TicketingRequirements.TicketingRequirement();
     }
 
     /**
-     * Create an instance of {@link LowFareSearchResponse.Recommendations }
+     * Create an instance of {@link BookingRequirements.PaymentCardRequired }
      * 
      */
-    public LowFareSearchResponse.Recommendations createLowFareSearchResponseRecommendations() {
-        return new LowFareSearchResponse.Recommendations();
+    public BookingRequirements.PaymentCardRequired createBookingRequirementsPaymentCardRequired() {
+        return new BookingRequirements.PaymentCardRequired();
     }
 
     /**
-     * Create an instance of {@link LowFareSearchResponse.Warnings }
+     * Create an instance of {@link BookingRequirements.Passengers.Passenger.ContactInformation }
      * 
      */
-    public LowFareSearchResponse.Warnings createLowFareSearchResponseWarnings() {
-        return new LowFareSearchResponse.Warnings();
+    public BookingRequirements.Passengers.Passenger.ContactInformation createBookingRequirementsPassengersPassengerContactInformation() {
+        return new BookingRequirements.Passengers.Passenger.ContactInformation();
+    }
+
+    /**
+     * Create an instance of {@link DetailedJourney.Itineraries }
+     * 
+     */
+    public DetailedJourney.Itineraries createDetailedJourneyItineraries() {
+        return new DetailedJourney.Itineraries();
     }
 
     /**
@@ -2839,14 +2799,6 @@ public class ObjectFactory {
      */
     public LowFareSearchResponse.OriginDestinations.OriginDestination.Itineraries createLowFareSearchResponseOriginDestinationsOriginDestinationItineraries() {
         return new LowFareSearchResponse.OriginDestinations.OriginDestination.Itineraries();
-    }
-
-    /**
-     * Create an instance of {@link BookRequest.Passengers }
-     * 
-     */
-    public BookRequest.Passengers createBookRequestPassengers() {
-        return new BookRequest.Passengers();
     }
 
     /**
@@ -2866,75 +2818,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UnknownErrorFault }{@code >}}
+     * Create an instance of {@link AdditionalRecordData.Remarks }
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "unknownErrorFault")
-    public JAXBElement<UnknownErrorFault> createUnknownErrorFault(UnknownErrorFault value) {
-        return new JAXBElement<UnknownErrorFault>(_UnknownErrorFault_QNAME, UnknownErrorFault.class, null, value);
+    public AdditionalRecordData.Remarks createAdditionalRecordDataRemarks() {
+        return new AdditionalRecordData.Remarks();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NoFareApplicableFault }{@code >}}
+     * Create an instance of {@link AdditionalRecordData.Payments }
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "noFareApplicableFault")
-    public JAXBElement<NoFareApplicableFault> createNoFareApplicableFault(NoFareApplicableFault value) {
-        return new JAXBElement<NoFareApplicableFault>(_NoFareApplicableFault_QNAME, NoFareApplicableFault.class, null, value);
+    public AdditionalRecordData.Payments createAdditionalRecordDataPayments() {
+        return new AdditionalRecordData.Payments();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UnsupportedPaymentCardTypeFault }{@code >}}
+     * Create an instance of {@link com.europlayas.amadeus.bindings.Journey.Itineraries }
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "unsupportedPaymentCardTypeFault")
-    public JAXBElement<UnsupportedPaymentCardTypeFault> createUnsupportedPaymentCardTypeFault(UnsupportedPaymentCardTypeFault value) {
-        return new JAXBElement<UnsupportedPaymentCardTypeFault>(_UnsupportedPaymentCardTypeFault_QNAME, UnsupportedPaymentCardTypeFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SupplierSideFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "supplierSideFault")
-    public JAXBElement<SupplierSideFault> createSupplierSideFault(SupplierSideFault value) {
-        return new JAXBElement<SupplierSideFault>(_SupplierSideFault_QNAME, SupplierSideFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BookRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "bookRequest")
-    public JAXBElement<BookRequest> createBookRequest(BookRequest value) {
-        return new JAXBElement<BookRequest>(_BookRequest_QNAME, BookRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LowFareSearchResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "lowFareSearchResponse")
-    public JAXBElement<LowFareSearchResponse> createLowFareSearchResponse(LowFareSearchResponse value) {
-        return new JAXBElement<LowFareSearchResponse>(_LowFareSearchResponse_QNAME, LowFareSearchResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InconsistentLowFareSearchRequestFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "inconsistentLowFareSearchRequestFault")
-    public JAXBElement<InconsistentLowFareSearchRequestFault> createInconsistentLowFareSearchRequestFault(InconsistentLowFareSearchRequestFault value) {
-        return new JAXBElement<InconsistentLowFareSearchRequestFault>(_InconsistentLowFareSearchRequestFault_QNAME, InconsistentLowFareSearchRequestFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInfoResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "getInfoResponse")
-    public JAXBElement<GetInfoResponse> createGetInfoResponse(GetInfoResponse value) {
-        return new JAXBElement<GetInfoResponse>(_GetInfoResponse_QNAME, GetInfoResponse.class, null, value);
+    public com.europlayas.amadeus.bindings.Journey.Itineraries createJourneyItineraries() {
+        return new com.europlayas.amadeus.bindings.Journey.Itineraries();
     }
 
     /**
@@ -2944,150 +2848,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "inconsistentGetInfoRequestFault")
     public JAXBElement<InconsistentGetInfoRequestFault> createInconsistentGetInfoRequestFault(InconsistentGetInfoRequestFault value) {
         return new JAXBElement<InconsistentGetInfoRequestFault>(_InconsistentGetInfoRequestFault_QNAME, InconsistentGetInfoRequestFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PriceWithInfoResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "priceWithInfoResponse")
-    public JAXBElement<PriceWithInfoResponse> createPriceWithInfoResponse(PriceWithInfoResponse value) {
-        return new JAXBElement<PriceWithInfoResponse>(_PriceWithInfoResponse_QNAME, PriceWithInfoResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InconsistentPriceWithInfoRequestFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "inconsistentPriceWithInfoRequestFault")
-    public JAXBElement<InconsistentPriceWithInfoRequestFault> createInconsistentPriceWithInfoRequestFault(InconsistentPriceWithInfoRequestFault value) {
-        return new JAXBElement<InconsistentPriceWithInfoRequestFault>(_InconsistentPriceWithInfoRequestFault_QNAME, InconsistentPriceWithInfoRequestFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LowFareSearchRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "lowFareSearchRequest")
-    public JAXBElement<LowFareSearchRequest> createLowFareSearchRequest(LowFareSearchRequest value) {
-        return new JAXBElement<LowFareSearchRequest>(_LowFareSearchRequest_QNAME, LowFareSearchRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PriceWithInfoRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "priceWithInfoRequest")
-    public JAXBElement<PriceWithInfoRequest> createPriceWithInfoRequest(PriceWithInfoRequest value) {
-        return new JAXBElement<PriceWithInfoRequest>(_PriceWithInfoRequest_QNAME, PriceWithInfoRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AvailabilitySearchRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "availabilitySearchRequest")
-    public JAXBElement<AvailabilitySearchRequest> createAvailabilitySearchRequest(AvailabilitySearchRequest value) {
-        return new JAXBElement<AvailabilitySearchRequest>(_AvailabilitySearchRequest_QNAME, AvailabilitySearchRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AvailabilitySearchResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "availabilitySearchResponse")
-    public JAXBElement<AvailabilitySearchResponse> createAvailabilitySearchResponse(AvailabilitySearchResponse value) {
-        return new JAXBElement<AvailabilitySearchResponse>(_AvailabilitySearchResponse_QNAME, AvailabilitySearchResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InconsistentAvailabilitySearchRequestFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "inconsistentAvailabilitySearchRequestFault")
-    public JAXBElement<InconsistentAvailabilitySearchRequestFault> createInconsistentAvailabilitySearchRequestFault(InconsistentAvailabilitySearchRequestFault value) {
-        return new JAXBElement<InconsistentAvailabilitySearchRequestFault>(_InconsistentAvailabilitySearchRequestFault_QNAME, InconsistentAvailabilitySearchRequestFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetInfoRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "getInfoRequest")
-    public JAXBElement<GetInfoRequest> createGetInfoRequest(GetInfoRequest value) {
-        return new JAXBElement<GetInfoRequest>(_GetInfoRequest_QNAME, GetInfoRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BookResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "bookResponse")
-    public JAXBElement<BookResponse> createBookResponse(BookResponse value) {
-        return new JAXBElement<BookResponse>(_BookResponse_QNAME, BookResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BookingFailureFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "bookingFailureFault")
-    public JAXBElement<BookingFailureFault> createBookingFailureFault(BookingFailureFault value) {
-        return new JAXBElement<BookingFailureFault>(_BookingFailureFault_QNAME, BookingFailureFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TicketIssuanceFailureFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "ticketIssuanceFailureFault")
-    public JAXBElement<TicketIssuanceFailureFault> createTicketIssuanceFailureFault(TicketIssuanceFailureFault value) {
-        return new JAXBElement<TicketIssuanceFailureFault>(_TicketIssuanceFailureFault_QNAME, TicketIssuanceFailureFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SegmentSellFailureFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "segmentSellFailureFault")
-    public JAXBElement<SegmentSellFailureFault> createSegmentSellFailureFault(SegmentSellFailureFault value) {
-        return new JAXBElement<SegmentSellFailureFault>(_SegmentSellFailureFault_QNAME, SegmentSellFailureFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PassengerPriceDiscrepancyFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "passengerPriceDiscrepancyFault")
-    public JAXBElement<PassengerPriceDiscrepancyFault> createPassengerPriceDiscrepancyFault(PassengerPriceDiscrepancyFault value) {
-        return new JAXBElement<PassengerPriceDiscrepancyFault>(_PassengerPriceDiscrepancyFault_QNAME, PassengerPriceDiscrepancyFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PriceDiscrepancyFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "priceDiscrepancyFault")
-    public JAXBElement<PriceDiscrepancyFault> createPriceDiscrepancyFault(PriceDiscrepancyFault value) {
-        return new JAXBElement<PriceDiscrepancyFault>(_PriceDiscrepancyFault_QNAME, PriceDiscrepancyFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InconsistentBookRequestFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "inconsistentBookRequestFault")
-    public JAXBElement<InconsistentBookRequestFault> createInconsistentBookRequestFault(InconsistentBookRequestFault value) {
-        return new JAXBElement<InconsistentBookRequestFault>(_InconsistentBookRequestFault_QNAME, InconsistentBookRequestFault.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DuplicateBookingFault }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.amadeus.fr/air", name = "duplicateBookingFault")
-    public JAXBElement<DuplicateBookingFault> createDuplicateBookingFault(DuplicateBookingFault value) {
-        return new JAXBElement<DuplicateBookingFault>(_DuplicateBookingFault_QNAME, DuplicateBookingFault.class, null, value);
     }
 
 }

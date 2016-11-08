@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -46,6 +47,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class ErrorAfterBookingWhileDisplayingTSTWarning
     extends BookWarning
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -114,12 +116,13 @@ public class ErrorAfterBookingWhileDisplayingTSTWarning
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "record"
+        "records"
     })
-    public static class Records {
+    public static class Records implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<String> record;
+        @XmlElement(name = "record", required = true)
+        protected List<String> records;
 
         /**
          * Default no-arg constructor
@@ -133,23 +136,23 @@ public class ErrorAfterBookingWhileDisplayingTSTWarning
          * Fully-initialising value constructor
          * 
          */
-        public Records(final List<String> record) {
-            this.record = record;
+        public Records(final List<String> records) {
+            this.records = records;
         }
 
         /**
-         * Gets the value of the record property.
+         * Gets the value of the records property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the record property.
+         * This is why there is not a <CODE>set</CODE> method for the records property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getRecord().add(newItem);
+         *    getRecords().add(newItem);
          * </pre>
          * 
          * 
@@ -159,11 +162,11 @@ public class ErrorAfterBookingWhileDisplayingTSTWarning
          * 
          * 
          */
-        public List<String> getRecord() {
-            if (record == null) {
-                record = new ArrayList<String>();
+        public List<String> getRecords() {
+            if (records == null) {
+                records = new ArrayList<String>();
             }
-            return this.record;
+            return this.records;
         }
 
     }

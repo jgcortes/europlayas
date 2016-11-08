@@ -1,13 +1,16 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.europlayas.amadeus.bindings.common.CountryCode;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -57,7 +60,8 @@ import com.europlayas.amadeus.bindings.common.CountryCode;
 @XmlType(name = "Passport", propOrder = {
 
 })
-public class Passport {
+public class Passport implements Serializable
+{
 
     @XmlElement(required = true)
     protected Passport.Issuance issuance;
@@ -66,7 +70,8 @@ public class Passport {
     @XmlAttribute(name = "number", required = true)
     protected String number;
     @XmlAttribute(name = "expirationDate", required = true)
-    protected XMLGregorianCalendar expirationDate;
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    protected LocalDate expirationDate;
     @XmlAttribute(name = "holder", required = true)
     protected boolean holder;
 
@@ -82,7 +87,7 @@ public class Passport {
      * Fully-initialising value constructor
      * 
      */
-    public Passport(final Passport.Issuance issuance, final Passport.Residence residence, final String number, final XMLGregorianCalendar expirationDate, final boolean holder) {
+    public Passport(final Passport.Issuance issuance, final Passport.Residence residence, final String number, final LocalDate expirationDate, final boolean holder) {
         this.issuance = issuance;
         this.residence = residence;
         this.number = number;
@@ -167,10 +172,10 @@ public class Passport {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
@@ -179,10 +184,10 @@ public class Passport {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setExpirationDate(XMLGregorianCalendar value) {
+    public void setExpirationDate(LocalDate value) {
         this.expirationDate = value;
     }
 
@@ -224,10 +229,12 @@ public class Passport {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class Issuance {
+    public static class Issuance implements Serializable
+    {
 
         @XmlAttribute(name = "date")
-        protected XMLGregorianCalendar date;
+        @XmlJavaTypeAdapter(DateAdapter.class)
+        protected LocalDate date;
         @XmlAttribute(name = "countryCode", required = true)
         protected CountryCode countryCode;
         @XmlAttribute(name = "city")
@@ -245,7 +252,7 @@ public class Passport {
          * Fully-initialising value constructor
          * 
          */
-        public Issuance(final XMLGregorianCalendar date, final CountryCode countryCode, final String city) {
+        public Issuance(final LocalDate date, final CountryCode countryCode, final String city) {
             this.date = date;
             this.countryCode = countryCode;
             this.city = city;
@@ -256,10 +263,10 @@ public class Passport {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getDate() {
+        public LocalDate getDate() {
             return date;
         }
 
@@ -268,10 +275,10 @@ public class Passport {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setDate(XMLGregorianCalendar value) {
+        public void setDate(LocalDate value) {
             this.date = value;
         }
 
@@ -345,7 +352,8 @@ public class Passport {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class Residence {
+    public static class Residence implements Serializable
+    {
 
         @XmlAttribute(name = "countryCode", required = true)
         protected CountryCode countryCode;

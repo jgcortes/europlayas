@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -44,7 +45,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "SeatedPassengerAdditionalServices", propOrder = {
 
 })
-public class SeatedPassengerAdditionalServices {
+public class SeatedPassengerAdditionalServices implements Serializable
+{
 
     protected SeatedPassengerAdditionalServices.Luggages luggages;
 
@@ -110,12 +112,13 @@ public class SeatedPassengerAdditionalServices {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "luggage"
+        "luggages"
     })
-    public static class Luggages {
+    public static class Luggages implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<Luggage> luggage;
+        @XmlElement(name = "luggage", required = true)
+        protected List<Luggage> luggages;
 
         /**
          * Default no-arg constructor
@@ -129,23 +132,23 @@ public class SeatedPassengerAdditionalServices {
          * Fully-initialising value constructor
          * 
          */
-        public Luggages(final List<Luggage> luggage) {
-            this.luggage = luggage;
+        public Luggages(final List<Luggage> luggages) {
+            this.luggages = luggages;
         }
 
         /**
-         * Gets the value of the luggage property.
+         * Gets the value of the luggages property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the luggage property.
+         * This is why there is not a <CODE>set</CODE> method for the luggages property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getLuggage().add(newItem);
+         *    getLuggages().add(newItem);
          * </pre>
          * 
          * 
@@ -155,11 +158,11 @@ public class SeatedPassengerAdditionalServices {
          * 
          * 
          */
-        public List<Luggage> getLuggage() {
-            if (luggage == null) {
-                luggage = new ArrayList<Luggage>();
+        public List<Luggage> getLuggages() {
+            if (luggages == null) {
+                luggages = new ArrayList<Luggage>();
             }
-            return this.luggage;
+            return this.luggages;
         }
 
     }

@@ -1,12 +1,14 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -89,7 +91,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "LowFareSearchResponse", propOrder = {
 
 })
-public class LowFareSearchResponse {
+@XmlRootElement(name = "lowFareSearchResponse")
+public class LowFareSearchResponse implements Serializable
+{
 
     @XmlElement(required = true)
     protected LowFareSearchResponse.OriginDestinations originDestinations;
@@ -230,12 +234,13 @@ public class LowFareSearchResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "originDestination"
+        "originDestinations"
     })
-    public static class OriginDestinations {
+    public static class OriginDestinations implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<LowFareSearchResponse.OriginDestinations.OriginDestination> originDestination;
+        @XmlElement(name = "originDestination", required = true)
+        protected List<LowFareSearchResponse.OriginDestinations.OriginDestination> originDestinations;
 
         /**
          * Default no-arg constructor
@@ -249,23 +254,23 @@ public class LowFareSearchResponse {
          * Fully-initialising value constructor
          * 
          */
-        public OriginDestinations(final List<LowFareSearchResponse.OriginDestinations.OriginDestination> originDestination) {
-            this.originDestination = originDestination;
+        public OriginDestinations(final List<LowFareSearchResponse.OriginDestinations.OriginDestination> originDestinations) {
+            this.originDestinations = originDestinations;
         }
 
         /**
-         * Gets the value of the originDestination property.
+         * Gets the value of the originDestinations property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the originDestination property.
+         * This is why there is not a <CODE>set</CODE> method for the originDestinations property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getOriginDestination().add(newItem);
+         *    getOriginDestinations().add(newItem);
          * </pre>
          * 
          * 
@@ -275,11 +280,11 @@ public class LowFareSearchResponse {
          * 
          * 
          */
-        public List<LowFareSearchResponse.OriginDestinations.OriginDestination> getOriginDestination() {
-            if (originDestination == null) {
-                originDestination = new ArrayList<LowFareSearchResponse.OriginDestinations.OriginDestination>();
+        public List<LowFareSearchResponse.OriginDestinations.OriginDestination> getOriginDestinations() {
+            if (originDestinations == null) {
+                originDestinations = new ArrayList<LowFareSearchResponse.OriginDestinations.OriginDestination>();
             }
-            return this.originDestination;
+            return this.originDestinations;
         }
 
 
@@ -317,7 +322,8 @@ public class LowFareSearchResponse {
         @XmlType(name = "", propOrder = {
 
         })
-        public static class OriginDestination {
+        public static class OriginDestination implements Serializable
+        {
 
             @XmlElement(required = true)
             protected LowFareSearchResponse.OriginDestinations.OriginDestination.Itineraries itineraries;
@@ -403,11 +409,13 @@ public class LowFareSearchResponse {
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "itinerary"
+                "itineraries"
             })
-            public static class Itineraries {
+            public static class Itineraries implements Serializable
+            {
 
-                protected List<DetailedItinerary> itinerary;
+                @XmlElement(name = "itinerary")
+                protected List<DetailedItinerary> itineraries;
 
                 /**
                  * Default no-arg constructor
@@ -421,23 +429,23 @@ public class LowFareSearchResponse {
                  * Fully-initialising value constructor
                  * 
                  */
-                public Itineraries(final List<DetailedItinerary> itinerary) {
-                    this.itinerary = itinerary;
+                public Itineraries(final List<DetailedItinerary> itineraries) {
+                    this.itineraries = itineraries;
                 }
 
                 /**
-                 * Gets the value of the itinerary property.
+                 * Gets the value of the itineraries property.
                  * 
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the itinerary property.
+                 * This is why there is not a <CODE>set</CODE> method for the itineraries property.
                  * 
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
-                 *    getItinerary().add(newItem);
+                 *    getItineraries().add(newItem);
                  * </pre>
                  * 
                  * 
@@ -447,11 +455,11 @@ public class LowFareSearchResponse {
                  * 
                  * 
                  */
-                public List<DetailedItinerary> getItinerary() {
-                    if (itinerary == null) {
-                        itinerary = new ArrayList<DetailedItinerary>();
+                public List<DetailedItinerary> getItineraries() {
+                    if (itineraries == null) {
+                        itineraries = new ArrayList<DetailedItinerary>();
                     }
-                    return this.itinerary;
+                    return this.itineraries;
                 }
 
             }
@@ -483,13 +491,16 @@ public class LowFareSearchResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "recommendation",
-        "oneWayRecommendation"
+        "recommendations",
+        "oneWayRecommendations"
     })
-    public static class Recommendations {
+    public static class Recommendations implements Serializable
+    {
 
-        protected List<Recommendation> recommendation;
-        protected List<OneWayRecommendation> oneWayRecommendation;
+        @XmlElement(name = "recommendation")
+        protected List<Recommendation> recommendations;
+        @XmlElement(name = "oneWayRecommendation")
+        protected List<OneWayRecommendation> oneWayRecommendations;
 
         /**
          * Default no-arg constructor
@@ -503,24 +514,24 @@ public class LowFareSearchResponse {
          * Fully-initialising value constructor
          * 
          */
-        public Recommendations(final List<Recommendation> recommendation, final List<OneWayRecommendation> oneWayRecommendation) {
-            this.recommendation = recommendation;
-            this.oneWayRecommendation = oneWayRecommendation;
+        public Recommendations(final List<Recommendation> recommendations, final List<OneWayRecommendation> oneWayRecommendations) {
+            this.recommendations = recommendations;
+            this.oneWayRecommendations = oneWayRecommendations;
         }
 
         /**
-         * Gets the value of the recommendation property.
+         * Gets the value of the recommendations property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the recommendation property.
+         * This is why there is not a <CODE>set</CODE> method for the recommendations property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getRecommendation().add(newItem);
+         *    getRecommendations().add(newItem);
          * </pre>
          * 
          * 
@@ -530,26 +541,26 @@ public class LowFareSearchResponse {
          * 
          * 
          */
-        public List<Recommendation> getRecommendation() {
-            if (recommendation == null) {
-                recommendation = new ArrayList<Recommendation>();
+        public List<Recommendation> getRecommendations() {
+            if (recommendations == null) {
+                recommendations = new ArrayList<Recommendation>();
             }
-            return this.recommendation;
+            return this.recommendations;
         }
 
         /**
-         * Gets the value of the oneWayRecommendation property.
+         * Gets the value of the oneWayRecommendations property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the oneWayRecommendation property.
+         * This is why there is not a <CODE>set</CODE> method for the oneWayRecommendations property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getOneWayRecommendation().add(newItem);
+         *    getOneWayRecommendations().add(newItem);
          * </pre>
          * 
          * 
@@ -559,11 +570,11 @@ public class LowFareSearchResponse {
          * 
          * 
          */
-        public List<OneWayRecommendation> getOneWayRecommendation() {
-            if (oneWayRecommendation == null) {
-                oneWayRecommendation = new ArrayList<OneWayRecommendation>();
+        public List<OneWayRecommendation> getOneWayRecommendations() {
+            if (oneWayRecommendations == null) {
+                oneWayRecommendations = new ArrayList<OneWayRecommendation>();
             }
-            return this.oneWayRecommendation;
+            return this.oneWayRecommendations;
         }
 
     }
@@ -590,12 +601,13 @@ public class LowFareSearchResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "warning"
+        "warnings"
     })
-    public static class Warnings {
+    public static class Warnings implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<LowFareSearchWarning> warning;
+        @XmlElement(name = "warning", required = true)
+        protected List<LowFareSearchWarning> warnings;
 
         /**
          * Default no-arg constructor
@@ -609,23 +621,23 @@ public class LowFareSearchResponse {
          * Fully-initialising value constructor
          * 
          */
-        public Warnings(final List<LowFareSearchWarning> warning) {
-            this.warning = warning;
+        public Warnings(final List<LowFareSearchWarning> warnings) {
+            this.warnings = warnings;
         }
 
         /**
-         * Gets the value of the warning property.
+         * Gets the value of the warnings property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the warning property.
+         * This is why there is not a <CODE>set</CODE> method for the warnings property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getWarning().add(newItem);
+         *    getWarnings().add(newItem);
          * </pre>
          * 
          * 
@@ -635,11 +647,11 @@ public class LowFareSearchResponse {
          * 
          * 
          */
-        public List<LowFareSearchWarning> getWarning() {
-            if (warning == null) {
-                warning = new ArrayList<LowFareSearchWarning>();
+        public List<LowFareSearchWarning> getWarnings() {
+            if (warnings == null) {
+                warnings = new ArrayList<LowFareSearchWarning>();
             }
-            return this.warning;
+            return this.warnings;
         }
 
     }

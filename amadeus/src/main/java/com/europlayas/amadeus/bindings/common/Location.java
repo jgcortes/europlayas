@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -35,7 +36,8 @@ import com.europlayas.amadeus.bindings.IataLocation;
     DetailedLocation.class,
     UnLocodeLocation.class
 })
-public abstract class Location {
+public abstract class Location implements Serializable
+{
 
     @XmlAttribute(name = "code", required = true)
     protected String code;

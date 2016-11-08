@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -45,17 +46,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TravelPreferences", propOrder = {
     "airlineRestrictions",
-    "directItineraryRestriction",
     "connectionRestriction",
+    "directItineraryRestriction",
     "travelClassRestriction",
     "bookingClassCode",
     "negotiatedSpace"
 })
-public class TravelPreferences {
+public class TravelPreferences implements Serializable
+{
 
     protected SimpleAirlineRestrictions airlineRestrictions;
-    protected TravelPreferences.DirectItineraryRestriction directItineraryRestriction;
     protected ConnectionRestriction connectionRestriction;
+    protected TravelPreferences.DirectItineraryRestriction directItineraryRestriction;
     @XmlSchemaType(name = "string")
     protected TravelClass travelClassRestriction;
     protected String bookingClassCode;
@@ -73,10 +75,10 @@ public class TravelPreferences {
      * Fully-initialising value constructor
      * 
      */
-    public TravelPreferences(final SimpleAirlineRestrictions airlineRestrictions, final TravelPreferences.DirectItineraryRestriction directItineraryRestriction, final ConnectionRestriction connectionRestriction, final TravelClass travelClassRestriction, final String bookingClassCode, final NegotiatedSpace negotiatedSpace) {
+    public TravelPreferences(final SimpleAirlineRestrictions airlineRestrictions, final ConnectionRestriction connectionRestriction, final TravelPreferences.DirectItineraryRestriction directItineraryRestriction, final TravelClass travelClassRestriction, final String bookingClassCode, final NegotiatedSpace negotiatedSpace) {
         this.airlineRestrictions = airlineRestrictions;
-        this.directItineraryRestriction = directItineraryRestriction;
         this.connectionRestriction = connectionRestriction;
+        this.directItineraryRestriction = directItineraryRestriction;
         this.travelClassRestriction = travelClassRestriction;
         this.bookingClassCode = bookingClassCode;
         this.negotiatedSpace = negotiatedSpace;
@@ -107,30 +109,6 @@ public class TravelPreferences {
     }
 
     /**
-     * Obtiene el valor de la propiedad directItineraryRestriction.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TravelPreferences.DirectItineraryRestriction }
-     *     
-     */
-    public TravelPreferences.DirectItineraryRestriction getDirectItineraryRestriction() {
-        return directItineraryRestriction;
-    }
-
-    /**
-     * Define el valor de la propiedad directItineraryRestriction.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TravelPreferences.DirectItineraryRestriction }
-     *     
-     */
-    public void setDirectItineraryRestriction(TravelPreferences.DirectItineraryRestriction value) {
-        this.directItineraryRestriction = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad connectionRestriction.
      * 
      * @return
@@ -152,6 +130,30 @@ public class TravelPreferences {
      */
     public void setConnectionRestriction(ConnectionRestriction value) {
         this.connectionRestriction = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad directItineraryRestriction.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TravelPreferences.DirectItineraryRestriction }
+     *     
+     */
+    public TravelPreferences.DirectItineraryRestriction getDirectItineraryRestriction() {
+        return directItineraryRestriction;
+    }
+
+    /**
+     * Define el valor de la propiedad directItineraryRestriction.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TravelPreferences.DirectItineraryRestriction }
+     *     
+     */
+    public void setDirectItineraryRestriction(TravelPreferences.DirectItineraryRestriction value) {
+        this.directItineraryRestriction = value;
     }
 
     /**
@@ -246,7 +248,8 @@ public class TravelPreferences {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class DirectItineraryRestriction {
+    public static class DirectItineraryRestriction implements Serializable
+    {
 
         @XmlAttribute(name = "stopsAllowed", required = true)
         protected boolean stopsAllowed;

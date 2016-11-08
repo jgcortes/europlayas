@@ -1,10 +1,11 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -30,6 +31,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "InfantPassengerIdentity")
 public class InfantPassengerIdentity
     extends PassengerIdentity
+    implements Serializable
 {
 
 
@@ -45,7 +47,7 @@ public class InfantPassengerIdentity
      * Fully-initialising value constructor
      * 
      */
-    public InfantPassengerIdentity(final String firstName, final String middleName, final String surname, final XMLGregorianCalendar dateOfBirth, final Gender gender) {
+    public InfantPassengerIdentity(final String firstName, final String middleName, final String surname, final LocalDate dateOfBirth, final Gender gender) {
         super(firstName, middleName, surname, dateOfBirth, gender);
     }
 

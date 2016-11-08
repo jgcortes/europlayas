@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -32,7 +33,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "SearchOptionInconsistency", propOrder = {
     "cause"
 })
-public class SearchOptionInconsistency {
+public class SearchOptionInconsistency implements Serializable
+{
 
     @XmlSchemaType(name = "string")
     protected SearchOptionInconsistencyCause cause;

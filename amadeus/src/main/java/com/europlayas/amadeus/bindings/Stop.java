@@ -1,12 +1,15 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateTimeAdapter;
 
 
 /**
@@ -36,14 +39,17 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "Stop", propOrder = {
     "location"
 })
-public class Stop {
+public class Stop implements Serializable
+{
 
     @XmlElement(required = true)
     protected IataDetailedLocation location;
     @XmlAttribute(name = "arrivalDateTime")
-    protected XMLGregorianCalendar arrivalDateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime arrivalDateTime;
     @XmlAttribute(name = "departureDateTime")
-    protected XMLGregorianCalendar departureDateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime departureDateTime;
 
     /**
      * Default no-arg constructor
@@ -57,7 +63,7 @@ public class Stop {
      * Fully-initialising value constructor
      * 
      */
-    public Stop(final IataDetailedLocation location, final XMLGregorianCalendar arrivalDateTime, final XMLGregorianCalendar departureDateTime) {
+    public Stop(final IataDetailedLocation location, final LocalDateTime arrivalDateTime, final LocalDateTime departureDateTime) {
         this.location = location;
         this.arrivalDateTime = arrivalDateTime;
         this.departureDateTime = departureDateTime;
@@ -92,10 +98,10 @@ public class Stop {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getArrivalDateTime() {
+    public LocalDateTime getArrivalDateTime() {
         return arrivalDateTime;
     }
 
@@ -104,10 +110,10 @@ public class Stop {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setArrivalDateTime(XMLGregorianCalendar value) {
+    public void setArrivalDateTime(LocalDateTime value) {
         this.arrivalDateTime = value;
     }
 
@@ -116,10 +122,10 @@ public class Stop {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDepartureDateTime() {
+    public LocalDateTime getDepartureDateTime() {
         return departureDateTime;
     }
 
@@ -128,10 +134,10 @@ public class Stop {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDepartureDateTime(XMLGregorianCalendar value) {
+    public void setDepartureDateTime(LocalDateTime value) {
         this.departureDateTime = value;
     }
 

@@ -1,9 +1,11 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -47,23 +49,25 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InconsistentLowFareSearchRequestFault", propOrder = {
-    "originDestinationInconsistency",
-    "ticketingRequirementsInconsistency",
     "passengersInconsistency",
     "pricingInconsistency",
     "providerInconsistency",
-    "searchOptionInconsistency"
+    "searchOptionInconsistency",
+    "ticketingRequirementsInconsistency",
+    "originDestinationInconsistency"
 })
+@XmlRootElement(name = "inconsistentLowFareSearchRequestFault")
 public class InconsistentLowFareSearchRequestFault
     extends LowFareSearchFault
+    implements Serializable
 {
 
-    protected OriginDestinationInconsistency originDestinationInconsistency;
-    protected InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency ticketingRequirementsInconsistency;
     protected PassengersInconsistency passengersInconsistency;
     protected PricingInconsistency pricingInconsistency;
     protected ProviderInconsistency providerInconsistency;
     protected SearchOptionInconsistency searchOptionInconsistency;
+    protected InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency ticketingRequirementsInconsistency;
+    protected OriginDestinationInconsistency originDestinationInconsistency;
 
     /**
      * Default no-arg constructor
@@ -77,62 +81,14 @@ public class InconsistentLowFareSearchRequestFault
      * Fully-initialising value constructor
      * 
      */
-    public InconsistentLowFareSearchRequestFault(final ItineraryIdList itineraries, final OriginDestinationIdList originDestinations, final OriginDestinationInconsistency originDestinationInconsistency, final InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency ticketingRequirementsInconsistency, final PassengersInconsistency passengersInconsistency, final PricingInconsistency pricingInconsistency, final ProviderInconsistency providerInconsistency, final SearchOptionInconsistency searchOptionInconsistency) {
+    public InconsistentLowFareSearchRequestFault(final ItineraryIdList itineraries, final OriginDestinationIdList originDestinations, final PassengersInconsistency passengersInconsistency, final PricingInconsistency pricingInconsistency, final ProviderInconsistency providerInconsistency, final SearchOptionInconsistency searchOptionInconsistency, final InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency ticketingRequirementsInconsistency, final OriginDestinationInconsistency originDestinationInconsistency) {
         super(itineraries, originDestinations);
-        this.originDestinationInconsistency = originDestinationInconsistency;
-        this.ticketingRequirementsInconsistency = ticketingRequirementsInconsistency;
         this.passengersInconsistency = passengersInconsistency;
         this.pricingInconsistency = pricingInconsistency;
         this.providerInconsistency = providerInconsistency;
         this.searchOptionInconsistency = searchOptionInconsistency;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad originDestinationInconsistency.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OriginDestinationInconsistency }
-     *     
-     */
-    public OriginDestinationInconsistency getOriginDestinationInconsistency() {
-        return originDestinationInconsistency;
-    }
-
-    /**
-     * Define el valor de la propiedad originDestinationInconsistency.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OriginDestinationInconsistency }
-     *     
-     */
-    public void setOriginDestinationInconsistency(OriginDestinationInconsistency value) {
-        this.originDestinationInconsistency = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad ticketingRequirementsInconsistency.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency }
-     *     
-     */
-    public InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency getTicketingRequirementsInconsistency() {
-        return ticketingRequirementsInconsistency;
-    }
-
-    /**
-     * Define el valor de la propiedad ticketingRequirementsInconsistency.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency }
-     *     
-     */
-    public void setTicketingRequirementsInconsistency(InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency value) {
-        this.ticketingRequirementsInconsistency = value;
+        this.ticketingRequirementsInconsistency = ticketingRequirementsInconsistency;
+        this.originDestinationInconsistency = originDestinationInconsistency;
     }
 
     /**
@@ -231,6 +187,54 @@ public class InconsistentLowFareSearchRequestFault
         this.searchOptionInconsistency = value;
     }
 
+    /**
+     * Obtiene el valor de la propiedad ticketingRequirementsInconsistency.
+     * 
+     * @return
+     *     possible object is
+     *     {@link InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency }
+     *     
+     */
+    public InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency getTicketingRequirementsInconsistency() {
+        return ticketingRequirementsInconsistency;
+    }
+
+    /**
+     * Define el valor de la propiedad ticketingRequirementsInconsistency.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency }
+     *     
+     */
+    public void setTicketingRequirementsInconsistency(InconsistentLowFareSearchRequestFault.TicketingRequirementsInconsistency value) {
+        this.ticketingRequirementsInconsistency = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad originDestinationInconsistency.
+     * 
+     * @return
+     *     possible object is
+     *     {@link OriginDestinationInconsistency }
+     *     
+     */
+    public OriginDestinationInconsistency getOriginDestinationInconsistency() {
+        return originDestinationInconsistency;
+    }
+
+    /**
+     * Define el valor de la propiedad originDestinationInconsistency.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link OriginDestinationInconsistency }
+     *     
+     */
+    public void setOriginDestinationInconsistency(OriginDestinationInconsistency value) {
+        this.originDestinationInconsistency = value;
+    }
+
 
     /**
      * <p>Clase Java para anonymous complex type.
@@ -251,7 +255,8 @@ public class InconsistentLowFareSearchRequestFault
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class TicketingRequirementsInconsistency {
+    public static class TicketingRequirementsInconsistency implements Serializable
+    {
 
         @XmlAttribute(name = "ticketingDateTooFar", required = true)
         protected boolean ticketingDateTooFar;

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -37,7 +38,8 @@ import javax.xml.datatype.Duration;
 @XmlType(name = "AmadeusRecordQueuing", propOrder = {
 
 })
-public class AmadeusRecordQueuing {
+public class AmadeusRecordQueuing implements Serializable
+{
 
     @XmlElement(required = true)
     protected AmadeusQueue queue;

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -33,7 +34,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "LowFareSearchResponseAdditionalServices", propOrder = {
 
 })
-public class LowFareSearchResponseAdditionalServices {
+public class LowFareSearchResponseAdditionalServices implements Serializable
+{
 
     protected PerPassegerCurrencyAmount luggage;
     protected CurrencyAmount seat;

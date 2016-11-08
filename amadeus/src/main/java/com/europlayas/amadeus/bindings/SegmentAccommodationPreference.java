@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -30,6 +31,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "SegmentAccommodationPreference")
 public class SegmentAccommodationPreference
     extends AccommodationPreference
+    implements Serializable
 {
 
     @XmlAttribute(name = "segmentId", required = true)
@@ -47,8 +49,8 @@ public class SegmentAccommodationPreference
      * Fully-initialising value constructor
      * 
      */
-    public SegmentAccommodationPreference(final String seatNumber, final SeatPosition seatPosition, final MealCode mealCode, final int segmentId) {
-        super(seatNumber, seatPosition, mealCode);
+    public SegmentAccommodationPreference(final SeatPosition seatPosition, final String seatNumber, final MealCode mealCode, final int segmentId) {
+        super(seatPosition, seatNumber, mealCode);
         this.segmentId = segmentId;
     }
 

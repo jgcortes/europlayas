@@ -54,6 +54,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AmadeusRecord }
+     * 
+     */
+    public AmadeusRecord createAmadeusRecord() {
+        return new AmadeusRecord();
+    }
+
+    /**
      * Create an instance of {@link UnLocodeLocation }
      * 
      */
@@ -259,14 +267,6 @@ public class ObjectFactory {
      */
     public AirExternalRecord createAirExternalRecord() {
         return new AirExternalRecord();
-    }
-
-    /**
-     * Create an instance of {@link AmadeusRecord }
-     * 
-     */
-    public AmadeusRecord createAmadeusRecord() {
-        return new AmadeusRecord();
     }
 
     /**

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -28,6 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "InconsistentGetFareNotesRequestFault")
 public class InconsistentGetFareNotesRequestFault
     extends InconsistentGetInfoRequestFault
+    implements Serializable
 {
 
 
@@ -43,8 +45,8 @@ public class InconsistentGetFareNotesRequestFault
      * Fully-initialising value constructor
      * 
      */
-    public InconsistentGetFareNotesRequestFault(final ItineraryIdList itineraries, final ItineraryInconsistency itineraryInconsistency, final PassengersInconsistency passengersInconsistency, final FareTypeInconsistency fareTypeInconsistency, final GetInfoPricingInconsistency pricingInconsistency, final SegmentList inconsistentSegments) {
-        super(itineraries, itineraryInconsistency, passengersInconsistency, fareTypeInconsistency, pricingInconsistency, inconsistentSegments);
+    public InconsistentGetFareNotesRequestFault(final ItineraryIdList itineraries, final SegmentList inconsistentSegments, final ItineraryInconsistency itineraryInconsistency, final PassengersInconsistency passengersInconsistency, final FareTypeInconsistency fareTypeInconsistency, final GetInfoPricingInconsistency pricingInconsistency) {
+        super(itineraries, inconsistentSegments, itineraryInconsistency, passengersInconsistency, fareTypeInconsistency, pricingInconsistency);
     }
 
 }

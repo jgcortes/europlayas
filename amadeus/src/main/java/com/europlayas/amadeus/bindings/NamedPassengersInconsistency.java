@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -89,6 +90,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class NamedPassengersInconsistency
     extends PassengersInconsistency
+    implements Serializable
 {
 
     protected NamedPassengersInconsistency.InconsistentPassengers inconsistentPassengers;
@@ -231,7 +233,8 @@ public class NamedPassengersInconsistency
     @XmlType(name = "", propOrder = {
 
     })
-    public static class AccommodationPreferenceInconsistency {
+    public static class AccommodationPreferenceInconsistency implements Serializable
+    {
 
         protected NamedPassengersInconsistency.AccommodationPreferenceInconsistency.MealCodes mealCodes;
         protected NamedPassengersInconsistency.AccommodationPreferenceInconsistency.SeatNumbers seatNumbers;
@@ -323,13 +326,14 @@ public class NamedPassengersInconsistency
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "mealCode"
+            "mealCodes"
         })
-        public static class MealCodes {
+        public static class MealCodes implements Serializable
+        {
 
-            @XmlElement(required = true)
+            @XmlElement(name = "mealCode", required = true)
             @XmlSchemaType(name = "string")
-            protected List<MealCode> mealCode;
+            protected List<MealCode> mealCodes;
 
             /**
              * Default no-arg constructor
@@ -343,23 +347,23 @@ public class NamedPassengersInconsistency
              * Fully-initialising value constructor
              * 
              */
-            public MealCodes(final List<MealCode> mealCode) {
-                this.mealCode = mealCode;
+            public MealCodes(final List<MealCode> mealCodes) {
+                this.mealCodes = mealCodes;
             }
 
             /**
-             * Gets the value of the mealCode property.
+             * Gets the value of the mealCodes property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the mealCode property.
+             * This is why there is not a <CODE>set</CODE> method for the mealCodes property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getMealCode().add(newItem);
+             *    getMealCodes().add(newItem);
              * </pre>
              * 
              * 
@@ -369,11 +373,11 @@ public class NamedPassengersInconsistency
              * 
              * 
              */
-            public List<MealCode> getMealCode() {
-                if (mealCode == null) {
-                    mealCode = new ArrayList<MealCode>();
+            public List<MealCode> getMealCodes() {
+                if (mealCodes == null) {
+                    mealCodes = new ArrayList<MealCode>();
                 }
-                return this.mealCode;
+                return this.mealCodes;
             }
 
         }
@@ -400,12 +404,13 @@ public class NamedPassengersInconsistency
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "seatNumber"
+            "seatNumbers"
         })
-        public static class SeatNumbers {
+        public static class SeatNumbers implements Serializable
+        {
 
-            @XmlElement(required = true)
-            protected List<String> seatNumber;
+            @XmlElement(name = "seatNumber", required = true)
+            protected List<String> seatNumbers;
 
             /**
              * Default no-arg constructor
@@ -419,23 +424,23 @@ public class NamedPassengersInconsistency
              * Fully-initialising value constructor
              * 
              */
-            public SeatNumbers(final List<String> seatNumber) {
-                this.seatNumber = seatNumber;
+            public SeatNumbers(final List<String> seatNumbers) {
+                this.seatNumbers = seatNumbers;
             }
 
             /**
-             * Gets the value of the seatNumber property.
+             * Gets the value of the seatNumbers property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the seatNumber property.
+             * This is why there is not a <CODE>set</CODE> method for the seatNumbers property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getSeatNumber().add(newItem);
+             *    getSeatNumbers().add(newItem);
              * </pre>
              * 
              * 
@@ -445,11 +450,11 @@ public class NamedPassengersInconsistency
              * 
              * 
              */
-            public List<String> getSeatNumber() {
-                if (seatNumber == null) {
-                    seatNumber = new ArrayList<String>();
+            public List<String> getSeatNumbers() {
+                if (seatNumbers == null) {
+                    seatNumbers = new ArrayList<String>();
                 }
-                return this.seatNumber;
+                return this.seatNumbers;
             }
 
         }
@@ -478,12 +483,13 @@ public class NamedPassengersInconsistency
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "inconsistentPassenger"
+        "inconsistentPassengers"
     })
-    public static class InconsistentPassengers {
+    public static class InconsistentPassengers implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<InconsistentPassenger> inconsistentPassenger;
+        @XmlElement(name = "inconsistentPassenger", required = true)
+        protected List<InconsistentPassenger> inconsistentPassengers;
 
         /**
          * Default no-arg constructor
@@ -497,23 +503,23 @@ public class NamedPassengersInconsistency
          * Fully-initialising value constructor
          * 
          */
-        public InconsistentPassengers(final List<InconsistentPassenger> inconsistentPassenger) {
-            this.inconsistentPassenger = inconsistentPassenger;
+        public InconsistentPassengers(final List<InconsistentPassenger> inconsistentPassengers) {
+            this.inconsistentPassengers = inconsistentPassengers;
         }
 
         /**
-         * Gets the value of the inconsistentPassenger property.
+         * Gets the value of the inconsistentPassengers property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the inconsistentPassenger property.
+         * This is why there is not a <CODE>set</CODE> method for the inconsistentPassengers property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getInconsistentPassenger().add(newItem);
+         *    getInconsistentPassengers().add(newItem);
          * </pre>
          * 
          * 
@@ -523,11 +529,11 @@ public class NamedPassengersInconsistency
          * 
          * 
          */
-        public List<InconsistentPassenger> getInconsistentPassenger() {
-            if (inconsistentPassenger == null) {
-                inconsistentPassenger = new ArrayList<InconsistentPassenger>();
+        public List<InconsistentPassenger> getInconsistentPassengers() {
+            if (inconsistentPassengers == null) {
+                inconsistentPassengers = new ArrayList<InconsistentPassenger>();
             }
-            return this.inconsistentPassenger;
+            return this.inconsistentPassengers;
         }
 
     }
@@ -551,7 +557,8 @@ public class NamedPassengersInconsistency
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class LoyaltyProgramInconsistency {
+    public static class LoyaltyProgramInconsistency implements Serializable
+    {
 
 
         /**

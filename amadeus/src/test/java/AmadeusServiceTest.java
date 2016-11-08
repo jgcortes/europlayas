@@ -30,7 +30,7 @@ import java.util.GregorianCalendar;
 public class AmadeusServiceTest {
 
     private static String ENDPOINT = "https://demo.amadeus.fr/air-5/ws/airService";
-    private static String USER = " to_Europlayas_Test";
+    private static String USER = "to_Europlayas_Test";
     private static String PASSWORD = "HKPo8i9n";
 
     @Before
@@ -42,9 +42,8 @@ public class AmadeusServiceTest {
     public void doValidate_TestConection() throws JAXBException {
         boolean isConnection = true;
         try {
-            ServicePortType AmadeusServicePort = AmadeusService.getAmadeusService(ENDPOINT, USER, PASSWORD, 10000);
+            ServicePortType AmadeusServicePort = AmadeusService.getAmadeusService(ENDPOINT, USER, PASSWORD, 30000);
 
-            AmadeusService.setAdrressing((BindingProvider) AmadeusServicePort, "http://ws.amadeus.fr/air/availabilitySearch");
             AmadeusServicePort.lowFareSearch(createLowFareRequest());
         }catch (Exception ex){
             ex.printStackTrace();
@@ -74,15 +73,11 @@ public class AmadeusServiceTest {
         iataLocation.setCode("BCN");
         area.setLocation(iataLocation);
         originDestination.setDestination(area);
-        originDestinations.getOriginDestination().add(originDestination);
+        originDestinations.getOriginDestinations().add(originDestination);
         lowFareSearchRequest.setJourney(journey );
         DateTimeRange dateTimeRange = new DateTimeRange();
         DateTimeRange.DateRange dateRange = new  DateTimeRange.DateRange();
-        GregorianCalendar gcal = (GregorianCalendar) GregorianCalendar.getInstance();
-        gcal.setTime (getDate("121206"));
-        XMLGregorianCalendar xgcal = DatatypeFactory.newInstance()
-                .newXMLGregorianCalendar(gcal);
-        dateRange.setDate(xgcal);
+        dateRange.setDate(getDate("161216"));
         dateTimeRange.setDateRange(dateRange);
         originDestination.setDepartureDateTimeRange(dateTimeRange);
 
@@ -90,11 +85,24 @@ public class AmadeusServiceTest {
         SeatedPassengerList seatedPassengerList = new SeatedPassengerList();
         NonInfantHoldingSeatedPassenger seatedPassenger = new NonInfantHoldingSeatedPassenger();
         seatedPassenger.setPassengerType(PassengerType.ADULT);
-        seatedPassengerList.getPassenger().add(seatedPassenger);
+        seatedPassenger.setId(1);
+        seatedPassengerList.getPassengers().add(seatedPassenger);
         lowFareSearchRequest.setPassengers(seatedPassengerList);
 
         SearchPricingMode searchPricingMode = new SearchPricingMode();
         searchPricingMode.setCurrencyCode(CurrencyCode.EUR);
+        FareType fareType = new FareType();
+        fareType.setPublishedFares(true);
+        fareType.setUnifares(false);
+        searchPricingMode.setFareType(fareType);
+        PassengerFareOptionGroups passengerFareOptionGroups = new PassengerFareOptionGroups();
+        PassengerFareOptionList passengerFareOptionList = new PassengerFareOptionList();
+        PassengerFareOption passengerFareOption = new PassengerFareOption();
+        passengerFareOption.setPassengerId(1);
+        passengerFareOption.setFareOption(FareOption.STANDARD);
+        passengerFareOptionList.getPassengerFareOptions().add(passengerFareOption);
+        passengerFareOptionGroups.getPassengerFareOptionGroups().add(passengerFareOptionList);
+        searchPricingMode.setPassengerFareOptionGroups(passengerFareOptionGroups);
         lowFareSearchRequest.setPricing(searchPricingMode);
 
 
@@ -103,12 +111,11 @@ public class AmadeusServiceTest {
     }
 
 
-    private Date getDate(String input) {
+    private LocalDate getDate(String input) {
         DateTimeFormatter formatter =
                 DateTimeFormatter.ofPattern("ddMMyy");
-        LocalDate localDate = LocalDate.parse(input, formatter);
 
-        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        return  LocalDate.parse(input, formatter);
 
     }
 

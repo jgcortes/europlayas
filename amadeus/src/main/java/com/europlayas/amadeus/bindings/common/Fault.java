@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -30,7 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({
     com.europlayas.amadeus.bindings.Fault.class
 })
-public abstract class Fault {
+public abstract class Fault implements Serializable
+{
 
 
     /**

@@ -1,6 +1,8 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,8 +11,10 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
+import com.europlayas.amadeus.util.DateTimeAdapter;
 
 
 /**
@@ -64,6 +68,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class DetailedSegment
     extends Segment
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -72,7 +77,8 @@ public class DetailedSegment
     protected Airport arrivalAirport;
     protected DetailedSegment.Stops stops;
     @XmlAttribute(name = "arrivalDateTime", required = true)
-    protected XMLGregorianCalendar arrivalDateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime arrivalDateTime;
     @XmlAttribute(name = "equipment")
     protected String equipment;
     @XmlAttribute(name = "numberOfStops")
@@ -98,7 +104,7 @@ public class DetailedSegment
      * Fully-initialising value constructor
      * 
      */
-    public DetailedSegment(final IataLocation originLocation, final IataLocation destinationLocation, final int id, final String marketingAirlineCode, final String operatingAirlineCode, final String flightNumber, final XMLGregorianCalendar departureDateTime, final Airport departureAirport, final Airport arrivalAirport, final DetailedSegment.Stops stops, final XMLGregorianCalendar arrivalDateTime, final String equipment, final Short numberOfStops, final XMLGregorianCalendar checkInTime, final Duration duration, final Boolean blacklistedInEU, final Boolean eligibleForElectronicTicketing) {
+    public DetailedSegment(final IataLocation originLocation, final IataLocation destinationLocation, final int id, final String marketingAirlineCode, final String operatingAirlineCode, final String flightNumber, final LocalDateTime departureDateTime, final Airport departureAirport, final Airport arrivalAirport, final DetailedSegment.Stops stops, final LocalDateTime arrivalDateTime, final String equipment, final Short numberOfStops, final XMLGregorianCalendar checkInTime, final Duration duration, final Boolean blacklistedInEU, final Boolean eligibleForElectronicTicketing) {
         super(originLocation, destinationLocation, id, marketingAirlineCode, operatingAirlineCode, flightNumber, departureDateTime);
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
@@ -189,10 +195,10 @@ public class DetailedSegment
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getArrivalDateTime() {
+    public LocalDateTime getArrivalDateTime() {
         return arrivalDateTime;
     }
 
@@ -201,10 +207,10 @@ public class DetailedSegment
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setArrivalDateTime(XMLGregorianCalendar value) {
+    public void setArrivalDateTime(LocalDateTime value) {
         this.arrivalDateTime = value;
     }
 
@@ -374,11 +380,13 @@ public class DetailedSegment
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "stop"
+        "stops"
     })
-    public static class Stops {
+    public static class Stops implements Serializable
+    {
 
-        protected List<Stop> stop;
+        @XmlElement(name = "stop")
+        protected List<Stop> stops;
 
         /**
          * Default no-arg constructor
@@ -392,23 +400,23 @@ public class DetailedSegment
          * Fully-initialising value constructor
          * 
          */
-        public Stops(final List<Stop> stop) {
-            this.stop = stop;
+        public Stops(final List<Stop> stops) {
+            this.stops = stops;
         }
 
         /**
-         * Gets the value of the stop property.
+         * Gets the value of the stops property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the stop property.
+         * This is why there is not a <CODE>set</CODE> method for the stops property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getStop().add(newItem);
+         *    getStops().add(newItem);
          * </pre>
          * 
          * 
@@ -418,11 +426,11 @@ public class DetailedSegment
          * 
          * 
          */
-        public List<Stop> getStop() {
-            if (stop == null) {
-                stop = new ArrayList<Stop>();
+        public List<Stop> getStops() {
+            if (stops == null) {
+                stops = new ArrayList<Stop>();
             }
-            return this.stop;
+            return this.stops;
         }
 
     }

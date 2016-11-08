@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -47,7 +48,8 @@ import javax.xml.bind.annotation.XmlType;
     "passenger",
     "personalInformationInconsistencies"
 })
-public class InconsistentPassenger {
+public class InconsistentPassenger implements Serializable
+{
 
     @XmlElement(required = true)
     protected NamedPassenger passenger;
@@ -141,13 +143,14 @@ public class InconsistentPassenger {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "personalInformationInconsistency"
+        "personalInformationInconsistencies"
     })
-    public static class PersonalInformationInconsistencies {
+    public static class PersonalInformationInconsistencies implements Serializable
+    {
 
-        @XmlElement(required = true)
+        @XmlElement(name = "personalInformationInconsistency", required = true)
         @XmlSchemaType(name = "string")
-        protected List<PersonalInformationInconsistency> personalInformationInconsistency;
+        protected List<PersonalInformationInconsistency> personalInformationInconsistencies;
 
         /**
          * Default no-arg constructor
@@ -161,23 +164,23 @@ public class InconsistentPassenger {
          * Fully-initialising value constructor
          * 
          */
-        public PersonalInformationInconsistencies(final List<PersonalInformationInconsistency> personalInformationInconsistency) {
-            this.personalInformationInconsistency = personalInformationInconsistency;
+        public PersonalInformationInconsistencies(final List<PersonalInformationInconsistency> personalInformationInconsistencies) {
+            this.personalInformationInconsistencies = personalInformationInconsistencies;
         }
 
         /**
-         * Gets the value of the personalInformationInconsistency property.
+         * Gets the value of the personalInformationInconsistencies property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the personalInformationInconsistency property.
+         * This is why there is not a <CODE>set</CODE> method for the personalInformationInconsistencies property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPersonalInformationInconsistency().add(newItem);
+         *    getPersonalInformationInconsistencies().add(newItem);
          * </pre>
          * 
          * 
@@ -187,11 +190,11 @@ public class InconsistentPassenger {
          * 
          * 
          */
-        public List<PersonalInformationInconsistency> getPersonalInformationInconsistency() {
-            if (personalInformationInconsistency == null) {
-                personalInformationInconsistency = new ArrayList<PersonalInformationInconsistency>();
+        public List<PersonalInformationInconsistency> getPersonalInformationInconsistencies() {
+            if (personalInformationInconsistencies == null) {
+                personalInformationInconsistencies = new ArrayList<PersonalInformationInconsistency>();
             }
-            return this.personalInformationInconsistency;
+            return this.personalInformationInconsistencies;
         }
 
     }

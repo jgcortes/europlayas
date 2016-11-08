@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,15 +52,16 @@ import com.europlayas.amadeus.bindings.common.GlobalContactInformation;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AdditionalRecordDataInconsistency", propOrder = {
     "inconsistentContactInformation",
-    "inconsistentPayments",
     "missingPaymentCard",
+    "inconsistentPayments",
     "inconsistentRemark"
 })
-public class AdditionalRecordDataInconsistency {
+public class AdditionalRecordDataInconsistency implements Serializable
+{
 
     protected GlobalContactInformation inconsistentContactInformation;
-    protected AdditionalRecordDataInconsistency.InconsistentPayments inconsistentPayments;
     protected MissingPaymentCard missingPaymentCard;
+    protected AdditionalRecordDataInconsistency.InconsistentPayments inconsistentPayments;
     protected InconsistentRemark inconsistentRemark;
     @XmlAttribute(name = "noDefaultTicketingAgreement", required = true)
     protected boolean noDefaultTicketingAgreement;
@@ -76,10 +78,10 @@ public class AdditionalRecordDataInconsistency {
      * Fully-initialising value constructor
      * 
      */
-    public AdditionalRecordDataInconsistency(final GlobalContactInformation inconsistentContactInformation, final AdditionalRecordDataInconsistency.InconsistentPayments inconsistentPayments, final MissingPaymentCard missingPaymentCard, final InconsistentRemark inconsistentRemark, final boolean noDefaultTicketingAgreement) {
+    public AdditionalRecordDataInconsistency(final GlobalContactInformation inconsistentContactInformation, final MissingPaymentCard missingPaymentCard, final AdditionalRecordDataInconsistency.InconsistentPayments inconsistentPayments, final InconsistentRemark inconsistentRemark, final boolean noDefaultTicketingAgreement) {
         this.inconsistentContactInformation = inconsistentContactInformation;
-        this.inconsistentPayments = inconsistentPayments;
         this.missingPaymentCard = missingPaymentCard;
+        this.inconsistentPayments = inconsistentPayments;
         this.inconsistentRemark = inconsistentRemark;
         this.noDefaultTicketingAgreement = noDefaultTicketingAgreement;
     }
@@ -109,30 +111,6 @@ public class AdditionalRecordDataInconsistency {
     }
 
     /**
-     * Obtiene el valor de la propiedad inconsistentPayments.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AdditionalRecordDataInconsistency.InconsistentPayments }
-     *     
-     */
-    public AdditionalRecordDataInconsistency.InconsistentPayments getInconsistentPayments() {
-        return inconsistentPayments;
-    }
-
-    /**
-     * Define el valor de la propiedad inconsistentPayments.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AdditionalRecordDataInconsistency.InconsistentPayments }
-     *     
-     */
-    public void setInconsistentPayments(AdditionalRecordDataInconsistency.InconsistentPayments value) {
-        this.inconsistentPayments = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad missingPaymentCard.
      * 
      * @return
@@ -154,6 +132,30 @@ public class AdditionalRecordDataInconsistency {
      */
     public void setMissingPaymentCard(MissingPaymentCard value) {
         this.missingPaymentCard = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad inconsistentPayments.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AdditionalRecordDataInconsistency.InconsistentPayments }
+     *     
+     */
+    public AdditionalRecordDataInconsistency.InconsistentPayments getInconsistentPayments() {
+        return inconsistentPayments;
+    }
+
+    /**
+     * Define el valor de la propiedad inconsistentPayments.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AdditionalRecordDataInconsistency.InconsistentPayments }
+     *     
+     */
+    public void setInconsistentPayments(AdditionalRecordDataInconsistency.InconsistentPayments value) {
+        this.inconsistentPayments = value;
     }
 
     /**
@@ -218,12 +220,13 @@ public class AdditionalRecordDataInconsistency {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "inconsistentPayment"
+        "inconsistentPayments"
     })
-    public static class InconsistentPayments {
+    public static class InconsistentPayments implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<PaymentByItineraryGroup> inconsistentPayment;
+        @XmlElement(name = "inconsistentPayment", required = true)
+        protected List<PaymentByItineraryGroup> inconsistentPayments;
 
         /**
          * Default no-arg constructor
@@ -237,23 +240,23 @@ public class AdditionalRecordDataInconsistency {
          * Fully-initialising value constructor
          * 
          */
-        public InconsistentPayments(final List<PaymentByItineraryGroup> inconsistentPayment) {
-            this.inconsistentPayment = inconsistentPayment;
+        public InconsistentPayments(final List<PaymentByItineraryGroup> inconsistentPayments) {
+            this.inconsistentPayments = inconsistentPayments;
         }
 
         /**
-         * Gets the value of the inconsistentPayment property.
+         * Gets the value of the inconsistentPayments property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the inconsistentPayment property.
+         * This is why there is not a <CODE>set</CODE> method for the inconsistentPayments property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getInconsistentPayment().add(newItem);
+         *    getInconsistentPayments().add(newItem);
          * </pre>
          * 
          * 
@@ -263,11 +266,11 @@ public class AdditionalRecordDataInconsistency {
          * 
          * 
          */
-        public List<PaymentByItineraryGroup> getInconsistentPayment() {
-            if (inconsistentPayment == null) {
-                inconsistentPayment = new ArrayList<PaymentByItineraryGroup>();
+        public List<PaymentByItineraryGroup> getInconsistentPayments() {
+            if (inconsistentPayments == null) {
+                inconsistentPayments = new ArrayList<PaymentByItineraryGroup>();
             }
-            return this.inconsistentPayment;
+            return this.inconsistentPayments;
         }
 
     }

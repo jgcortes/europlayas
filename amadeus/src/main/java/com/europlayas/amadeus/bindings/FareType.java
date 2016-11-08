@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -35,7 +36,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "FareType", propOrder = {
     "corporateCodes"
 })
-public class FareType {
+public class FareType implements Serializable
+{
 
     protected CorporateCodeList corporateCodes;
     @XmlAttribute(name = "publishedFares", required = true)

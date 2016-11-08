@@ -1,12 +1,14 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -82,7 +84,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "BookRequest", propOrder = {
 
 })
-public class BookRequest {
+@XmlRootElement(name = "bookRequest")
+public class BookRequest implements Serializable
+{
 
     @XmlElement(required = true)
     protected Journey journey;
@@ -280,7 +284,8 @@ public class BookRequest {
     @XmlType(name = "", propOrder = {
 
     })
-    public static class AmadeusRecordQueuing {
+    public static class AmadeusRecordQueuing implements Serializable
+    {
 
         protected BookRequest.AmadeusRecordQueuing.ImmediateQueuings immediateQueuings;
         protected BookRequest.AmadeusRecordQueuing.DelayedQueuings delayedQueuings;
@@ -425,12 +430,13 @@ public class BookRequest {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "delayedQueuing"
+            "delayedQueuings"
         })
-        public static class DelayedQueuings {
+        public static class DelayedQueuings implements Serializable
+        {
 
-            @XmlElement(required = true)
-            protected List<DelayedAmadeusRecordQueuing> delayedQueuing;
+            @XmlElement(name = "delayedQueuing", required = true)
+            protected List<DelayedAmadeusRecordQueuing> delayedQueuings;
 
             /**
              * Default no-arg constructor
@@ -444,23 +450,23 @@ public class BookRequest {
              * Fully-initialising value constructor
              * 
              */
-            public DelayedQueuings(final List<DelayedAmadeusRecordQueuing> delayedQueuing) {
-                this.delayedQueuing = delayedQueuing;
+            public DelayedQueuings(final List<DelayedAmadeusRecordQueuing> delayedQueuings) {
+                this.delayedQueuings = delayedQueuings;
             }
 
             /**
-             * Gets the value of the delayedQueuing property.
+             * Gets the value of the delayedQueuings property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the delayedQueuing property.
+             * This is why there is not a <CODE>set</CODE> method for the delayedQueuings property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getDelayedQueuing().add(newItem);
+             *    getDelayedQueuings().add(newItem);
              * </pre>
              * 
              * 
@@ -470,11 +476,11 @@ public class BookRequest {
              * 
              * 
              */
-            public List<DelayedAmadeusRecordQueuing> getDelayedQueuing() {
-                if (delayedQueuing == null) {
-                    delayedQueuing = new ArrayList<DelayedAmadeusRecordQueuing>();
+            public List<DelayedAmadeusRecordQueuing> getDelayedQueuings() {
+                if (delayedQueuings == null) {
+                    delayedQueuings = new ArrayList<DelayedAmadeusRecordQueuing>();
                 }
-                return this.delayedQueuing;
+                return this.delayedQueuings;
             }
 
         }
@@ -501,12 +507,13 @@ public class BookRequest {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "immediateQueuing"
+            "immediateQueuings"
         })
-        public static class ImmediateQueuings {
+        public static class ImmediateQueuings implements Serializable
+        {
 
-            @XmlElement(required = true)
-            protected List<ImmediateAmadeusRecordQueuing> immediateQueuing;
+            @XmlElement(name = "immediateQueuing", required = true)
+            protected List<ImmediateAmadeusRecordQueuing> immediateQueuings;
 
             /**
              * Default no-arg constructor
@@ -520,23 +527,23 @@ public class BookRequest {
              * Fully-initialising value constructor
              * 
              */
-            public ImmediateQueuings(final List<ImmediateAmadeusRecordQueuing> immediateQueuing) {
-                this.immediateQueuing = immediateQueuing;
+            public ImmediateQueuings(final List<ImmediateAmadeusRecordQueuing> immediateQueuings) {
+                this.immediateQueuings = immediateQueuings;
             }
 
             /**
-             * Gets the value of the immediateQueuing property.
+             * Gets the value of the immediateQueuings property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the immediateQueuing property.
+             * This is why there is not a <CODE>set</CODE> method for the immediateQueuings property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getImmediateQueuing().add(newItem);
+             *    getImmediateQueuings().add(newItem);
              * </pre>
              * 
              * 
@@ -546,11 +553,11 @@ public class BookRequest {
              * 
              * 
              */
-            public List<ImmediateAmadeusRecordQueuing> getImmediateQueuing() {
-                if (immediateQueuing == null) {
-                    immediateQueuing = new ArrayList<ImmediateAmadeusRecordQueuing>();
+            public List<ImmediateAmadeusRecordQueuing> getImmediateQueuings() {
+                if (immediateQueuings == null) {
+                    immediateQueuings = new ArrayList<ImmediateAmadeusRecordQueuing>();
                 }
-                return this.immediateQueuing;
+                return this.immediateQueuings;
             }
 
         }
@@ -579,12 +586,13 @@ public class BookRequest {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passenger"
+        "passengers"
     })
-    public static class Passengers {
+    public static class Passengers implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<SeatedNamedPassenger> passenger;
+        @XmlElement(name = "passenger", required = true)
+        protected List<SeatedNamedPassenger> passengers;
 
         /**
          * Default no-arg constructor
@@ -598,23 +606,23 @@ public class BookRequest {
          * Fully-initialising value constructor
          * 
          */
-        public Passengers(final List<SeatedNamedPassenger> passenger) {
-            this.passenger = passenger;
+        public Passengers(final List<SeatedNamedPassenger> passengers) {
+            this.passengers = passengers;
         }
 
         /**
-         * Gets the value of the passenger property.
+         * Gets the value of the passengers property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passenger property.
+         * This is why there is not a <CODE>set</CODE> method for the passengers property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassenger().add(newItem);
+         *    getPassengers().add(newItem);
          * </pre>
          * 
          * 
@@ -624,11 +632,11 @@ public class BookRequest {
          * 
          * 
          */
-        public List<SeatedNamedPassenger> getPassenger() {
-            if (passenger == null) {
-                passenger = new ArrayList<SeatedNamedPassenger>();
+        public List<SeatedNamedPassenger> getPassengers() {
+            if (passengers == null) {
+                passengers = new ArrayList<SeatedNamedPassenger>();
             }
-            return this.passenger;
+            return this.passengers;
         }
 
     }

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -48,7 +49,8 @@ import javax.xml.datatype.Duration;
 @XmlType(name = "DetailedItinerary", propOrder = {
 
 })
-public class DetailedItinerary {
+public class DetailedItinerary implements Serializable
+{
 
     @XmlElement(required = true)
     protected DetailedItinerary.Segments segments;
@@ -161,12 +163,13 @@ public class DetailedItinerary {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "segment"
+        "segments"
     })
-    public static class Segments {
+    public static class Segments implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<DetailedSegment> segment;
+        @XmlElement(name = "segment", required = true)
+        protected List<DetailedSegment> segments;
 
         /**
          * Default no-arg constructor
@@ -180,23 +183,23 @@ public class DetailedItinerary {
          * Fully-initialising value constructor
          * 
          */
-        public Segments(final List<DetailedSegment> segment) {
-            this.segment = segment;
+        public Segments(final List<DetailedSegment> segments) {
+            this.segments = segments;
         }
 
         /**
-         * Gets the value of the segment property.
+         * Gets the value of the segments property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the segment property.
+         * This is why there is not a <CODE>set</CODE> method for the segments property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getSegment().add(newItem);
+         *    getSegments().add(newItem);
          * </pre>
          * 
          * 
@@ -206,11 +209,11 @@ public class DetailedItinerary {
          * 
          * 
          */
-        public List<DetailedSegment> getSegment() {
-            if (segment == null) {
-                segment = new ArrayList<DetailedSegment>();
+        public List<DetailedSegment> getSegments() {
+            if (segments == null) {
+                segments = new ArrayList<DetailedSegment>();
             }
-            return this.segment;
+            return this.segments;
         }
 
     }

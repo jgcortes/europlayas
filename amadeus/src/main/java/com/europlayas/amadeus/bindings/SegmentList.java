@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -33,15 +34,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SegmentList", propOrder = {
-    "segment"
+    "segments"
 })
 @XmlSeeAlso({
     UnpricedSegmentList.class
 })
-public class SegmentList {
+public class SegmentList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<Segment> segment;
+    @XmlElement(name = "segment", required = true)
+    protected List<Segment> segments;
 
     /**
      * Default no-arg constructor
@@ -55,23 +57,23 @@ public class SegmentList {
      * Fully-initialising value constructor
      * 
      */
-    public SegmentList(final List<Segment> segment) {
-        this.segment = segment;
+    public SegmentList(final List<Segment> segments) {
+        this.segments = segments;
     }
 
     /**
-     * Gets the value of the segment property.
+     * Gets the value of the segments property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the segment property.
+     * This is why there is not a <CODE>set</CODE> method for the segments property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSegment().add(newItem);
+     *    getSegments().add(newItem);
      * </pre>
      * 
      * 
@@ -81,11 +83,11 @@ public class SegmentList {
      * 
      * 
      */
-    public List<Segment> getSegment() {
-        if (segment == null) {
-            segment = new ArrayList<Segment>();
+    public List<Segment> getSegments() {
+        if (segments == null) {
+            segments = new ArrayList<Segment>();
         }
-        return this.segment;
+        return this.segments;
     }
 
 }

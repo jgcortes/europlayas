@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -55,6 +56,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class UnconfirmedBookingWarning
     extends BookWarning
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -131,12 +133,13 @@ public class UnconfirmedBookingWarning
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "unconfirmedSegment"
+        "unconfirmedSegments"
     })
-    public static class UnconfirmedSegments {
+    public static class UnconfirmedSegments implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment> unconfirmedSegment;
+        @XmlElement(name = "unconfirmedSegment", required = true)
+        protected List<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment> unconfirmedSegments;
 
         /**
          * Default no-arg constructor
@@ -150,23 +153,23 @@ public class UnconfirmedBookingWarning
          * Fully-initialising value constructor
          * 
          */
-        public UnconfirmedSegments(final List<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment> unconfirmedSegment) {
-            this.unconfirmedSegment = unconfirmedSegment;
+        public UnconfirmedSegments(final List<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment> unconfirmedSegments) {
+            this.unconfirmedSegments = unconfirmedSegments;
         }
 
         /**
-         * Gets the value of the unconfirmedSegment property.
+         * Gets the value of the unconfirmedSegments property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the unconfirmedSegment property.
+         * This is why there is not a <CODE>set</CODE> method for the unconfirmedSegments property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getUnconfirmedSegment().add(newItem);
+         *    getUnconfirmedSegments().add(newItem);
          * </pre>
          * 
          * 
@@ -176,11 +179,11 @@ public class UnconfirmedBookingWarning
          * 
          * 
          */
-        public List<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment> getUnconfirmedSegment() {
-            if (unconfirmedSegment == null) {
-                unconfirmedSegment = new ArrayList<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment>();
+        public List<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment> getUnconfirmedSegments() {
+            if (unconfirmedSegments == null) {
+                unconfirmedSegments = new ArrayList<UnconfirmedBookingWarning.UnconfirmedSegments.UnconfirmedSegment>();
             }
-            return this.unconfirmedSegment;
+            return this.unconfirmedSegments;
         }
 
 
@@ -203,7 +206,8 @@ public class UnconfirmedBookingWarning
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class UnconfirmedSegment {
+        public static class UnconfirmedSegment implements Serializable
+        {
 
             @XmlAttribute(name = "id", required = true)
             protected int id;

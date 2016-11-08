@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -55,7 +56,8 @@ import javax.xml.bind.annotation.XmlType;
     SearchPassengersInconsistency.class,
     NamedPassengersInconsistency.class
 })
-public class PassengersInconsistency {
+public class PassengersInconsistency implements Serializable
+{
 
     protected PassengersInconsistency.UnsupportedPassengers unsupportedPassengers;
     protected AdditionalServicesInconsistency additionalServicesInconsistency;
@@ -192,12 +194,13 @@ public class PassengersInconsistency {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "unsupportedPassenger"
+        "unsupportedPassengers"
     })
-    public static class UnsupportedPassengers {
+    public static class UnsupportedPassengers implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<Passenger> unsupportedPassenger;
+        @XmlElement(name = "unsupportedPassenger", required = true)
+        protected List<Passenger> unsupportedPassengers;
 
         /**
          * Default no-arg constructor
@@ -211,23 +214,23 @@ public class PassengersInconsistency {
          * Fully-initialising value constructor
          * 
          */
-        public UnsupportedPassengers(final List<Passenger> unsupportedPassenger) {
-            this.unsupportedPassenger = unsupportedPassenger;
+        public UnsupportedPassengers(final List<Passenger> unsupportedPassengers) {
+            this.unsupportedPassengers = unsupportedPassengers;
         }
 
         /**
-         * Gets the value of the unsupportedPassenger property.
+         * Gets the value of the unsupportedPassengers property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the unsupportedPassenger property.
+         * This is why there is not a <CODE>set</CODE> method for the unsupportedPassengers property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getUnsupportedPassenger().add(newItem);
+         *    getUnsupportedPassengers().add(newItem);
          * </pre>
          * 
          * 
@@ -237,11 +240,11 @@ public class PassengersInconsistency {
          * 
          * 
          */
-        public List<Passenger> getUnsupportedPassenger() {
-            if (unsupportedPassenger == null) {
-                unsupportedPassenger = new ArrayList<Passenger>();
+        public List<Passenger> getUnsupportedPassengers() {
+            if (unsupportedPassengers == null) {
+                unsupportedPassengers = new ArrayList<Passenger>();
             }
-            return this.unsupportedPassenger;
+            return this.unsupportedPassengers;
         }
 
     }

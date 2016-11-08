@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CorporateCodeList", propOrder = {
-    "corporateCode"
+    "corporateCodes"
 })
-public class CorporateCodeList {
+public class CorporateCodeList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<String> corporateCode;
+    @XmlElement(name = "corporateCode", required = true)
+    protected List<String> corporateCodes;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class CorporateCodeList {
      * Fully-initialising value constructor
      * 
      */
-    public CorporateCodeList(final List<String> corporateCode) {
-        this.corporateCode = corporateCode;
+    public CorporateCodeList(final List<String> corporateCodes) {
+        this.corporateCodes = corporateCodes;
     }
 
     /**
-     * Gets the value of the corporateCode property.
+     * Gets the value of the corporateCodes property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the corporateCode property.
+     * This is why there is not a <CODE>set</CODE> method for the corporateCodes property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCorporateCode().add(newItem);
+     *    getCorporateCodes().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class CorporateCodeList {
      * 
      * 
      */
-    public List<String> getCorporateCode() {
-        if (corporateCode == null) {
-            corporateCode = new ArrayList<String>();
+    public List<String> getCorporateCodes() {
+        if (corporateCodes == null) {
+            corporateCodes = new ArrayList<String>();
         }
-        return this.corporateCode;
+        return this.corporateCodes;
     }
 
 }

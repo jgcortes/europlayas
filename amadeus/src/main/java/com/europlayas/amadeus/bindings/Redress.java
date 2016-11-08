@@ -1,13 +1,16 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.europlayas.amadeus.bindings.common.CountryCode;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -69,7 +72,8 @@ import com.europlayas.amadeus.bindings.common.CountryCode;
 @XmlType(name = "Redress", propOrder = {
 
 })
-public class Redress {
+public class Redress implements Serializable
+{
 
     @XmlElement(required = true)
     protected Redress.Issuance issuance;
@@ -215,10 +219,12 @@ public class Redress {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class Issuance {
+    public static class Issuance implements Serializable
+    {
 
         @XmlAttribute(name = "date", required = true)
-        protected XMLGregorianCalendar date;
+        @XmlJavaTypeAdapter(DateAdapter.class)
+        protected LocalDate date;
         @XmlAttribute(name = "countryCode", required = true)
         protected CountryCode countryCode;
 
@@ -234,7 +240,7 @@ public class Redress {
          * Fully-initialising value constructor
          * 
          */
-        public Issuance(final XMLGregorianCalendar date, final CountryCode countryCode) {
+        public Issuance(final LocalDate date, final CountryCode countryCode) {
             this.date = date;
             this.countryCode = countryCode;
         }
@@ -244,10 +250,10 @@ public class Redress {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getDate() {
+        public LocalDate getDate() {
             return date;
         }
 
@@ -256,10 +262,10 @@ public class Redress {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setDate(XMLGregorianCalendar value) {
+        public void setDate(LocalDate value) {
             this.date = value;
         }
 
@@ -309,7 +315,8 @@ public class Redress {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class PersonalInformation {
+    public static class PersonalInformation implements Serializable
+    {
 
         @XmlAttribute(name = "placeOfBirth", required = true)
         protected String placeOfBirth;
@@ -376,7 +383,8 @@ public class Redress {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class Validity {
+    public static class Validity implements Serializable
+    {
 
         @XmlAttribute(name = "countryCode", required = true)
         protected CountryCode countryCode;

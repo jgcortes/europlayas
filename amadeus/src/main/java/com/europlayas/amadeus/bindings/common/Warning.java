@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -32,7 +33,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({
     com.europlayas.amadeus.bindings.Warning.class
 })
-public abstract class Warning {
+public abstract class Warning implements Serializable
+{
 
     @XmlAttribute(name = "message", required = true)
     protected String message;

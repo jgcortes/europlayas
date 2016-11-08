@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "PriceWithInfoResponseTotalAmount")
 public class PriceWithInfoResponseTotalAmount
     extends CurrencyAmount
+    implements Serializable
 {
 
     @XmlAttribute(name = "billingCurrency")

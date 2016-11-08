@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -31,6 +32,7 @@ import javax.xml.datatype.Duration;
 @XmlType(name = "DelayToQueueTicketing")
 public class DelayToQueueTicketing
     extends TicketingAgreement
+    implements Serializable
 {
 
     @XmlAttribute(name = "delay", required = true)

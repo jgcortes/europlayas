@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -29,15 +30,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SearchLuggageAllowance", propOrder = {
-    "numberOfPieces",
-    "totalWeightAllowed"
+    "totalWeightAllowed",
+    "numberOfPieces"
 })
-public class SearchLuggageAllowance {
+public class SearchLuggageAllowance implements Serializable
+{
 
-    @XmlSchemaType(name = "unsignedByte")
-    protected Short numberOfPieces;
     @XmlSchemaType(name = "unsignedShort")
     protected Integer totalWeightAllowed;
+    @XmlSchemaType(name = "unsignedByte")
+    protected Short numberOfPieces;
 
     /**
      * Default no-arg constructor
@@ -51,33 +53,9 @@ public class SearchLuggageAllowance {
      * Fully-initialising value constructor
      * 
      */
-    public SearchLuggageAllowance(final Short numberOfPieces, final Integer totalWeightAllowed) {
-        this.numberOfPieces = numberOfPieces;
+    public SearchLuggageAllowance(final Integer totalWeightAllowed, final Short numberOfPieces) {
         this.totalWeightAllowed = totalWeightAllowed;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad numberOfPieces.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Short }
-     *     
-     */
-    public Short getNumberOfPieces() {
-        return numberOfPieces;
-    }
-
-    /**
-     * Define el valor de la propiedad numberOfPieces.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Short }
-     *     
-     */
-    public void setNumberOfPieces(Short value) {
-        this.numberOfPieces = value;
+        this.numberOfPieces = numberOfPieces;
     }
 
     /**
@@ -102,6 +80,30 @@ public class SearchLuggageAllowance {
      */
     public void setTotalWeightAllowed(Integer value) {
         this.totalWeightAllowed = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad numberOfPieces.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Short }
+     *     
+     */
+    public Short getNumberOfPieces() {
+        return numberOfPieces;
+    }
+
+    /**
+     * Define el valor de la propiedad numberOfPieces.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Short }
+     *     
+     */
+    public void setNumberOfPieces(Short value) {
+        this.numberOfPieces = value;
     }
 
 }

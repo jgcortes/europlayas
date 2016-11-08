@@ -1,14 +1,19 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -93,7 +98,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "AvailabilitySearchRequest", propOrder = {
 
 })
-public class AvailabilitySearchRequest {
+@XmlRootElement(name = "availabilitySearchRequest")
+public class AvailabilitySearchRequest implements Serializable
+{
 
     @XmlElement(required = true)
     protected AvailabilitySearchRequest.Journey journey;
@@ -260,7 +267,8 @@ public class AvailabilitySearchRequest {
     @XmlType(name = "", propOrder = {
 
     })
-    public static class Journey {
+    public static class Journey implements Serializable
+    {
 
         @XmlElement(required = true)
         protected AvailabilitySearchRequest.Journey.OriginDestinations originDestinations;
@@ -362,12 +370,13 @@ public class AvailabilitySearchRequest {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "originDestination"
+            "originDestinations"
         })
-        public static class OriginDestinations {
+        public static class OriginDestinations implements Serializable
+        {
 
-            @XmlElement(required = true)
-            protected List<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination> originDestination;
+            @XmlElement(name = "originDestination", required = true)
+            protected List<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination> originDestinations;
 
             /**
              * Default no-arg constructor
@@ -381,23 +390,23 @@ public class AvailabilitySearchRequest {
              * Fully-initialising value constructor
              * 
              */
-            public OriginDestinations(final List<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination> originDestination) {
-                this.originDestination = originDestination;
+            public OriginDestinations(final List<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination> originDestinations) {
+                this.originDestinations = originDestinations;
             }
 
             /**
-             * Gets the value of the originDestination property.
+             * Gets the value of the originDestinations property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the originDestination property.
+             * This is why there is not a <CODE>set</CODE> method for the originDestinations property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getOriginDestination().add(newItem);
+             *    getOriginDestinations().add(newItem);
              * </pre>
              * 
              * 
@@ -407,11 +416,11 @@ public class AvailabilitySearchRequest {
              * 
              * 
              */
-            public List<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination> getOriginDestination() {
-                if (originDestination == null) {
-                    originDestination = new ArrayList<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination>();
+            public List<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination> getOriginDestinations() {
+                if (originDestinations == null) {
+                    originDestinations = new ArrayList<AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination>();
                 }
-                return this.originDestination;
+                return this.originDestinations;
             }
 
 
@@ -463,18 +472,19 @@ public class AvailabilitySearchRequest {
             @XmlType(name = "", propOrder = {
                 "origin",
                 "destination",
-                "departureDateTime",
                 "arrivalDateTime",
+                "departureDateTime",
                 "connectionPoints"
             })
-            public static class OriginDestination {
+            public static class OriginDestination implements Serializable
+            {
 
                 @XmlElement(required = true)
                 protected IataLocation origin;
                 @XmlElement(required = true)
                 protected IataLocation destination;
-                protected AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime departureDateTime;
                 protected AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.ArrivalDateTime arrivalDateTime;
+                protected AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime departureDateTime;
                 protected ConnectionPoints connectionPoints;
                 @XmlAttribute(name = "id", required = true)
                 protected int id;
@@ -491,11 +501,11 @@ public class AvailabilitySearchRequest {
                  * Fully-initialising value constructor
                  * 
                  */
-                public OriginDestination(final IataLocation origin, final IataLocation destination, final AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime departureDateTime, final AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.ArrivalDateTime arrivalDateTime, final ConnectionPoints connectionPoints, final int id) {
+                public OriginDestination(final IataLocation origin, final IataLocation destination, final AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.ArrivalDateTime arrivalDateTime, final AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime departureDateTime, final ConnectionPoints connectionPoints, final int id) {
                     this.origin = origin;
                     this.destination = destination;
-                    this.departureDateTime = departureDateTime;
                     this.arrivalDateTime = arrivalDateTime;
+                    this.departureDateTime = departureDateTime;
                     this.connectionPoints = connectionPoints;
                     this.id = id;
                 }
@@ -549,30 +559,6 @@ public class AvailabilitySearchRequest {
                 }
 
                 /**
-                 * Obtiene el valor de la propiedad departureDateTime.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime }
-                 *     
-                 */
-                public AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime getDepartureDateTime() {
-                    return departureDateTime;
-                }
-
-                /**
-                 * Define el valor de la propiedad departureDateTime.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime }
-                 *     
-                 */
-                public void setDepartureDateTime(AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime value) {
-                    this.departureDateTime = value;
-                }
-
-                /**
                  * Obtiene el valor de la propiedad arrivalDateTime.
                  * 
                  * @return
@@ -594,6 +580,30 @@ public class AvailabilitySearchRequest {
                  */
                 public void setArrivalDateTime(AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.ArrivalDateTime value) {
                     this.arrivalDateTime = value;
+                }
+
+                /**
+                 * Obtiene el valor de la propiedad departureDateTime.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime }
+                 *     
+                 */
+                public AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime getDepartureDateTime() {
+                    return departureDateTime;
+                }
+
+                /**
+                 * Define el valor de la propiedad departureDateTime.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime }
+                 *     
+                 */
+                public void setDepartureDateTime(AvailabilitySearchRequest.Journey.OriginDestinations.OriginDestination.DepartureDateTime value) {
+                    this.departureDateTime = value;
                 }
 
                 /**
@@ -657,10 +667,12 @@ public class AvailabilitySearchRequest {
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "")
-                public static class ArrivalDateTime {
+                public static class ArrivalDateTime implements Serializable
+                {
 
                     @XmlAttribute(name = "date", required = true)
-                    protected XMLGregorianCalendar date;
+                    @XmlJavaTypeAdapter(DateAdapter.class)
+                    protected LocalDate date;
                     @XmlAttribute(name = "time")
                     protected XMLGregorianCalendar time;
 
@@ -676,7 +688,7 @@ public class AvailabilitySearchRequest {
                      * Fully-initialising value constructor
                      * 
                      */
-                    public ArrivalDateTime(final XMLGregorianCalendar date, final XMLGregorianCalendar time) {
+                    public ArrivalDateTime(final LocalDate date, final XMLGregorianCalendar time) {
                         this.date = date;
                         this.time = time;
                     }
@@ -686,10 +698,10 @@ public class AvailabilitySearchRequest {
                      * 
                      * @return
                      *     possible object is
-                     *     {@link XMLGregorianCalendar }
+                     *     {@link String }
                      *     
                      */
-                    public XMLGregorianCalendar getDate() {
+                    public LocalDate getDate() {
                         return date;
                     }
 
@@ -698,10 +710,10 @@ public class AvailabilitySearchRequest {
                      * 
                      * @param value
                      *     allowed object is
-                     *     {@link XMLGregorianCalendar }
+                     *     {@link String }
                      *     
                      */
-                    public void setDate(XMLGregorianCalendar value) {
+                    public void setDate(LocalDate value) {
                         this.date = value;
                     }
 
@@ -752,10 +764,12 @@ public class AvailabilitySearchRequest {
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "")
-                public static class DepartureDateTime {
+                public static class DepartureDateTime implements Serializable
+                {
 
                     @XmlAttribute(name = "date", required = true)
-                    protected XMLGregorianCalendar date;
+                    @XmlJavaTypeAdapter(DateAdapter.class)
+                    protected LocalDate date;
                     @XmlAttribute(name = "time")
                     protected XMLGregorianCalendar time;
 
@@ -771,7 +785,7 @@ public class AvailabilitySearchRequest {
                      * Fully-initialising value constructor
                      * 
                      */
-                    public DepartureDateTime(final XMLGregorianCalendar date, final XMLGregorianCalendar time) {
+                    public DepartureDateTime(final LocalDate date, final XMLGregorianCalendar time) {
                         this.date = date;
                         this.time = time;
                     }
@@ -781,10 +795,10 @@ public class AvailabilitySearchRequest {
                      * 
                      * @return
                      *     possible object is
-                     *     {@link XMLGregorianCalendar }
+                     *     {@link String }
                      *     
                      */
-                    public XMLGregorianCalendar getDate() {
+                    public LocalDate getDate() {
                         return date;
                     }
 
@@ -793,10 +807,10 @@ public class AvailabilitySearchRequest {
                      * 
                      * @param value
                      *     allowed object is
-                     *     {@link XMLGregorianCalendar }
+                     *     {@link String }
                      *     
                      */
-                    public void setDate(XMLGregorianCalendar value) {
+                    public void setDate(LocalDate value) {
                         this.date = value;
                     }
 

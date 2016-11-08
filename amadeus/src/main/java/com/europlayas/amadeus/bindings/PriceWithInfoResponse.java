@@ -1,11 +1,13 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -54,7 +56,9 @@ import javax.xml.bind.annotation.XmlType;
     "warnings",
     "luggageAllowances"
 })
-public class PriceWithInfoResponse {
+@XmlRootElement(name = "priceWithInfoResponse")
+public class PriceWithInfoResponse implements Serializable
+{
 
     @XmlElement(required = true)
     protected DetailedJourney journey;
@@ -253,12 +257,13 @@ public class PriceWithInfoResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "warning"
+        "warnings"
     })
-    public static class Warnings {
+    public static class Warnings implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<Warning> warning;
+        @XmlElement(name = "warning", required = true)
+        protected List<Warning> warnings;
 
         /**
          * Default no-arg constructor
@@ -272,23 +277,23 @@ public class PriceWithInfoResponse {
          * Fully-initialising value constructor
          * 
          */
-        public Warnings(final List<Warning> warning) {
-            this.warning = warning;
+        public Warnings(final List<Warning> warnings) {
+            this.warnings = warnings;
         }
 
         /**
-         * Gets the value of the warning property.
+         * Gets the value of the warnings property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the warning property.
+         * This is why there is not a <CODE>set</CODE> method for the warnings property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getWarning().add(newItem);
+         *    getWarnings().add(newItem);
          * </pre>
          * 
          * 
@@ -298,11 +303,11 @@ public class PriceWithInfoResponse {
          * 
          * 
          */
-        public List<Warning> getWarning() {
-            if (warning == null) {
-                warning = new ArrayList<Warning>();
+        public List<Warning> getWarnings() {
+            if (warnings == null) {
+                warnings = new ArrayList<Warning>();
             }
-            return this.warning;
+            return this.warnings;
         }
 
     }

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ValidatingAirlineCodeList")
 public class ValidatingAirlineCodeList
     extends AirlineCodeList
+    implements Serializable
 {
 
 
@@ -47,8 +49,8 @@ public class ValidatingAirlineCodeList
      * Fully-initialising value constructor
      * 
      */
-    public ValidatingAirlineCodeList(final List<String> airlineCode) {
-        super(airlineCode);
+    public ValidatingAirlineCodeList(final List<String> airlineCodes) {
+        super(airlineCodes);
     }
 
 }

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -35,7 +36,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({
     AirlineRestrictions.class
 })
-public class AirlinesRestrictionsList {
+public class AirlinesRestrictionsList implements Serializable
+{
 
     protected List<AirlineCodeRestrictions> airlineCodeRestrictions;
 

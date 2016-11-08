@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,11 +51,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TaxList", propOrder = {
-    "tax"
+    "taxes"
 })
-public class TaxList {
+public class TaxList implements Serializable
+{
 
-    protected List<TaxList.Tax> tax;
+    @XmlElement(name = "tax")
+    protected List<TaxList.Tax> taxes;
 
     /**
      * Default no-arg constructor
@@ -68,23 +71,23 @@ public class TaxList {
      * Fully-initialising value constructor
      * 
      */
-    public TaxList(final List<TaxList.Tax> tax) {
-        this.tax = tax;
+    public TaxList(final List<TaxList.Tax> taxes) {
+        this.taxes = taxes;
     }
 
     /**
-     * Gets the value of the tax property.
+     * Gets the value of the taxes property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the tax property.
+     * This is why there is not a <CODE>set</CODE> method for the taxes property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTax().add(newItem);
+     *    getTaxes().add(newItem);
      * </pre>
      * 
      * 
@@ -94,11 +97,11 @@ public class TaxList {
      * 
      * 
      */
-    public List<TaxList.Tax> getTax() {
-        if (tax == null) {
-            tax = new ArrayList<TaxList.Tax>();
+    public List<TaxList.Tax> getTaxes() {
+        if (taxes == null) {
+            taxes = new ArrayList<TaxList.Tax>();
         }
-        return this.tax;
+        return this.taxes;
     }
 
 
@@ -132,7 +135,8 @@ public class TaxList {
     @XmlType(name = "", propOrder = {
 
     })
-    public static class Tax {
+    public static class Tax implements Serializable
+    {
 
         @XmlElement(required = true)
         protected CurrencyAmount amount;

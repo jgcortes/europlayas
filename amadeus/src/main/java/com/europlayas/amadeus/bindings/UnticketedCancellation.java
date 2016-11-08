@@ -1,11 +1,14 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateTimeAdapter;
 
 
 /**
@@ -32,11 +35,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "UnticketedCancellation", propOrder = {
 
 })
-public class UnticketedCancellation {
+public class UnticketedCancellation implements Serializable
+{
 
     protected SegmentIdList segmentIds;
     @XmlAttribute(name = "dateTime")
-    protected XMLGregorianCalendar dateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime dateTime;
 
     /**
      * Default no-arg constructor
@@ -50,7 +55,7 @@ public class UnticketedCancellation {
      * Fully-initialising value constructor
      * 
      */
-    public UnticketedCancellation(final SegmentIdList segmentIds, final XMLGregorianCalendar dateTime) {
+    public UnticketedCancellation(final SegmentIdList segmentIds, final LocalDateTime dateTime) {
         this.segmentIds = segmentIds;
         this.dateTime = dateTime;
     }
@@ -84,10 +89,10 @@ public class UnticketedCancellation {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDateTime() {
+    public LocalDateTime getDateTime() {
         return dateTime;
     }
 
@@ -96,10 +101,10 @@ public class UnticketedCancellation {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDateTime(XMLGregorianCalendar value) {
+    public void setDateTime(LocalDateTime value) {
         this.dateTime = value;
     }
 

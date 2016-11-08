@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConnectionRestriction")
-public class ConnectionRestriction {
+public class ConnectionRestriction implements Serializable
+{
 
     @XmlAttribute(name = "maximumNumberOfConnections")
     protected BigInteger maximumNumberOfConnections;

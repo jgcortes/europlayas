@@ -139,7 +139,7 @@
                                     
                                     <wsdl>${basedir}\src\main\other\wsdl\airService.wsdl</wsdl>
                                     <bindingFiles>
-                                        <bindingFile>${basedir}\src\main\other\wsdl\bindings.xjb</bindingFile>
+                                        <bindingFile>${basedir}\src\main\other\bindings.xjb</bindingFile>
                                     </bindingFiles>
                                     <extraargs>
                                         <extraarg>-verbose</extraarg>

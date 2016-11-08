@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -39,17 +40,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "OriginDestination", propOrder = {
     "origin",
     "destination",
-    "departureDateTimeRange",
-    "arrivalDateTimeRange"
+    "arrivalDateTimeRange",
+    "departureDateTimeRange"
 })
-public class OriginDestination {
+public class OriginDestination implements Serializable
+{
 
     @XmlElement(required = true)
     protected Area origin;
     @XmlElement(required = true)
     protected Area destination;
-    protected DateTimeRange departureDateTimeRange;
     protected DateTimeRange arrivalDateTimeRange;
+    protected DateTimeRange departureDateTimeRange;
     @XmlAttribute(name = "id", required = true)
     protected int id;
 
@@ -65,11 +67,11 @@ public class OriginDestination {
      * Fully-initialising value constructor
      * 
      */
-    public OriginDestination(final Area origin, final Area destination, final DateTimeRange departureDateTimeRange, final DateTimeRange arrivalDateTimeRange, final int id) {
+    public OriginDestination(final Area origin, final Area destination, final DateTimeRange arrivalDateTimeRange, final DateTimeRange departureDateTimeRange, final int id) {
         this.origin = origin;
         this.destination = destination;
-        this.departureDateTimeRange = departureDateTimeRange;
         this.arrivalDateTimeRange = arrivalDateTimeRange;
+        this.departureDateTimeRange = departureDateTimeRange;
         this.id = id;
     }
 
@@ -122,30 +124,6 @@ public class OriginDestination {
     }
 
     /**
-     * Obtiene el valor de la propiedad departureDateTimeRange.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DateTimeRange }
-     *     
-     */
-    public DateTimeRange getDepartureDateTimeRange() {
-        return departureDateTimeRange;
-    }
-
-    /**
-     * Define el valor de la propiedad departureDateTimeRange.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DateTimeRange }
-     *     
-     */
-    public void setDepartureDateTimeRange(DateTimeRange value) {
-        this.departureDateTimeRange = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad arrivalDateTimeRange.
      * 
      * @return
@@ -167,6 +145,30 @@ public class OriginDestination {
      */
     public void setArrivalDateTimeRange(DateTimeRange value) {
         this.arrivalDateTimeRange = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad departureDateTimeRange.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DateTimeRange }
+     *     
+     */
+    public DateTimeRange getDepartureDateTimeRange() {
+        return departureDateTimeRange;
+    }
+
+    /**
+     * Define el valor de la propiedad departureDateTimeRange.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DateTimeRange }
+     *     
+     */
+    public void setDepartureDateTimeRange(DateTimeRange value) {
+        this.departureDateTimeRange = value;
     }
 
     /**

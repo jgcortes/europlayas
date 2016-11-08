@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -48,7 +49,8 @@ import javax.xml.bind.annotation.XmlType;
     "contactInformation",
     "invoiceInformation"
 })
-public class AdditionalRecordData {
+public class AdditionalRecordData implements Serializable
+{
 
     protected AdditionalRecordData.Remarks remarks;
     protected GlobalContactInformation contactInformation;
@@ -166,12 +168,13 @@ public class AdditionalRecordData {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "remark"
+        "remarks"
     })
-    public static class Remarks {
+    public static class Remarks implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<AbstractRemark> remark;
+        @XmlElement(name = "remark", required = true)
+        protected List<AbstractRemark> remarks;
 
         /**
          * Default no-arg constructor
@@ -185,23 +188,23 @@ public class AdditionalRecordData {
          * Fully-initialising value constructor
          * 
          */
-        public Remarks(final List<AbstractRemark> remark) {
-            this.remark = remark;
+        public Remarks(final List<AbstractRemark> remarks) {
+            this.remarks = remarks;
         }
 
         /**
-         * Gets the value of the remark property.
+         * Gets the value of the remarks property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the remark property.
+         * This is why there is not a <CODE>set</CODE> method for the remarks property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getRemark().add(newItem);
+         *    getRemarks().add(newItem);
          * </pre>
          * 
          * 
@@ -211,11 +214,11 @@ public class AdditionalRecordData {
          * 
          * 
          */
-        public List<AbstractRemark> getRemark() {
-            if (remark == null) {
-                remark = new ArrayList<AbstractRemark>();
+        public List<AbstractRemark> getRemarks() {
+            if (remarks == null) {
+                remarks = new ArrayList<AbstractRemark>();
             }
-            return this.remark;
+            return this.remarks;
         }
 
     }

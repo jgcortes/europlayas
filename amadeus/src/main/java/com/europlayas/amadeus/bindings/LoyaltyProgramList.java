@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,12 +31,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LoyaltyProgramList", propOrder = {
-    "loyaltyProgram"
+    "loyaltyPrograms"
 })
-public class LoyaltyProgramList {
+public class LoyaltyProgramList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<FrequentFlyer> loyaltyProgram;
+    @XmlElement(name = "loyaltyProgram", required = true)
+    protected List<FrequentFlyer> loyaltyPrograms;
 
     /**
      * Default no-arg constructor
@@ -49,23 +51,23 @@ public class LoyaltyProgramList {
      * Fully-initialising value constructor
      * 
      */
-    public LoyaltyProgramList(final List<FrequentFlyer> loyaltyProgram) {
-        this.loyaltyProgram = loyaltyProgram;
+    public LoyaltyProgramList(final List<FrequentFlyer> loyaltyPrograms) {
+        this.loyaltyPrograms = loyaltyPrograms;
     }
 
     /**
-     * Gets the value of the loyaltyProgram property.
+     * Gets the value of the loyaltyPrograms property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the loyaltyProgram property.
+     * This is why there is not a <CODE>set</CODE> method for the loyaltyPrograms property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getLoyaltyProgram().add(newItem);
+     *    getLoyaltyPrograms().add(newItem);
      * </pre>
      * 
      * 
@@ -75,11 +77,11 @@ public class LoyaltyProgramList {
      * 
      * 
      */
-    public List<FrequentFlyer> getLoyaltyProgram() {
-        if (loyaltyProgram == null) {
-            loyaltyProgram = new ArrayList<FrequentFlyer>();
+    public List<FrequentFlyer> getLoyaltyPrograms() {
+        if (loyaltyPrograms == null) {
+            loyaltyPrograms = new ArrayList<FrequentFlyer>();
         }
-        return this.loyaltyProgram;
+        return this.loyaltyPrograms;
     }
 
 }

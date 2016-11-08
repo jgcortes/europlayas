@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UnpricedPassengerList", propOrder = {
-    "unpricedPassenger"
+    "unpricedPassengers"
 })
-public class UnpricedPassengerList {
+public class UnpricedPassengerList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<Passenger> unpricedPassenger;
+    @XmlElement(name = "unpricedPassenger", required = true)
+    protected List<Passenger> unpricedPassengers;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class UnpricedPassengerList {
      * Fully-initialising value constructor
      * 
      */
-    public UnpricedPassengerList(final List<Passenger> unpricedPassenger) {
-        this.unpricedPassenger = unpricedPassenger;
+    public UnpricedPassengerList(final List<Passenger> unpricedPassengers) {
+        this.unpricedPassengers = unpricedPassengers;
     }
 
     /**
-     * Gets the value of the unpricedPassenger property.
+     * Gets the value of the unpricedPassengers property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the unpricedPassenger property.
+     * This is why there is not a <CODE>set</CODE> method for the unpricedPassengers property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUnpricedPassenger().add(newItem);
+     *    getUnpricedPassengers().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class UnpricedPassengerList {
      * 
      * 
      */
-    public List<Passenger> getUnpricedPassenger() {
-        if (unpricedPassenger == null) {
-            unpricedPassenger = new ArrayList<Passenger>();
+    public List<Passenger> getUnpricedPassengers() {
+        if (unpricedPassengers == null) {
+            unpricedPassengers = new ArrayList<Passenger>();
         }
-        return this.unpricedPassenger;
+        return this.unpricedPassengers;
     }
 
 }

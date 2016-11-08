@@ -1,11 +1,12 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -29,6 +30,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "AirExternalRecord")
 public class AirExternalRecord
     extends ExternalProviderRecord
+    implements Serializable
 {
 
     @XmlAttribute(name = "company", required = true)
@@ -46,7 +48,7 @@ public class AirExternalRecord
      * Fully-initialising value constructor
      * 
      */
-    public AirExternalRecord(final String locator, final XMLGregorianCalendar creationDateTime, final String company) {
+    public AirExternalRecord(final String locator, final LocalDateTime creationDateTime, final String company) {
         super(locator, creationDateTime);
         this.company = company;
     }

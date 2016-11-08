@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -33,6 +34,7 @@ import com.europlayas.amadeus.bindings.common.PersonalContactInformation;
 @XmlType(name = "NonInfantHoldingSeatedNamedPassenger")
 public class NonInfantHoldingSeatedNamedPassenger
     extends SeatedNamedPassenger
+    implements Serializable
 {
 
     @XmlAttribute(name = "passengerType", required = true)

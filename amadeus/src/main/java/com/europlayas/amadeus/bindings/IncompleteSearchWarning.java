@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -36,15 +37,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IncompleteSearchWarning", propOrder = {
-    "failedPassengerFareOptionGroup",
+    "failedPassengerFareOptionGroups",
     "cause"
 })
 public class IncompleteSearchWarning
     extends LowFareSearchWarning
+    implements Serializable
 {
 
-    @XmlElement(required = true)
-    protected List<PassengerFareOptionList> failedPassengerFareOptionGroup;
+    @XmlElement(name = "failedPassengerFareOptionGroup", required = true)
+    protected List<PassengerFareOptionList> failedPassengerFareOptionGroups;
     @XmlElement(required = true)
     protected Fault cause;
     @XmlAttribute(name = "provider")
@@ -63,26 +65,26 @@ public class IncompleteSearchWarning
      * Fully-initialising value constructor
      * 
      */
-    public IncompleteSearchWarning(final String message, final ItineraryIdList itineraries, final List<PassengerFareOptionList> failedPassengerFareOptionGroup, final Fault cause, final String provider) {
+    public IncompleteSearchWarning(final String message, final ItineraryIdList itineraries, final List<PassengerFareOptionList> failedPassengerFareOptionGroups, final Fault cause, final String provider) {
         super(message, itineraries);
-        this.failedPassengerFareOptionGroup = failedPassengerFareOptionGroup;
+        this.failedPassengerFareOptionGroups = failedPassengerFareOptionGroups;
         this.cause = cause;
         this.provider = provider;
     }
 
     /**
-     * Gets the value of the failedPassengerFareOptionGroup property.
+     * Gets the value of the failedPassengerFareOptionGroups property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the failedPassengerFareOptionGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the failedPassengerFareOptionGroups property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getFailedPassengerFareOptionGroup().add(newItem);
+     *    getFailedPassengerFareOptionGroups().add(newItem);
      * </pre>
      * 
      * 
@@ -92,11 +94,11 @@ public class IncompleteSearchWarning
      * 
      * 
      */
-    public List<PassengerFareOptionList> getFailedPassengerFareOptionGroup() {
-        if (failedPassengerFareOptionGroup == null) {
-            failedPassengerFareOptionGroup = new ArrayList<PassengerFareOptionList>();
+    public List<PassengerFareOptionList> getFailedPassengerFareOptionGroups() {
+        if (failedPassengerFareOptionGroups == null) {
+            failedPassengerFareOptionGroups = new ArrayList<PassengerFareOptionList>();
         }
-        return this.failedPassengerFareOptionGroup;
+        return this.failedPassengerFareOptionGroups;
     }
 
     /**

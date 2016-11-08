@@ -1,10 +1,12 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -29,11 +31,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LuggageAllowances", propOrder = {
-    "luggageAllowance"
+    "luggageAllowances"
 })
-public class LuggageAllowances {
+public class LuggageAllowances implements Serializable
+{
 
-    protected List<LuggageAllowance> luggageAllowance;
+    @XmlElement(name = "luggageAllowance")
+    protected List<LuggageAllowance> luggageAllowances;
 
     /**
      * Default no-arg constructor
@@ -47,23 +51,23 @@ public class LuggageAllowances {
      * Fully-initialising value constructor
      * 
      */
-    public LuggageAllowances(final List<LuggageAllowance> luggageAllowance) {
-        this.luggageAllowance = luggageAllowance;
+    public LuggageAllowances(final List<LuggageAllowance> luggageAllowances) {
+        this.luggageAllowances = luggageAllowances;
     }
 
     /**
-     * Gets the value of the luggageAllowance property.
+     * Gets the value of the luggageAllowances property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the luggageAllowance property.
+     * This is why there is not a <CODE>set</CODE> method for the luggageAllowances property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getLuggageAllowance().add(newItem);
+     *    getLuggageAllowances().add(newItem);
      * </pre>
      * 
      * 
@@ -73,11 +77,11 @@ public class LuggageAllowances {
      * 
      * 
      */
-    public List<LuggageAllowance> getLuggageAllowance() {
-        if (luggageAllowance == null) {
-            luggageAllowance = new ArrayList<LuggageAllowance>();
+    public List<LuggageAllowance> getLuggageAllowances() {
+        if (luggageAllowances == null) {
+            luggageAllowances = new ArrayList<LuggageAllowance>();
         }
-        return this.luggageAllowance;
+        return this.luggageAllowances;
     }
 
 }

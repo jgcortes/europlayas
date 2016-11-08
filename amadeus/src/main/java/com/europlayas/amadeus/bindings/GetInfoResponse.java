@@ -1,11 +1,13 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -92,7 +94,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "GetInfoResponse", propOrder = {
 
 })
-public class GetInfoResponse {
+@XmlRootElement(name = "getInfoResponse")
+public class GetInfoResponse implements Serializable
+{
 
     protected GetInfoResponse.Warnings warnings;
     @XmlElement(required = true)
@@ -355,12 +359,14 @@ public class GetInfoResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "fareRule",
+        "fareRules",
         "warnings"
     })
-    public static class FareRules {
+    public static class FareRules implements Serializable
+    {
 
-        protected List<FareRule> fareRule;
+        @XmlElement(name = "fareRule")
+        protected List<FareRule> fareRules;
         protected GetInfoResponse.FareRules.Warnings warnings;
 
         /**
@@ -375,24 +381,24 @@ public class GetInfoResponse {
          * Fully-initialising value constructor
          * 
          */
-        public FareRules(final List<FareRule> fareRule, final GetInfoResponse.FareRules.Warnings warnings) {
-            this.fareRule = fareRule;
+        public FareRules(final List<FareRule> fareRules, final GetInfoResponse.FareRules.Warnings warnings) {
+            this.fareRules = fareRules;
             this.warnings = warnings;
         }
 
         /**
-         * Gets the value of the fareRule property.
+         * Gets the value of the fareRules property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the fareRule property.
+         * This is why there is not a <CODE>set</CODE> method for the fareRules property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getFareRule().add(newItem);
+         *    getFareRules().add(newItem);
          * </pre>
          * 
          * 
@@ -402,11 +408,11 @@ public class GetInfoResponse {
          * 
          * 
          */
-        public List<FareRule> getFareRule() {
-            if (fareRule == null) {
-                fareRule = new ArrayList<FareRule>();
+        public List<FareRule> getFareRules() {
+            if (fareRules == null) {
+                fareRules = new ArrayList<FareRule>();
             }
-            return this.fareRule;
+            return this.fareRules;
         }
 
         /**
@@ -455,12 +461,13 @@ public class GetInfoResponse {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "warning"
+            "warnings"
         })
-        public static class Warnings {
+        public static class Warnings implements Serializable
+        {
 
-            @XmlElement(required = true)
-            protected List<Warning> warning;
+            @XmlElement(name = "warning", required = true)
+            protected List<Warning> warnings;
 
             /**
              * Default no-arg constructor
@@ -474,23 +481,23 @@ public class GetInfoResponse {
              * Fully-initialising value constructor
              * 
              */
-            public Warnings(final List<Warning> warning) {
-                this.warning = warning;
+            public Warnings(final List<Warning> warnings) {
+                this.warnings = warnings;
             }
 
             /**
-             * Gets the value of the warning property.
+             * Gets the value of the warnings property.
              * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the warning property.
+             * This is why there is not a <CODE>set</CODE> method for the warnings property.
              * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
-             *    getWarning().add(newItem);
+             *    getWarnings().add(newItem);
              * </pre>
              * 
              * 
@@ -500,11 +507,11 @@ public class GetInfoResponse {
              * 
              * 
              */
-            public List<Warning> getWarning() {
-                if (warning == null) {
-                    warning = new ArrayList<Warning>();
+            public List<Warning> getWarnings() {
+                if (warnings == null) {
+                    warnings = new ArrayList<Warning>();
                 }
-                return this.warning;
+                return this.warnings;
             }
 
         }
@@ -533,11 +540,13 @@ public class GetInfoResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "luggageFee"
+        "luggageFees"
     })
-    public static class LuggageFees {
+    public static class LuggageFees implements Serializable
+    {
 
-        protected List<LuggageFee> luggageFee;
+        @XmlElement(name = "luggageFee")
+        protected List<LuggageFee> luggageFees;
 
         /**
          * Default no-arg constructor
@@ -551,23 +560,23 @@ public class GetInfoResponse {
          * Fully-initialising value constructor
          * 
          */
-        public LuggageFees(final List<LuggageFee> luggageFee) {
-            this.luggageFee = luggageFee;
+        public LuggageFees(final List<LuggageFee> luggageFees) {
+            this.luggageFees = luggageFees;
         }
 
         /**
-         * Gets the value of the luggageFee property.
+         * Gets the value of the luggageFees property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the luggageFee property.
+         * This is why there is not a <CODE>set</CODE> method for the luggageFees property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getLuggageFee().add(newItem);
+         *    getLuggageFees().add(newItem);
          * </pre>
          * 
          * 
@@ -577,11 +586,11 @@ public class GetInfoResponse {
          * 
          * 
          */
-        public List<LuggageFee> getLuggageFee() {
-            if (luggageFee == null) {
-                luggageFee = new ArrayList<LuggageFee>();
+        public List<LuggageFee> getLuggageFees() {
+            if (luggageFees == null) {
+                luggageFees = new ArrayList<LuggageFee>();
             }
-            return this.luggageFee;
+            return this.luggageFees;
         }
 
     }
@@ -608,11 +617,13 @@ public class GetInfoResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "paymentCardFee"
+        "paymentCardFees"
     })
-    public static class PaymentCardFees {
+    public static class PaymentCardFees implements Serializable
+    {
 
-        protected List<PaymentCardFee> paymentCardFee;
+        @XmlElement(name = "paymentCardFee")
+        protected List<PaymentCardFee> paymentCardFees;
 
         /**
          * Default no-arg constructor
@@ -626,23 +637,23 @@ public class GetInfoResponse {
          * Fully-initialising value constructor
          * 
          */
-        public PaymentCardFees(final List<PaymentCardFee> paymentCardFee) {
-            this.paymentCardFee = paymentCardFee;
+        public PaymentCardFees(final List<PaymentCardFee> paymentCardFees) {
+            this.paymentCardFees = paymentCardFees;
         }
 
         /**
-         * Gets the value of the paymentCardFee property.
+         * Gets the value of the paymentCardFees property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the paymentCardFee property.
+         * This is why there is not a <CODE>set</CODE> method for the paymentCardFees property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPaymentCardFee().add(newItem);
+         *    getPaymentCardFees().add(newItem);
          * </pre>
          * 
          * 
@@ -652,11 +663,11 @@ public class GetInfoResponse {
          * 
          * 
          */
-        public List<PaymentCardFee> getPaymentCardFee() {
-            if (paymentCardFee == null) {
-                paymentCardFee = new ArrayList<PaymentCardFee>();
+        public List<PaymentCardFee> getPaymentCardFees() {
+            if (paymentCardFees == null) {
+                paymentCardFees = new ArrayList<PaymentCardFee>();
             }
-            return this.paymentCardFee;
+            return this.paymentCardFees;
         }
 
     }
@@ -683,12 +694,13 @@ public class GetInfoResponse {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "warning"
+        "warnings"
     })
-    public static class Warnings {
+    public static class Warnings implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<Warning> warning;
+        @XmlElement(name = "warning", required = true)
+        protected List<Warning> warnings;
 
         /**
          * Default no-arg constructor
@@ -702,23 +714,23 @@ public class GetInfoResponse {
          * Fully-initialising value constructor
          * 
          */
-        public Warnings(final List<Warning> warning) {
-            this.warning = warning;
+        public Warnings(final List<Warning> warnings) {
+            this.warnings = warnings;
         }
 
         /**
-         * Gets the value of the warning property.
+         * Gets the value of the warnings property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the warning property.
+         * This is why there is not a <CODE>set</CODE> method for the warnings property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getWarning().add(newItem);
+         *    getWarnings().add(newItem);
          * </pre>
          * 
          * 
@@ -728,11 +740,11 @@ public class GetInfoResponse {
          * 
          * 
          */
-        public List<Warning> getWarning() {
-            if (warning == null) {
-                warning = new ArrayList<Warning>();
+        public List<Warning> getWarnings() {
+            if (warnings == null) {
+                warnings = new ArrayList<Warning>();
             }
-            return this.warning;
+            return this.warnings;
         }
 
     }

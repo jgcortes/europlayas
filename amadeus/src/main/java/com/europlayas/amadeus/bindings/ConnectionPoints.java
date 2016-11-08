@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,12 +31,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConnectionPoints", propOrder = {
-    "connectionPoint"
+    "connectionPoints"
 })
-public class ConnectionPoints {
+public class ConnectionPoints implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<ConnectionPoint> connectionPoint;
+    @XmlElement(name = "connectionPoint", required = true)
+    protected List<ConnectionPoint> connectionPoints;
 
     /**
      * Default no-arg constructor
@@ -49,23 +51,23 @@ public class ConnectionPoints {
      * Fully-initialising value constructor
      * 
      */
-    public ConnectionPoints(final List<ConnectionPoint> connectionPoint) {
-        this.connectionPoint = connectionPoint;
+    public ConnectionPoints(final List<ConnectionPoint> connectionPoints) {
+        this.connectionPoints = connectionPoints;
     }
 
     /**
-     * Gets the value of the connectionPoint property.
+     * Gets the value of the connectionPoints property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the connectionPoint property.
+     * This is why there is not a <CODE>set</CODE> method for the connectionPoints property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getConnectionPoint().add(newItem);
+     *    getConnectionPoints().add(newItem);
      * </pre>
      * 
      * 
@@ -75,11 +77,11 @@ public class ConnectionPoints {
      * 
      * 
      */
-    public List<ConnectionPoint> getConnectionPoint() {
-        if (connectionPoint == null) {
-            connectionPoint = new ArrayList<ConnectionPoint>();
+    public List<ConnectionPoint> getConnectionPoints() {
+        if (connectionPoints == null) {
+            connectionPoints = new ArrayList<ConnectionPoint>();
         }
-        return this.connectionPoint;
+        return this.connectionPoints;
     }
 
 }

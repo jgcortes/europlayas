@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UsernameList", propOrder = {
-    "username"
+    "usernames"
 })
-public class UsernameList {
+public class UsernameList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<String> username;
+    @XmlElement(name = "username", required = true)
+    protected List<String> usernames;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class UsernameList {
      * Fully-initialising value constructor
      * 
      */
-    public UsernameList(final List<String> username) {
-        this.username = username;
+    public UsernameList(final List<String> usernames) {
+        this.usernames = usernames;
     }
 
     /**
-     * Gets the value of the username property.
+     * Gets the value of the usernames property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the username property.
+     * This is why there is not a <CODE>set</CODE> method for the usernames property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUsername().add(newItem);
+     *    getUsernames().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class UsernameList {
      * 
      * 
      */
-    public List<String> getUsername() {
-        if (username == null) {
-            username = new ArrayList<String>();
+    public List<String> getUsernames() {
+        if (usernames == null) {
+            usernames = new ArrayList<String>();
         }
-        return this.username;
+        return this.usernames;
     }
 
 }

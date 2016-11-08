@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -41,7 +42,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "AdditionalServicesInconsistency", propOrder = {
 
 })
-public class AdditionalServicesInconsistency {
+public class AdditionalServicesInconsistency implements Serializable
+{
 
     protected AdditionalServicesInconsistency.LuggageInconsistency luggageInconsistency;
 
@@ -106,7 +108,8 @@ public class AdditionalServicesInconsistency {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class LuggageInconsistency {
+    public static class LuggageInconsistency implements Serializable
+    {
 
         @XmlAttribute(name = "tooManyLuggages")
         protected Boolean tooManyLuggages;

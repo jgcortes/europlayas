@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -36,24 +37,25 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InconsistentGetInfoRequestFault", propOrder = {
+    "inconsistentSegments",
     "itineraryInconsistency",
     "passengersInconsistency",
     "fareTypeInconsistency",
-    "pricingInconsistency",
-    "inconsistentSegments"
+    "pricingInconsistency"
 })
 @XmlSeeAlso({
     InconsistentGetFareNotesRequestFault.class
 })
 public class InconsistentGetInfoRequestFault
     extends GetInfoFault
+    implements Serializable
 {
 
+    protected SegmentList inconsistentSegments;
     protected ItineraryInconsistency itineraryInconsistency;
     protected PassengersInconsistency passengersInconsistency;
     protected FareTypeInconsistency fareTypeInconsistency;
     protected GetInfoPricingInconsistency pricingInconsistency;
-    protected SegmentList inconsistentSegments;
 
     /**
      * Default no-arg constructor
@@ -67,13 +69,37 @@ public class InconsistentGetInfoRequestFault
      * Fully-initialising value constructor
      * 
      */
-    public InconsistentGetInfoRequestFault(final ItineraryIdList itineraries, final ItineraryInconsistency itineraryInconsistency, final PassengersInconsistency passengersInconsistency, final FareTypeInconsistency fareTypeInconsistency, final GetInfoPricingInconsistency pricingInconsistency, final SegmentList inconsistentSegments) {
+    public InconsistentGetInfoRequestFault(final ItineraryIdList itineraries, final SegmentList inconsistentSegments, final ItineraryInconsistency itineraryInconsistency, final PassengersInconsistency passengersInconsistency, final FareTypeInconsistency fareTypeInconsistency, final GetInfoPricingInconsistency pricingInconsistency) {
         super(itineraries);
+        this.inconsistentSegments = inconsistentSegments;
         this.itineraryInconsistency = itineraryInconsistency;
         this.passengersInconsistency = passengersInconsistency;
         this.fareTypeInconsistency = fareTypeInconsistency;
         this.pricingInconsistency = pricingInconsistency;
-        this.inconsistentSegments = inconsistentSegments;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad inconsistentSegments.
+     * 
+     * @return
+     *     possible object is
+     *     {@link SegmentList }
+     *     
+     */
+    public SegmentList getInconsistentSegments() {
+        return inconsistentSegments;
+    }
+
+    /**
+     * Define el valor de la propiedad inconsistentSegments.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link SegmentList }
+     *     
+     */
+    public void setInconsistentSegments(SegmentList value) {
+        this.inconsistentSegments = value;
     }
 
     /**
@@ -170,30 +196,6 @@ public class InconsistentGetInfoRequestFault
      */
     public void setPricingInconsistency(GetInfoPricingInconsistency value) {
         this.pricingInconsistency = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad inconsistentSegments.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SegmentList }
-     *     
-     */
-    public SegmentList getInconsistentSegments() {
-        return inconsistentSegments;
-    }
-
-    /**
-     * Define el valor de la propiedad inconsistentSegments.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SegmentList }
-     *     
-     */
-    public void setInconsistentSegments(SegmentList value) {
-        this.inconsistentSegments = value;
     }
 
 }

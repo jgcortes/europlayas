@@ -1,10 +1,12 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import com.europlayas.amadeus.bindings.common.PaymentCardBrand;
 
@@ -45,7 +47,9 @@ import com.europlayas.amadeus.bindings.common.PaymentCardBrand;
 @XmlType(name = "PriceWithInfoRequest", propOrder = {
 
 })
-public class PriceWithInfoRequest {
+@XmlRootElement(name = "priceWithInfoRequest")
+public class PriceWithInfoRequest implements Serializable
+{
 
     @XmlElement(required = true)
     protected Journey journey;
@@ -190,7 +194,8 @@ public class PriceWithInfoRequest {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class Payment {
+    public static class Payment implements Serializable
+    {
 
         @XmlAttribute(name = "cardBrand", required = true)
         protected PaymentCardBrand cardBrand;

@@ -1,12 +1,16 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -44,17 +48,20 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DelayedAmadeusRecordQueuing", propOrder = {
     "remark",
-    "delay",
-    "date"
+    "date",
+    "delay"
 })
 public class DelayedAmadeusRecordQueuing
     extends AbstractAirAmadeusRecordQueuing
+    implements Serializable
 {
 
     protected String remark;
-    protected Duration delay;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(DateAdapter.class)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar date;
+    protected LocalDate date;
+    protected Duration delay;
 
     /**
      * Default no-arg constructor
@@ -68,11 +75,11 @@ public class DelayedAmadeusRecordQueuing
      * Fully-initialising value constructor
      * 
      */
-    public DelayedAmadeusRecordQueuing(final AirAmadeusQueue queue, final String targetOfficeId, final String remark, final Duration delay, final XMLGregorianCalendar date) {
+    public DelayedAmadeusRecordQueuing(final AirAmadeusQueue queue, final String targetOfficeId, final String remark, final LocalDate date, final Duration delay) {
         super(queue, targetOfficeId);
         this.remark = remark;
-        this.delay = delay;
         this.date = date;
+        this.delay = delay;
     }
 
     /**
@@ -100,6 +107,30 @@ public class DelayedAmadeusRecordQueuing
     }
 
     /**
+     * Obtiene el valor de la propiedad date.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public LocalDate getDate() {
+        return date;
+    }
+
+    /**
+     * Define el valor de la propiedad date.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDate(LocalDate value) {
+        this.date = value;
+    }
+
+    /**
      * Obtiene el valor de la propiedad delay.
      * 
      * @return
@@ -121,30 +152,6 @@ public class DelayedAmadeusRecordQueuing
      */
     public void setDelay(Duration value) {
         this.delay = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad date.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getDate() {
-        return date;
-    }
-
-    /**
-     * Define el valor de la propiedad date.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setDate(XMLGregorianCalendar value) {
-        this.date = value;
     }
 
 }

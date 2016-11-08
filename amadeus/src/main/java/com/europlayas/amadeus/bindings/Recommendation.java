@@ -1,12 +1,15 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -42,7 +45,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "Recommendation", propOrder = {
 
 })
-public class Recommendation {
+public class Recommendation implements Serializable
+{
 
     @XmlElement(required = true)
     protected LowFareSearchResponsePricingDetail pricingDetail;
@@ -55,7 +59,8 @@ public class Recommendation {
     @XmlElement(required = true)
     protected ItineraryIdList itineraries;
     @XmlAttribute(name = "lastTicketingDate")
-    protected XMLGregorianCalendar lastTicketingDate;
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    protected LocalDate lastTicketingDate;
     @XmlAttribute(name = "numberOfBookableSeats")
     protected Short numberOfBookableSeats;
     @XmlAttribute(name = "lowCost")
@@ -77,7 +82,7 @@ public class Recommendation {
      * Fully-initialising value constructor
      * 
      */
-    public Recommendation(final LowFareSearchResponsePricingDetail pricingDetail, final FareType fareType, final ValidatingAirlineCodeList validatingAirlines, final SearchPassengerPricingList passengerPricings, final ItineraryIdList itineraries, final XMLGregorianCalendar lastTicketingDate, final Short numberOfBookableSeats, final Boolean lowCost, final Provider provider, final Boolean multipleBookingRecordsRequired) {
+    public Recommendation(final LowFareSearchResponsePricingDetail pricingDetail, final FareType fareType, final ValidatingAirlineCodeList validatingAirlines, final SearchPassengerPricingList passengerPricings, final ItineraryIdList itineraries, final LocalDate lastTicketingDate, final Short numberOfBookableSeats, final Boolean lowCost, final Provider provider, final Boolean multipleBookingRecordsRequired) {
         this.pricingDetail = pricingDetail;
         this.fareType = fareType;
         this.validatingAirlines = validatingAirlines;
@@ -215,10 +220,10 @@ public class Recommendation {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getLastTicketingDate() {
+    public LocalDate getLastTicketingDate() {
         return lastTicketingDate;
     }
 
@@ -227,10 +232,10 @@ public class Recommendation {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setLastTicketingDate(XMLGregorianCalendar value) {
+    public void setLastTicketingDate(LocalDate value) {
         this.lastTicketingDate = value;
     }
 

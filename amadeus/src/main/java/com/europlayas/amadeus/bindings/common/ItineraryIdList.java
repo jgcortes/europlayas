@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ItineraryIdList", propOrder = {
-    "itineraryId"
+    "itineraryIds"
 })
-public class ItineraryIdList {
+public class ItineraryIdList implements Serializable
+{
 
-    @XmlElement(type = Integer.class)
-    protected List<Integer> itineraryId;
+    @XmlElement(name = "itineraryId", type = Integer.class)
+    protected List<Integer> itineraryIds;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class ItineraryIdList {
      * Fully-initialising value constructor
      * 
      */
-    public ItineraryIdList(final List<Integer> itineraryId) {
-        this.itineraryId = itineraryId;
+    public ItineraryIdList(final List<Integer> itineraryIds) {
+        this.itineraryIds = itineraryIds;
     }
 
     /**
-     * Gets the value of the itineraryId property.
+     * Gets the value of the itineraryIds property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the itineraryId property.
+     * This is why there is not a <CODE>set</CODE> method for the itineraryIds property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getItineraryId().add(newItem);
+     *    getItineraryIds().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class ItineraryIdList {
      * 
      * 
      */
-    public List<Integer> getItineraryId() {
-        if (itineraryId == null) {
-            itineraryId = new ArrayList<Integer>();
+    public List<Integer> getItineraryIds() {
+        if (itineraryIds == null) {
+            itineraryIds = new ArrayList<Integer>();
         }
-        return this.itineraryId;
+        return this.itineraryIds;
     }
 
 }

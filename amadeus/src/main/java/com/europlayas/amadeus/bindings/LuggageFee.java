@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,7 +51,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "LuggageFee", propOrder = {
 
 })
-public class LuggageFee {
+public class LuggageFee implements Serializable
+{
 
     @XmlElement(required = true)
     protected CurrencyAmount totalAmount;
@@ -248,12 +250,13 @@ public class LuggageFee {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passengerId"
+        "passengerIds"
     })
-    public static class Passengers {
+    public static class Passengers implements Serializable
+    {
 
-        @XmlElement(type = Integer.class)
-        protected List<Integer> passengerId;
+        @XmlElement(name = "passengerId", type = Integer.class)
+        protected List<Integer> passengerIds;
 
         /**
          * Default no-arg constructor
@@ -267,23 +270,23 @@ public class LuggageFee {
          * Fully-initialising value constructor
          * 
          */
-        public Passengers(final List<Integer> passengerId) {
-            this.passengerId = passengerId;
+        public Passengers(final List<Integer> passengerIds) {
+            this.passengerIds = passengerIds;
         }
 
         /**
-         * Gets the value of the passengerId property.
+         * Gets the value of the passengerIds property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passengerId property.
+         * This is why there is not a <CODE>set</CODE> method for the passengerIds property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassengerId().add(newItem);
+         *    getPassengerIds().add(newItem);
          * </pre>
          * 
          * 
@@ -293,11 +296,11 @@ public class LuggageFee {
          * 
          * 
          */
-        public List<Integer> getPassengerId() {
-            if (passengerId == null) {
-                passengerId = new ArrayList<Integer>();
+        public List<Integer> getPassengerIds() {
+            if (passengerIds == null) {
+                passengerIds = new ArrayList<Integer>();
             }
-            return this.passengerId;
+            return this.passengerIds;
         }
 
     }

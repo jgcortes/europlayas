@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -31,7 +32,8 @@ import javax.xml.bind.annotation.XmlType;
     DefaultablePaymentMethod.class,
     SingleUseVirtualCardPayment.class
 })
-public abstract class PaymentMethod {
+public abstract class PaymentMethod implements Serializable
+{
 
 
     /**

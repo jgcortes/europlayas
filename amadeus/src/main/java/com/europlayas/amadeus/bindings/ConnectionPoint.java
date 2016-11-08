@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -33,7 +34,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ConnectionPoint", propOrder = {
 
 })
-public class ConnectionPoint {
+public class ConnectionPoint implements Serializable
+{
 
     @XmlElement(required = true)
     protected IataLocation firstPoint;

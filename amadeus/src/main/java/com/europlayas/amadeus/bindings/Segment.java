@@ -1,13 +1,16 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateTimeAdapter;
 
 
 /**
@@ -45,7 +48,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlSeeAlso({
     DetailedSegment.class
 })
-public class Segment {
+public class Segment implements Serializable
+{
 
     @XmlElement(required = true)
     protected IataLocation originLocation;
@@ -60,7 +64,8 @@ public class Segment {
     @XmlAttribute(name = "flightNumber", required = true)
     protected String flightNumber;
     @XmlAttribute(name = "departureDateTime", required = true)
-    protected XMLGregorianCalendar departureDateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime departureDateTime;
 
     /**
      * Default no-arg constructor
@@ -74,7 +79,7 @@ public class Segment {
      * Fully-initialising value constructor
      * 
      */
-    public Segment(final IataLocation originLocation, final IataLocation destinationLocation, final int id, final String marketingAirlineCode, final String operatingAirlineCode, final String flightNumber, final XMLGregorianCalendar departureDateTime) {
+    public Segment(final IataLocation originLocation, final IataLocation destinationLocation, final int id, final String marketingAirlineCode, final String operatingAirlineCode, final String flightNumber, final LocalDateTime departureDateTime) {
         this.originLocation = originLocation;
         this.destinationLocation = destinationLocation;
         this.id = id;
@@ -225,10 +230,10 @@ public class Segment {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDepartureDateTime() {
+    public LocalDateTime getDepartureDateTime() {
         return departureDateTime;
     }
 
@@ -237,10 +242,10 @@ public class Segment {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDepartureDateTime(XMLGregorianCalendar value) {
+    public void setDepartureDateTime(LocalDateTime value) {
         this.departureDateTime = value;
     }
 

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -65,7 +66,8 @@ import com.europlayas.amadeus.bindings.common.TicketingAgreement;
     "ticketingAgreement",
     "payments"
 })
-public class AdditionalRecordData {
+public class AdditionalRecordData implements Serializable
+{
 
     protected AdditionalRecordData.Remarks remarks;
     protected GlobalContactInformation contactInformation;
@@ -235,12 +237,13 @@ public class AdditionalRecordData {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "payment"
+        "payments"
     })
-    public static class Payments {
+    public static class Payments implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<PaymentByItineraryGroup> payment;
+        @XmlElement(name = "payment", required = true)
+        protected List<PaymentByItineraryGroup> payments;
 
         /**
          * Default no-arg constructor
@@ -254,23 +257,23 @@ public class AdditionalRecordData {
          * Fully-initialising value constructor
          * 
          */
-        public Payments(final List<PaymentByItineraryGroup> payment) {
-            this.payment = payment;
+        public Payments(final List<PaymentByItineraryGroup> payments) {
+            this.payments = payments;
         }
 
         /**
-         * Gets the value of the payment property.
+         * Gets the value of the payments property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the payment property.
+         * This is why there is not a <CODE>set</CODE> method for the payments property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPayment().add(newItem);
+         *    getPayments().add(newItem);
          * </pre>
          * 
          * 
@@ -280,11 +283,11 @@ public class AdditionalRecordData {
          * 
          * 
          */
-        public List<PaymentByItineraryGroup> getPayment() {
-            if (payment == null) {
-                payment = new ArrayList<PaymentByItineraryGroup>();
+        public List<PaymentByItineraryGroup> getPayments() {
+            if (payments == null) {
+                payments = new ArrayList<PaymentByItineraryGroup>();
             }
-            return this.payment;
+            return this.payments;
         }
 
     }
@@ -311,12 +314,13 @@ public class AdditionalRecordData {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "remark"
+        "remarks"
     })
-    public static class Remarks {
+    public static class Remarks implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<AbstractRemark> remark;
+        @XmlElement(name = "remark", required = true)
+        protected List<AbstractRemark> remarks;
 
         /**
          * Default no-arg constructor
@@ -330,23 +334,23 @@ public class AdditionalRecordData {
          * Fully-initialising value constructor
          * 
          */
-        public Remarks(final List<AbstractRemark> remark) {
-            this.remark = remark;
+        public Remarks(final List<AbstractRemark> remarks) {
+            this.remarks = remarks;
         }
 
         /**
-         * Gets the value of the remark property.
+         * Gets the value of the remarks property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the remark property.
+         * This is why there is not a <CODE>set</CODE> method for the remarks property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getRemark().add(newItem);
+         *    getRemarks().add(newItem);
          * </pre>
          * 
          * 
@@ -356,11 +360,11 @@ public class AdditionalRecordData {
          * 
          * 
          */
-        public List<AbstractRemark> getRemark() {
-            if (remark == null) {
-                remark = new ArrayList<AbstractRemark>();
+        public List<AbstractRemark> getRemarks() {
+            if (remarks == null) {
+                remarks = new ArrayList<AbstractRemark>();
             }
-            return this.remark;
+            return this.remarks;
         }
 
     }

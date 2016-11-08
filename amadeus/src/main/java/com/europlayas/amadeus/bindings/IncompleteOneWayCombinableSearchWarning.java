@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,14 +33,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IncompleteOneWayCombinableSearchWarning", propOrder = {
-    "originDestinationId"
+    "originDestinationIds"
 })
 public class IncompleteOneWayCombinableSearchWarning
     extends LowFareSearchWarning
+    implements Serializable
 {
 
-    @XmlElement(type = Integer.class)
-    protected List<Integer> originDestinationId;
+    @XmlElement(name = "originDestinationId", type = Integer.class)
+    protected List<Integer> originDestinationIds;
 
     /**
      * Default no-arg constructor
@@ -53,24 +55,24 @@ public class IncompleteOneWayCombinableSearchWarning
      * Fully-initialising value constructor
      * 
      */
-    public IncompleteOneWayCombinableSearchWarning(final String message, final ItineraryIdList itineraries, final List<Integer> originDestinationId) {
+    public IncompleteOneWayCombinableSearchWarning(final String message, final ItineraryIdList itineraries, final List<Integer> originDestinationIds) {
         super(message, itineraries);
-        this.originDestinationId = originDestinationId;
+        this.originDestinationIds = originDestinationIds;
     }
 
     /**
-     * Gets the value of the originDestinationId property.
+     * Gets the value of the originDestinationIds property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the originDestinationId property.
+     * This is why there is not a <CODE>set</CODE> method for the originDestinationIds property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getOriginDestinationId().add(newItem);
+     *    getOriginDestinationIds().add(newItem);
      * </pre>
      * 
      * 
@@ -80,11 +82,11 @@ public class IncompleteOneWayCombinableSearchWarning
      * 
      * 
      */
-    public List<Integer> getOriginDestinationId() {
-        if (originDestinationId == null) {
-            originDestinationId = new ArrayList<Integer>();
+    public List<Integer> getOriginDestinationIds() {
+        if (originDestinationIds == null) {
+            originDestinationIds = new ArrayList<Integer>();
         }
-        return this.originDestinationId;
+        return this.originDestinationIds;
     }
 
 }

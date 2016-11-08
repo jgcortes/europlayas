@@ -1,8 +1,10 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -43,8 +45,10 @@ import javax.xml.bind.annotation.XmlType;
     "inconsistentSegments",
     "itineraryInconsistency"
 })
+@XmlRootElement(name = "inconsistentBookRequestFault")
 public class InconsistentBookRequestFault
     extends BookFault
+    implements Serializable
 {
 
     protected BookPricingInconsistency pricingInconsistency;

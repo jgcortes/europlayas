@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -28,7 +29,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OriginDestinationInconsistency")
-public class OriginDestinationInconsistency {
+public class OriginDestinationInconsistency implements Serializable
+{
 
     @XmlAttribute(name = "cause", required = true)
     protected OriginDestinationInconsistencyCause cause;

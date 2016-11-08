@@ -1,10 +1,12 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -63,8 +65,10 @@ import javax.xml.bind.annotation.XmlType;
     "requestedPrice",
     "actualPrice"
 })
+@XmlRootElement(name = "priceDiscrepancyFault")
 public class PriceDiscrepancyFault
     extends BookFault
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -170,7 +174,8 @@ public class PriceDiscrepancyFault
         "priceMargin",
         "pricingDetail"
     })
-    public static class ActualPrice {
+    public static class ActualPrice implements Serializable
+    {
 
         protected BigDecimal priceMargin;
         @XmlElement(required = true)
@@ -269,7 +274,8 @@ public class PriceDiscrepancyFault
         "priceMargin",
         "pricingDetail"
     })
-    public static class RequestedPrice {
+    public static class RequestedPrice implements Serializable
+    {
 
         protected BigDecimal priceMargin;
         @XmlElement(required = true)

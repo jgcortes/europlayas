@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,13 +32,14 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ContactInformationInconsistency", propOrder = {
-    "missingRequiredContactInformationInconsistency"
+    "missingRequiredContactInformationInconsistencies"
 })
-public class ContactInformationInconsistency {
+public class ContactInformationInconsistency implements Serializable
+{
 
-    @XmlElement(required = true)
+    @XmlElement(name = "missingRequiredContactInformationInconsistency", required = true)
     @XmlSchemaType(name = "string")
-    protected List<MissingRequiredContactInformationInconsistency> missingRequiredContactInformationInconsistency;
+    protected List<MissingRequiredContactInformationInconsistency> missingRequiredContactInformationInconsistencies;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class ContactInformationInconsistency {
      * Fully-initialising value constructor
      * 
      */
-    public ContactInformationInconsistency(final List<MissingRequiredContactInformationInconsistency> missingRequiredContactInformationInconsistency) {
-        this.missingRequiredContactInformationInconsistency = missingRequiredContactInformationInconsistency;
+    public ContactInformationInconsistency(final List<MissingRequiredContactInformationInconsistency> missingRequiredContactInformationInconsistencies) {
+        this.missingRequiredContactInformationInconsistencies = missingRequiredContactInformationInconsistencies;
     }
 
     /**
-     * Gets the value of the missingRequiredContactInformationInconsistency property.
+     * Gets the value of the missingRequiredContactInformationInconsistencies property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the missingRequiredContactInformationInconsistency property.
+     * This is why there is not a <CODE>set</CODE> method for the missingRequiredContactInformationInconsistencies property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getMissingRequiredContactInformationInconsistency().add(newItem);
+     *    getMissingRequiredContactInformationInconsistencies().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class ContactInformationInconsistency {
      * 
      * 
      */
-    public List<MissingRequiredContactInformationInconsistency> getMissingRequiredContactInformationInconsistency() {
-        if (missingRequiredContactInformationInconsistency == null) {
-            missingRequiredContactInformationInconsistency = new ArrayList<MissingRequiredContactInformationInconsistency>();
+    public List<MissingRequiredContactInformationInconsistency> getMissingRequiredContactInformationInconsistencies() {
+        if (missingRequiredContactInformationInconsistencies == null) {
+            missingRequiredContactInformationInconsistencies = new ArrayList<MissingRequiredContactInformationInconsistency>();
         }
-        return this.missingRequiredContactInformationInconsistency;
+        return this.missingRequiredContactInformationInconsistencies;
     }
 
 }

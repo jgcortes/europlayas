@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,7 +35,8 @@ import javax.xml.bind.annotation.XmlType;
     "dateRange",
     "timeRange"
 })
-public class DateTimeRange {
+public class DateTimeRange implements Serializable
+{
 
     @XmlElement(namespace = "", required = true)
     protected DateRange dateRange;

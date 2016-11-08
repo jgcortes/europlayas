@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -41,7 +42,8 @@ import javax.xml.bind.annotation.XmlType;
     NamedPostalAddress.class,
     ResidencePostalAddress.class
 })
-public class PostalAddress {
+public class PostalAddress implements Serializable
+{
 
     @XmlAttribute(name = "name")
     protected String name;

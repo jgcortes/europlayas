@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BookResponsePassengerPricingSegmentDetailList", propOrder = {
-    "segmentDetail"
+    "segmentDetails"
 })
-public class BookResponsePassengerPricingSegmentDetailList {
+public class BookResponsePassengerPricingSegmentDetailList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<BookResponsePassengerPricingSegmentDetail> segmentDetail;
+    @XmlElement(name = "segmentDetail", required = true)
+    protected List<BookResponsePassengerPricingSegmentDetail> segmentDetails;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class BookResponsePassengerPricingSegmentDetailList {
      * Fully-initialising value constructor
      * 
      */
-    public BookResponsePassengerPricingSegmentDetailList(final List<BookResponsePassengerPricingSegmentDetail> segmentDetail) {
-        this.segmentDetail = segmentDetail;
+    public BookResponsePassengerPricingSegmentDetailList(final List<BookResponsePassengerPricingSegmentDetail> segmentDetails) {
+        this.segmentDetails = segmentDetails;
     }
 
     /**
-     * Gets the value of the segmentDetail property.
+     * Gets the value of the segmentDetails property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the segmentDetail property.
+     * This is why there is not a <CODE>set</CODE> method for the segmentDetails property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSegmentDetail().add(newItem);
+     *    getSegmentDetails().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class BookResponsePassengerPricingSegmentDetailList {
      * 
      * 
      */
-    public List<BookResponsePassengerPricingSegmentDetail> getSegmentDetail() {
-        if (segmentDetail == null) {
-            segmentDetail = new ArrayList<BookResponsePassengerPricingSegmentDetail>();
+    public List<BookResponsePassengerPricingSegmentDetail> getSegmentDetails() {
+        if (segmentDetails == null) {
+            segmentDetails = new ArrayList<BookResponsePassengerPricingSegmentDetail>();
         }
-        return this.segmentDetail;
+        return this.segmentDetails;
     }
 
 }

@@ -1,10 +1,12 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -55,17 +57,19 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InconsistentAvailabilitySearchRequestFault", propOrder = {
-    "originDestinationInconsistency",
+    "connectionInconsistency",
     "passengersInconsistency",
-    "connectionInconsistency"
+    "originDestinationInconsistency"
 })
+@XmlRootElement(name = "inconsistentAvailabilitySearchRequestFault")
 public class InconsistentAvailabilitySearchRequestFault
     extends AvailabilitySearchFault
+    implements Serializable
 {
 
-    protected OriginDestinationInconsistency originDestinationInconsistency;
-    protected SearchPassengersInconsistency passengersInconsistency;
     protected InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency connectionInconsistency;
+    protected SearchPassengersInconsistency passengersInconsistency;
+    protected OriginDestinationInconsistency originDestinationInconsistency;
 
     /**
      * Default no-arg constructor
@@ -79,35 +83,35 @@ public class InconsistentAvailabilitySearchRequestFault
      * Fully-initialising value constructor
      * 
      */
-    public InconsistentAvailabilitySearchRequestFault(final ItineraryIdList itineraries, final OriginDestinationInconsistency originDestinationInconsistency, final SearchPassengersInconsistency passengersInconsistency, final InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency connectionInconsistency) {
+    public InconsistentAvailabilitySearchRequestFault(final ItineraryIdList itineraries, final InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency connectionInconsistency, final SearchPassengersInconsistency passengersInconsistency, final OriginDestinationInconsistency originDestinationInconsistency) {
         super(itineraries);
-        this.originDestinationInconsistency = originDestinationInconsistency;
-        this.passengersInconsistency = passengersInconsistency;
         this.connectionInconsistency = connectionInconsistency;
+        this.passengersInconsistency = passengersInconsistency;
+        this.originDestinationInconsistency = originDestinationInconsistency;
     }
 
     /**
-     * Obtiene el valor de la propiedad originDestinationInconsistency.
+     * Obtiene el valor de la propiedad connectionInconsistency.
      * 
      * @return
      *     possible object is
-     *     {@link OriginDestinationInconsistency }
+     *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency }
      *     
      */
-    public OriginDestinationInconsistency getOriginDestinationInconsistency() {
-        return originDestinationInconsistency;
+    public InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency getConnectionInconsistency() {
+        return connectionInconsistency;
     }
 
     /**
-     * Define el valor de la propiedad originDestinationInconsistency.
+     * Define el valor de la propiedad connectionInconsistency.
      * 
      * @param value
      *     allowed object is
-     *     {@link OriginDestinationInconsistency }
+     *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency }
      *     
      */
-    public void setOriginDestinationInconsistency(OriginDestinationInconsistency value) {
-        this.originDestinationInconsistency = value;
+    public void setConnectionInconsistency(InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency value) {
+        this.connectionInconsistency = value;
     }
 
     /**
@@ -135,27 +139,27 @@ public class InconsistentAvailabilitySearchRequestFault
     }
 
     /**
-     * Obtiene el valor de la propiedad connectionInconsistency.
+     * Obtiene el valor de la propiedad originDestinationInconsistency.
      * 
      * @return
      *     possible object is
-     *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency }
+     *     {@link OriginDestinationInconsistency }
      *     
      */
-    public InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency getConnectionInconsistency() {
-        return connectionInconsistency;
+    public OriginDestinationInconsistency getOriginDestinationInconsistency() {
+        return originDestinationInconsistency;
     }
 
     /**
-     * Define el valor de la propiedad connectionInconsistency.
+     * Define el valor de la propiedad originDestinationInconsistency.
      * 
      * @param value
      *     allowed object is
-     *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency }
+     *     {@link OriginDestinationInconsistency }
      *     
      */
-    public void setConnectionInconsistency(InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency value) {
-        this.connectionInconsistency = value;
+    public void setOriginDestinationInconsistency(OriginDestinationInconsistency value) {
+        this.originDestinationInconsistency = value;
     }
 
 
@@ -193,15 +197,16 @@ public class InconsistentAvailabilitySearchRequestFault
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "connectionPoints",
-        "directItineraryRestriction",
-        "connectionRestriction"
+        "connectionRestriction",
+        "directItineraryRestriction"
     })
-    public static class ConnectionInconsistency {
+    public static class ConnectionInconsistency implements Serializable
+    {
 
         @XmlElement(required = true)
         protected ConnectionPoints connectionPoints;
-        protected InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction directItineraryRestriction;
         protected ConnectionRestriction connectionRestriction;
+        protected InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction directItineraryRestriction;
 
         /**
          * Default no-arg constructor
@@ -215,10 +220,10 @@ public class InconsistentAvailabilitySearchRequestFault
          * Fully-initialising value constructor
          * 
          */
-        public ConnectionInconsistency(final ConnectionPoints connectionPoints, final InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction directItineraryRestriction, final ConnectionRestriction connectionRestriction) {
+        public ConnectionInconsistency(final ConnectionPoints connectionPoints, final ConnectionRestriction connectionRestriction, final InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction directItineraryRestriction) {
             this.connectionPoints = connectionPoints;
-            this.directItineraryRestriction = directItineraryRestriction;
             this.connectionRestriction = connectionRestriction;
+            this.directItineraryRestriction = directItineraryRestriction;
         }
 
         /**
@@ -246,30 +251,6 @@ public class InconsistentAvailabilitySearchRequestFault
         }
 
         /**
-         * Obtiene el valor de la propiedad directItineraryRestriction.
-         * 
-         * @return
-         *     possible object is
-         *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction }
-         *     
-         */
-        public InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction getDirectItineraryRestriction() {
-            return directItineraryRestriction;
-        }
-
-        /**
-         * Define el valor de la propiedad directItineraryRestriction.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction }
-         *     
-         */
-        public void setDirectItineraryRestriction(InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction value) {
-            this.directItineraryRestriction = value;
-        }
-
-        /**
          * Obtiene el valor de la propiedad connectionRestriction.
          * 
          * @return
@@ -293,6 +274,30 @@ public class InconsistentAvailabilitySearchRequestFault
             this.connectionRestriction = value;
         }
 
+        /**
+         * Obtiene el valor de la propiedad directItineraryRestriction.
+         * 
+         * @return
+         *     possible object is
+         *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction }
+         *     
+         */
+        public InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction getDirectItineraryRestriction() {
+            return directItineraryRestriction;
+        }
+
+        /**
+         * Define el valor de la propiedad directItineraryRestriction.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction }
+         *     
+         */
+        public void setDirectItineraryRestriction(InconsistentAvailabilitySearchRequestFault.ConnectionInconsistency.DirectItineraryRestriction value) {
+            this.directItineraryRestriction = value;
+        }
+
 
         /**
          * <p>Clase Java para anonymous complex type.
@@ -313,7 +318,8 @@ public class InconsistentAvailabilitySearchRequestFault
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class DirectItineraryRestriction {
+        public static class DirectItineraryRestriction implements Serializable
+        {
 
             @XmlAttribute(name = "stopsAllowed", required = true)
             protected boolean stopsAllowed;

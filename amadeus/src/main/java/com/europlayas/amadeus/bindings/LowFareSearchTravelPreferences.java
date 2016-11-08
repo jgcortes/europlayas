@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -43,15 +44,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LowFareSearchTravelPreferences", propOrder = {
     "airlineRestrictions",
-    "directItineraryRestriction",
     "connectionRestriction",
+    "directItineraryRestriction",
     "travelClassRestrictions"
 })
-public class LowFareSearchTravelPreferences {
+public class LowFareSearchTravelPreferences implements Serializable
+{
 
     protected SimpleAirlineRestrictions airlineRestrictions;
-    protected LowFareSearchTravelPreferences.DirectItineraryRestriction directItineraryRestriction;
     protected ConnectionRestriction connectionRestriction;
+    protected LowFareSearchTravelPreferences.DirectItineraryRestriction directItineraryRestriction;
     protected LowFareSearchTravelClassRestrictions travelClassRestrictions;
     @XmlAttribute(name = "crossBorderAllowed")
     protected Boolean crossBorderAllowed;
@@ -68,10 +70,10 @@ public class LowFareSearchTravelPreferences {
      * Fully-initialising value constructor
      * 
      */
-    public LowFareSearchTravelPreferences(final SimpleAirlineRestrictions airlineRestrictions, final LowFareSearchTravelPreferences.DirectItineraryRestriction directItineraryRestriction, final ConnectionRestriction connectionRestriction, final LowFareSearchTravelClassRestrictions travelClassRestrictions, final Boolean crossBorderAllowed) {
+    public LowFareSearchTravelPreferences(final SimpleAirlineRestrictions airlineRestrictions, final ConnectionRestriction connectionRestriction, final LowFareSearchTravelPreferences.DirectItineraryRestriction directItineraryRestriction, final LowFareSearchTravelClassRestrictions travelClassRestrictions, final Boolean crossBorderAllowed) {
         this.airlineRestrictions = airlineRestrictions;
-        this.directItineraryRestriction = directItineraryRestriction;
         this.connectionRestriction = connectionRestriction;
+        this.directItineraryRestriction = directItineraryRestriction;
         this.travelClassRestrictions = travelClassRestrictions;
         this.crossBorderAllowed = crossBorderAllowed;
     }
@@ -101,30 +103,6 @@ public class LowFareSearchTravelPreferences {
     }
 
     /**
-     * Obtiene el valor de la propiedad directItineraryRestriction.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LowFareSearchTravelPreferences.DirectItineraryRestriction }
-     *     
-     */
-    public LowFareSearchTravelPreferences.DirectItineraryRestriction getDirectItineraryRestriction() {
-        return directItineraryRestriction;
-    }
-
-    /**
-     * Define el valor de la propiedad directItineraryRestriction.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link LowFareSearchTravelPreferences.DirectItineraryRestriction }
-     *     
-     */
-    public void setDirectItineraryRestriction(LowFareSearchTravelPreferences.DirectItineraryRestriction value) {
-        this.directItineraryRestriction = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad connectionRestriction.
      * 
      * @return
@@ -146,6 +124,30 @@ public class LowFareSearchTravelPreferences {
      */
     public void setConnectionRestriction(ConnectionRestriction value) {
         this.connectionRestriction = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad directItineraryRestriction.
+     * 
+     * @return
+     *     possible object is
+     *     {@link LowFareSearchTravelPreferences.DirectItineraryRestriction }
+     *     
+     */
+    public LowFareSearchTravelPreferences.DirectItineraryRestriction getDirectItineraryRestriction() {
+        return directItineraryRestriction;
+    }
+
+    /**
+     * Define el valor de la propiedad directItineraryRestriction.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link LowFareSearchTravelPreferences.DirectItineraryRestriction }
+     *     
+     */
+    public void setDirectItineraryRestriction(LowFareSearchTravelPreferences.DirectItineraryRestriction value) {
+        this.directItineraryRestriction = value;
     }
 
     /**
@@ -216,7 +218,8 @@ public class LowFareSearchTravelPreferences {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class DirectItineraryRestriction {
+    public static class DirectItineraryRestriction implements Serializable
+    {
 
         @XmlAttribute(name = "stopsAllowed", required = true)
         protected boolean stopsAllowed;

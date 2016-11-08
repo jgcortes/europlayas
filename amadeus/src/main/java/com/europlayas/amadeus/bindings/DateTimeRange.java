@@ -1,13 +1,16 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
+import com.europlayas.amadeus.util.DateAdapter;
 
 
 /**
@@ -61,7 +64,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "dateRange",
     "timeRange"
 })
-public class DateTimeRange {
+public class DateTimeRange implements Serializable
+{
 
     @XmlElement(required = true)
     protected DateTimeRange.DateRange dateRange;
@@ -168,15 +172,17 @@ public class DateTimeRange {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "extraDaysBeforeOrAfter",
-        "extraDaysAround"
+        "extraDaysAround",
+        "extraDaysBeforeOrAfter"
     })
-    public static class DateRange {
+    public static class DateRange implements Serializable
+    {
 
-        protected Duration extraDaysBeforeOrAfter;
         protected Duration extraDaysAround;
+        protected Duration extraDaysBeforeOrAfter;
         @XmlAttribute(name = "date", required = true)
-        protected XMLGregorianCalendar date;
+        @XmlJavaTypeAdapter(DateAdapter.class)
+        protected LocalDate date;
 
         /**
          * Default no-arg constructor
@@ -190,34 +196,10 @@ public class DateTimeRange {
          * Fully-initialising value constructor
          * 
          */
-        public DateRange(final Duration extraDaysBeforeOrAfter, final Duration extraDaysAround, final XMLGregorianCalendar date) {
-            this.extraDaysBeforeOrAfter = extraDaysBeforeOrAfter;
+        public DateRange(final Duration extraDaysAround, final Duration extraDaysBeforeOrAfter, final LocalDate date) {
             this.extraDaysAround = extraDaysAround;
+            this.extraDaysBeforeOrAfter = extraDaysBeforeOrAfter;
             this.date = date;
-        }
-
-        /**
-         * Obtiene el valor de la propiedad extraDaysBeforeOrAfter.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Duration }
-         *     
-         */
-        public Duration getExtraDaysBeforeOrAfter() {
-            return extraDaysBeforeOrAfter;
-        }
-
-        /**
-         * Define el valor de la propiedad extraDaysBeforeOrAfter.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Duration }
-         *     
-         */
-        public void setExtraDaysBeforeOrAfter(Duration value) {
-            this.extraDaysBeforeOrAfter = value;
         }
 
         /**
@@ -245,14 +227,38 @@ public class DateTimeRange {
         }
 
         /**
+         * Obtiene el valor de la propiedad extraDaysBeforeOrAfter.
+         * 
+         * @return
+         *     possible object is
+         *     {@link Duration }
+         *     
+         */
+        public Duration getExtraDaysBeforeOrAfter() {
+            return extraDaysBeforeOrAfter;
+        }
+
+        /**
+         * Define el valor de la propiedad extraDaysBeforeOrAfter.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Duration }
+         *     
+         */
+        public void setExtraDaysBeforeOrAfter(Duration value) {
+            this.extraDaysBeforeOrAfter = value;
+        }
+
+        /**
          * Obtiene el valor de la propiedad date.
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getDate() {
+        public LocalDate getDate() {
             return date;
         }
 
@@ -261,10 +267,10 @@ public class DateTimeRange {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setDate(XMLGregorianCalendar value) {
+        public void setDate(LocalDate value) {
             this.date = value;
         }
 

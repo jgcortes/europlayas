@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IncompleteBookPassengerPricingList", propOrder = {
-    "incompletePassengerPricing"
+    "incompletePassengerPricings"
 })
-public class IncompleteBookPassengerPricingList {
+public class IncompleteBookPassengerPricingList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<IncompleteBookPassengerPricing> incompletePassengerPricing;
+    @XmlElement(name = "incompletePassengerPricing", required = true)
+    protected List<IncompleteBookPassengerPricing> incompletePassengerPricings;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class IncompleteBookPassengerPricingList {
      * Fully-initialising value constructor
      * 
      */
-    public IncompleteBookPassengerPricingList(final List<IncompleteBookPassengerPricing> incompletePassengerPricing) {
-        this.incompletePassengerPricing = incompletePassengerPricing;
+    public IncompleteBookPassengerPricingList(final List<IncompleteBookPassengerPricing> incompletePassengerPricings) {
+        this.incompletePassengerPricings = incompletePassengerPricings;
     }
 
     /**
-     * Gets the value of the incompletePassengerPricing property.
+     * Gets the value of the incompletePassengerPricings property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the incompletePassengerPricing property.
+     * This is why there is not a <CODE>set</CODE> method for the incompletePassengerPricings property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getIncompletePassengerPricing().add(newItem);
+     *    getIncompletePassengerPricings().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class IncompleteBookPassengerPricingList {
      * 
      * 
      */
-    public List<IncompleteBookPassengerPricing> getIncompletePassengerPricing() {
-        if (incompletePassengerPricing == null) {
-            incompletePassengerPricing = new ArrayList<IncompleteBookPassengerPricing>();
+    public List<IncompleteBookPassengerPricing> getIncompletePassengerPricings() {
+        if (incompletePassengerPricings == null) {
+            incompletePassengerPricings = new ArrayList<IncompleteBookPassengerPricing>();
         }
-        return this.incompletePassengerPricing;
+        return this.incompletePassengerPricings;
     }
 
 }

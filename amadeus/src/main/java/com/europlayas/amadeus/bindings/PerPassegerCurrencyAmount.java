@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PerPassegerCurrencyAmount")
-public class PerPassegerCurrencyAmount {
+public class PerPassegerCurrencyAmount implements Serializable
+{
 
     @XmlAttribute(name = "perPassenger", required = true)
     protected boolean perPassenger;

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -44,7 +45,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Journey", propOrder = {
 
 })
-public class Journey {
+public class Journey implements Serializable
+{
 
     @XmlElement(required = true)
     protected Journey.Itineraries itineraries;
@@ -111,12 +113,13 @@ public class Journey {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "itinerary"
+        "itineraries"
     })
-    public static class Itineraries {
+    public static class Itineraries implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<Itinerary> itinerary;
+        @XmlElement(name = "itinerary", required = true)
+        protected List<Itinerary> itineraries;
 
         /**
          * Default no-arg constructor
@@ -130,23 +133,23 @@ public class Journey {
          * Fully-initialising value constructor
          * 
          */
-        public Itineraries(final List<Itinerary> itinerary) {
-            this.itinerary = itinerary;
+        public Itineraries(final List<Itinerary> itineraries) {
+            this.itineraries = itineraries;
         }
 
         /**
-         * Gets the value of the itinerary property.
+         * Gets the value of the itineraries property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the itinerary property.
+         * This is why there is not a <CODE>set</CODE> method for the itineraries property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getItinerary().add(newItem);
+         *    getItineraries().add(newItem);
          * </pre>
          * 
          * 
@@ -156,11 +159,11 @@ public class Journey {
          * 
          * 
          */
-        public List<Itinerary> getItinerary() {
-            if (itinerary == null) {
-                itinerary = new ArrayList<Itinerary>();
+        public List<Itinerary> getItineraries() {
+            if (itineraries == null) {
+                itineraries = new ArrayList<Itinerary>();
             }
-            return this.itinerary;
+            return this.itineraries;
         }
 
     }

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -54,7 +55,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "AmadeusQueue", propOrder = {
 
 })
-public class AmadeusQueue {
+public class AmadeusQueue implements Serializable
+{
 
     protected AmadeusQueue.Category category;
     @XmlAttribute(name = "number", required = true)
@@ -150,7 +152,8 @@ public class AmadeusQueue {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
-    public static class Category {
+    public static class Category implements Serializable
+    {
 
         @XmlAttribute(name = "identificationType", required = true)
         protected String identificationType;

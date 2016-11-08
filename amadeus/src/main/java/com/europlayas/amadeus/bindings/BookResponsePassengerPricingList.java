@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BookResponsePassengerPricingList", propOrder = {
-    "passengerPricing"
+    "passengerPricings"
 })
-public class BookResponsePassengerPricingList {
+public class BookResponsePassengerPricingList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<BookResponsePassengerPricing> passengerPricing;
+    @XmlElement(name = "passengerPricing", required = true)
+    protected List<BookResponsePassengerPricing> passengerPricings;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class BookResponsePassengerPricingList {
      * Fully-initialising value constructor
      * 
      */
-    public BookResponsePassengerPricingList(final List<BookResponsePassengerPricing> passengerPricing) {
-        this.passengerPricing = passengerPricing;
+    public BookResponsePassengerPricingList(final List<BookResponsePassengerPricing> passengerPricings) {
+        this.passengerPricings = passengerPricings;
     }
 
     /**
-     * Gets the value of the passengerPricing property.
+     * Gets the value of the passengerPricings property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the passengerPricing property.
+     * This is why there is not a <CODE>set</CODE> method for the passengerPricings property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPassengerPricing().add(newItem);
+     *    getPassengerPricings().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class BookResponsePassengerPricingList {
      * 
      * 
      */
-    public List<BookResponsePassengerPricing> getPassengerPricing() {
-        if (passengerPricing == null) {
-            passengerPricing = new ArrayList<BookResponsePassengerPricing>();
+    public List<BookResponsePassengerPricing> getPassengerPricings() {
+        if (passengerPricings == null) {
+            passengerPricings = new ArrayList<BookResponsePassengerPricing>();
         }
-        return this.passengerPricing;
+        return this.passengerPricings;
     }
 
 }

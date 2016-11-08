@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -43,12 +44,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LowFareSearchTravelClassRestrictions", propOrder = {
-    "travelClassRestriction"
+    "travelClassRestrictions"
 })
-public class LowFareSearchTravelClassRestrictions {
+public class LowFareSearchTravelClassRestrictions implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<LowFareSearchTravelClassRestrictions.TravelClassRestriction> travelClassRestriction;
+    @XmlElement(name = "travelClassRestriction", required = true)
+    protected List<LowFareSearchTravelClassRestrictions.TravelClassRestriction> travelClassRestrictions;
 
     /**
      * Default no-arg constructor
@@ -62,23 +64,23 @@ public class LowFareSearchTravelClassRestrictions {
      * Fully-initialising value constructor
      * 
      */
-    public LowFareSearchTravelClassRestrictions(final List<LowFareSearchTravelClassRestrictions.TravelClassRestriction> travelClassRestriction) {
-        this.travelClassRestriction = travelClassRestriction;
+    public LowFareSearchTravelClassRestrictions(final List<LowFareSearchTravelClassRestrictions.TravelClassRestriction> travelClassRestrictions) {
+        this.travelClassRestrictions = travelClassRestrictions;
     }
 
     /**
-     * Gets the value of the travelClassRestriction property.
+     * Gets the value of the travelClassRestrictions property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the travelClassRestriction property.
+     * This is why there is not a <CODE>set</CODE> method for the travelClassRestrictions property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTravelClassRestriction().add(newItem);
+     *    getTravelClassRestrictions().add(newItem);
      * </pre>
      * 
      * 
@@ -88,11 +90,11 @@ public class LowFareSearchTravelClassRestrictions {
      * 
      * 
      */
-    public List<LowFareSearchTravelClassRestrictions.TravelClassRestriction> getTravelClassRestriction() {
-        if (travelClassRestriction == null) {
-            travelClassRestriction = new ArrayList<LowFareSearchTravelClassRestrictions.TravelClassRestriction>();
+    public List<LowFareSearchTravelClassRestrictions.TravelClassRestriction> getTravelClassRestrictions() {
+        if (travelClassRestrictions == null) {
+            travelClassRestrictions = new ArrayList<LowFareSearchTravelClassRestrictions.TravelClassRestriction>();
         }
-        return this.travelClassRestriction;
+        return this.travelClassRestrictions;
     }
 
 
@@ -121,7 +123,8 @@ public class LowFareSearchTravelClassRestrictions {
     @XmlType(name = "", propOrder = {
         "originDestinations"
     })
-    public static class TravelClassRestriction {
+    public static class TravelClassRestriction implements Serializable
+    {
 
         @XmlElement(required = true)
         protected OriginDestinationIdList originDestinations;

@@ -1,10 +1,11 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -31,6 +32,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "AmadeusRecord")
 public class AmadeusRecord
     extends Record
+    implements Serializable
 {
 
 
@@ -46,7 +48,7 @@ public class AmadeusRecord
      * Fully-initialising value constructor
      * 
      */
-    public AmadeusRecord(final String locator, final XMLGregorianCalendar creationDateTime) {
+    public AmadeusRecord(final String locator, final LocalDateTime creationDateTime) {
         super(locator, creationDateTime);
     }
 

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -35,15 +36,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UnusedLowFareSearchParameterWarning", propOrder = {
-    "cause"
+    "causes"
 })
 public class UnusedLowFareSearchParameterWarning
     extends LowFareSearchWarning
+    implements Serializable
 {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "cause", required = true)
     @XmlSchemaType(name = "string")
-    protected List<UnusedLowFareSearchParameter> cause;
+    protected List<UnusedLowFareSearchParameter> causes;
     @XmlAttribute(name = "provider")
     protected Provider provider;
 
@@ -59,25 +61,25 @@ public class UnusedLowFareSearchParameterWarning
      * Fully-initialising value constructor
      * 
      */
-    public UnusedLowFareSearchParameterWarning(final String message, final ItineraryIdList itineraries, final List<UnusedLowFareSearchParameter> cause, final Provider provider) {
+    public UnusedLowFareSearchParameterWarning(final String message, final ItineraryIdList itineraries, final List<UnusedLowFareSearchParameter> causes, final Provider provider) {
         super(message, itineraries);
-        this.cause = cause;
+        this.causes = causes;
         this.provider = provider;
     }
 
     /**
-     * Gets the value of the cause property.
+     * Gets the value of the causes property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cause property.
+     * This is why there is not a <CODE>set</CODE> method for the causes property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCause().add(newItem);
+     *    getCauses().add(newItem);
      * </pre>
      * 
      * 
@@ -87,11 +89,11 @@ public class UnusedLowFareSearchParameterWarning
      * 
      * 
      */
-    public List<UnusedLowFareSearchParameter> getCause() {
-        if (cause == null) {
-            cause = new ArrayList<UnusedLowFareSearchParameter>();
+    public List<UnusedLowFareSearchParameter> getCauses() {
+        if (causes == null) {
+            causes = new ArrayList<UnusedLowFareSearchParameter>();
         }
-        return this.cause;
+        return this.causes;
     }
 
     /**

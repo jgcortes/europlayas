@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -36,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
     "fareType",
     "passengerFareOptionGroups"
 })
-public class SearchPricingMode {
+public class SearchPricingMode implements Serializable
+{
 
     protected IataLocation pointOfSell;
     protected IataLocation pointOfTicketing;

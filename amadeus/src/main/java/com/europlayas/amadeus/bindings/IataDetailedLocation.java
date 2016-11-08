@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -36,6 +37,7 @@ import com.europlayas.amadeus.bindings.common.DetailedLocation;
 })
 public class IataDetailedLocation
     extends DetailedLocation
+    implements Serializable
 {
 
 

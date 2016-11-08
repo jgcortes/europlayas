@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SegmentIdList", propOrder = {
-    "segmentId"
+    "segmentIds"
 })
-public class SegmentIdList {
+public class SegmentIdList implements Serializable
+{
 
-    @XmlElement(type = Integer.class)
-    protected List<Integer> segmentId;
+    @XmlElement(name = "segmentId", type = Integer.class)
+    protected List<Integer> segmentIds;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class SegmentIdList {
      * Fully-initialising value constructor
      * 
      */
-    public SegmentIdList(final List<Integer> segmentId) {
-        this.segmentId = segmentId;
+    public SegmentIdList(final List<Integer> segmentIds) {
+        this.segmentIds = segmentIds;
     }
 
     /**
-     * Gets the value of the segmentId property.
+     * Gets the value of the segmentIds property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the segmentId property.
+     * This is why there is not a <CODE>set</CODE> method for the segmentIds property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSegmentId().add(newItem);
+     *    getSegmentIds().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class SegmentIdList {
      * 
      * 
      */
-    public List<Integer> getSegmentId() {
-        if (segmentId == null) {
-            segmentId = new ArrayList<Integer>();
+    public List<Integer> getSegmentIds() {
+        if (segmentIds == null) {
+            segmentIds = new ArrayList<Integer>();
         }
-        return this.segmentId;
+        return this.segmentIds;
     }
 
 }

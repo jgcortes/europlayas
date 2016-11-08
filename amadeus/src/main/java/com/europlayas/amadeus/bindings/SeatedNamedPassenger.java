@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -56,6 +57,7 @@ import com.europlayas.amadeus.bindings.common.PersonalContactInformation;
 })
 public abstract class SeatedNamedPassenger
     extends NamedPassenger
+    implements Serializable
 {
 
     protected SeatedNamedPassenger.AccommodationPreferences accommodationPreferences;
@@ -149,12 +151,13 @@ public abstract class SeatedNamedPassenger
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "accommodationPreference"
+        "accommodationPreferences"
     })
-    public static class AccommodationPreferences {
+    public static class AccommodationPreferences implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<SegmentAccommodationPreference> accommodationPreference;
+        @XmlElement(name = "accommodationPreference", required = true)
+        protected List<SegmentAccommodationPreference> accommodationPreferences;
 
         /**
          * Default no-arg constructor
@@ -168,23 +171,23 @@ public abstract class SeatedNamedPassenger
          * Fully-initialising value constructor
          * 
          */
-        public AccommodationPreferences(final List<SegmentAccommodationPreference> accommodationPreference) {
-            this.accommodationPreference = accommodationPreference;
+        public AccommodationPreferences(final List<SegmentAccommodationPreference> accommodationPreferences) {
+            this.accommodationPreferences = accommodationPreferences;
         }
 
         /**
-         * Gets the value of the accommodationPreference property.
+         * Gets the value of the accommodationPreferences property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the accommodationPreference property.
+         * This is why there is not a <CODE>set</CODE> method for the accommodationPreferences property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getAccommodationPreference().add(newItem);
+         *    getAccommodationPreferences().add(newItem);
          * </pre>
          * 
          * 
@@ -194,11 +197,11 @@ public abstract class SeatedNamedPassenger
          * 
          * 
          */
-        public List<SegmentAccommodationPreference> getAccommodationPreference() {
-            if (accommodationPreference == null) {
-                accommodationPreference = new ArrayList<SegmentAccommodationPreference>();
+        public List<SegmentAccommodationPreference> getAccommodationPreferences() {
+            if (accommodationPreferences == null) {
+                accommodationPreferences = new ArrayList<SegmentAccommodationPreference>();
             }
-            return this.accommodationPreference;
+            return this.accommodationPreferences;
         }
 
     }

@@ -1,11 +1,12 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -34,6 +35,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public abstract class ExternalProviderRecord
     extends Record
+    implements Serializable
 {
 
 
@@ -49,7 +51,7 @@ public abstract class ExternalProviderRecord
      * Fully-initialising value constructor
      * 
      */
-    public ExternalProviderRecord(final String locator, final XMLGregorianCalendar creationDateTime) {
+    public ExternalProviderRecord(final String locator, final LocalDateTime creationDateTime) {
         super(locator, creationDateTime);
     }
 

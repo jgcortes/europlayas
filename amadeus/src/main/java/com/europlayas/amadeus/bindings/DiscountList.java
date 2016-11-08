@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,12 +31,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DiscountList", propOrder = {
-    "discount"
+    "discounts"
 })
-public class DiscountList {
+public class DiscountList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<AirDiscount> discount;
+    @XmlElement(name = "discount", required = true)
+    protected List<AirDiscount> discounts;
 
     /**
      * Default no-arg constructor
@@ -49,23 +51,23 @@ public class DiscountList {
      * Fully-initialising value constructor
      * 
      */
-    public DiscountList(final List<AirDiscount> discount) {
-        this.discount = discount;
+    public DiscountList(final List<AirDiscount> discounts) {
+        this.discounts = discounts;
     }
 
     /**
-     * Gets the value of the discount property.
+     * Gets the value of the discounts property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the discount property.
+     * This is why there is not a <CODE>set</CODE> method for the discounts property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getDiscount().add(newItem);
+     *    getDiscounts().add(newItem);
      * </pre>
      * 
      * 
@@ -75,11 +77,11 @@ public class DiscountList {
      * 
      * 
      */
-    public List<AirDiscount> getDiscount() {
-        if (discount == null) {
-            discount = new ArrayList<AirDiscount>();
+    public List<AirDiscount> getDiscounts() {
+        if (discounts == null) {
+            discounts = new ArrayList<AirDiscount>();
         }
-        return this.discount;
+        return this.discounts;
     }
 
 }

@@ -1,11 +1,13 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -44,8 +46,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "PassengerPriceDiscrepancyFault", propOrder = {
     "discrepancies"
 })
+@XmlRootElement(name = "passengerPriceDiscrepancyFault")
 public class PassengerPriceDiscrepancyFault
     extends BookFault
+    implements Serializable
 {
 
     @XmlElement(required = true)
@@ -114,12 +118,13 @@ public class PassengerPriceDiscrepancyFault
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "discrepancy"
+        "discrepancies"
     })
-    public static class Discrepancies {
+    public static class Discrepancies implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<PassengerPriceDiscrepancy> discrepancy;
+        @XmlElement(name = "discrepancy", required = true)
+        protected List<PassengerPriceDiscrepancy> discrepancies;
 
         /**
          * Default no-arg constructor
@@ -133,23 +138,23 @@ public class PassengerPriceDiscrepancyFault
          * Fully-initialising value constructor
          * 
          */
-        public Discrepancies(final List<PassengerPriceDiscrepancy> discrepancy) {
-            this.discrepancy = discrepancy;
+        public Discrepancies(final List<PassengerPriceDiscrepancy> discrepancies) {
+            this.discrepancies = discrepancies;
         }
 
         /**
-         * Gets the value of the discrepancy property.
+         * Gets the value of the discrepancies property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the discrepancy property.
+         * This is why there is not a <CODE>set</CODE> method for the discrepancies property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getDiscrepancy().add(newItem);
+         *    getDiscrepancies().add(newItem);
          * </pre>
          * 
          * 
@@ -159,11 +164,11 @@ public class PassengerPriceDiscrepancyFault
          * 
          * 
          */
-        public List<PassengerPriceDiscrepancy> getDiscrepancy() {
-            if (discrepancy == null) {
-                discrepancy = new ArrayList<PassengerPriceDiscrepancy>();
+        public List<PassengerPriceDiscrepancy> getDiscrepancies() {
+            if (discrepancies == null) {
+                discrepancies = new ArrayList<PassengerPriceDiscrepancy>();
             }
-            return this.discrepancy;
+            return this.discrepancies;
         }
 
     }

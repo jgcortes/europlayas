@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -35,7 +36,8 @@ import javax.xml.bind.annotation.XmlType;
     BookRequestTotalAmount.class,
     PriceWithInfoResponseTotalAmount.class
 })
-public class CurrencyAmount {
+public class CurrencyAmount implements Serializable
+{
 
     @XmlAttribute(name = "amount", required = true)
     protected BigDecimal amount;

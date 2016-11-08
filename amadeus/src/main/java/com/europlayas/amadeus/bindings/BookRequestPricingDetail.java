@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlType;
     "fees",
     "additionalServices"
 })
-public class BookRequestPricingDetail {
+public class BookRequestPricingDetail implements Serializable
+{
 
     protected BookRequestTotalAmount totalAmount;
     protected CurrencyAmount baseAmount;

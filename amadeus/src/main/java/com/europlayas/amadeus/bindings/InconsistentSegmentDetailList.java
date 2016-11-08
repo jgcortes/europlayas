@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InconsistentSegmentDetailList", propOrder = {
-    "inconsistentSegmentDetail"
+    "inconsistentSegmentDetails"
 })
-public class InconsistentSegmentDetailList {
+public class InconsistentSegmentDetailList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<InconsistentSegmentDetail> inconsistentSegmentDetail;
+    @XmlElement(name = "inconsistentSegmentDetail", required = true)
+    protected List<InconsistentSegmentDetail> inconsistentSegmentDetails;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class InconsistentSegmentDetailList {
      * Fully-initialising value constructor
      * 
      */
-    public InconsistentSegmentDetailList(final List<InconsistentSegmentDetail> inconsistentSegmentDetail) {
-        this.inconsistentSegmentDetail = inconsistentSegmentDetail;
+    public InconsistentSegmentDetailList(final List<InconsistentSegmentDetail> inconsistentSegmentDetails) {
+        this.inconsistentSegmentDetails = inconsistentSegmentDetails;
     }
 
     /**
-     * Gets the value of the inconsistentSegmentDetail property.
+     * Gets the value of the inconsistentSegmentDetails property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the inconsistentSegmentDetail property.
+     * This is why there is not a <CODE>set</CODE> method for the inconsistentSegmentDetails property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getInconsistentSegmentDetail().add(newItem);
+     *    getInconsistentSegmentDetails().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class InconsistentSegmentDetailList {
      * 
      * 
      */
-    public List<InconsistentSegmentDetail> getInconsistentSegmentDetail() {
-        if (inconsistentSegmentDetail == null) {
-            inconsistentSegmentDetail = new ArrayList<InconsistentSegmentDetail>();
+    public List<InconsistentSegmentDetail> getInconsistentSegmentDetails() {
+        if (inconsistentSegmentDetails == null) {
+            inconsistentSegmentDetails = new ArrayList<InconsistentSegmentDetail>();
         }
-        return this.inconsistentSegmentDetail;
+        return this.inconsistentSegmentDetails;
     }
 
 }

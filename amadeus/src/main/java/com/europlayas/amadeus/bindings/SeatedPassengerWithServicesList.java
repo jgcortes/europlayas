@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SeatedPassengerWithServicesList", propOrder = {
-    "passenger"
+    "passengers"
 })
-public class SeatedPassengerWithServicesList {
+public class SeatedPassengerWithServicesList implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<SeatedPassengerWithServices> passenger;
+    @XmlElement(name = "passenger", required = true)
+    protected List<SeatedPassengerWithServices> passengers;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class SeatedPassengerWithServicesList {
      * Fully-initialising value constructor
      * 
      */
-    public SeatedPassengerWithServicesList(final List<SeatedPassengerWithServices> passenger) {
-        this.passenger = passenger;
+    public SeatedPassengerWithServicesList(final List<SeatedPassengerWithServices> passengers) {
+        this.passengers = passengers;
     }
 
     /**
-     * Gets the value of the passenger property.
+     * Gets the value of the passengers property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the passenger property.
+     * This is why there is not a <CODE>set</CODE> method for the passengers property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPassenger().add(newItem);
+     *    getPassengers().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class SeatedPassengerWithServicesList {
      * 
      * 
      */
-    public List<SeatedPassengerWithServices> getPassenger() {
-        if (passenger == null) {
-            passenger = new ArrayList<SeatedPassengerWithServices>();
+    public List<SeatedPassengerWithServices> getPassengers() {
+        if (passengers == null) {
+            passengers = new ArrayList<SeatedPassengerWithServices>();
         }
-        return this.passenger;
+        return this.passengers;
     }
 
 }

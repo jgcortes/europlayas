@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlType;
     "pointOfTicketing",
     "pricingsByItineraryGroup"
 })
-public class BookRequestPricing {
+public class BookRequestPricing implements Serializable
+{
 
     protected IataLocation pointOfSell;
     protected IataLocation pointOfTicketing;

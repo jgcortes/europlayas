@@ -1,9 +1,11 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import com.europlayas.amadeus.bindings.common.PaymentCardBrand;
 
@@ -29,8 +31,10 @@ import com.europlayas.amadeus.bindings.common.PaymentCardBrand;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UnsupportedPaymentCardTypeFault")
+@XmlRootElement(name = "unsupportedPaymentCardTypeFault")
 public class UnsupportedPaymentCardTypeFault
     extends Fault
+    implements Serializable
 {
 
     @XmlAttribute(name = "cardBrand", required = true)

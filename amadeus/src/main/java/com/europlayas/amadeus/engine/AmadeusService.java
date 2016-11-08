@@ -2,6 +2,8 @@ package com.europlayas.amadeus.engine;
 
 import com.europlayas.amadeus.bindings.Service;
 import com.europlayas.amadeus.bindings.ServicePortType;
+import com.europlayas.amadeus.interceptor.LogInInterceptor;
+import com.europlayas.amadeus.interceptor.LogOutInterceptor;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
@@ -12,15 +14,13 @@ import org.apache.cxf.ws.addressing.AddressingProperties;
 import org.apache.cxf.ws.addressing.AttributedURIType;
 import org.apache.wss4j.dom.WSConstants;
 import org.apache.wss4j.dom.handler.WSHandlerConstants;
-import org.apache.xml.security.utils.Base64;
+
 import org.slf4j.Logger;
 
 import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
 
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.soap.AddressingFeature;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import java.util.HashMap;
@@ -72,8 +72,10 @@ public class AmadeusService {
         setupWSAddressing(provider);
 
         Client client = ClientProxy.getClient(amadeuServicePort);
-        client.getInInterceptors().add(new LoggingInInterceptor());
-        client.getOutInterceptors().add(new LoggingOutInterceptor());
+        client.getInInterceptors().add(new LogInInterceptor());
+        client.getOutInterceptors().add(new LogOutInterceptor());
+
+
 
         HTTPConduit conduit = (HTTPConduit) client.getConduit();
         HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();

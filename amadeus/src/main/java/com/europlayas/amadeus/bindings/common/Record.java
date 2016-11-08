@@ -1,12 +1,15 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.europlayas.amadeus.util.DateTimeAdapter;
 
 
 /**
@@ -32,15 +35,17 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Record")
 @XmlSeeAlso({
-    ExternalProviderRecord.class,
-    AmadeusRecord.class
+    AmadeusRecord.class,
+    ExternalProviderRecord.class
 })
-public abstract class Record {
+public abstract class Record implements Serializable
+{
 
     @XmlAttribute(name = "locator", required = true)
     protected String locator;
     @XmlAttribute(name = "creationDateTime")
-    protected XMLGregorianCalendar creationDateTime;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    protected LocalDateTime creationDateTime;
 
     /**
      * Default no-arg constructor
@@ -54,7 +59,7 @@ public abstract class Record {
      * Fully-initialising value constructor
      * 
      */
-    public Record(final String locator, final XMLGregorianCalendar creationDateTime) {
+    public Record(final String locator, final LocalDateTime creationDateTime) {
         this.locator = locator;
         this.creationDateTime = creationDateTime;
     }
@@ -88,10 +93,10 @@ public abstract class Record {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getCreationDateTime() {
+    public LocalDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
@@ -100,10 +105,10 @@ public abstract class Record {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setCreationDateTime(XMLGregorianCalendar value) {
+    public void setCreationDateTime(LocalDateTime value) {
         this.creationDateTime = value;
     }
 

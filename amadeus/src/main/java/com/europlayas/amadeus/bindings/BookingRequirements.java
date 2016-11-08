@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -90,7 +91,8 @@ import javax.xml.bind.annotation.XmlType;
     "passengers",
     "paymentCardRequired"
 })
-public class BookingRequirements {
+public class BookingRequirements implements Serializable
+{
 
     @XmlElement(required = true)
     protected BookingRequirements.Passengers passengers;
@@ -398,12 +400,13 @@ public class BookingRequirements {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "passenger"
+        "passengers"
     })
-    public static class Passengers {
+    public static class Passengers implements Serializable
+    {
 
-        @XmlElement(required = true)
-        protected List<BookingRequirements.Passengers.Passenger> passenger;
+        @XmlElement(name = "passenger", required = true)
+        protected List<BookingRequirements.Passengers.Passenger> passengers;
 
         /**
          * Default no-arg constructor
@@ -417,23 +420,23 @@ public class BookingRequirements {
          * Fully-initialising value constructor
          * 
          */
-        public Passengers(final List<BookingRequirements.Passengers.Passenger> passenger) {
-            this.passenger = passenger;
+        public Passengers(final List<BookingRequirements.Passengers.Passenger> passengers) {
+            this.passengers = passengers;
         }
 
         /**
-         * Gets the value of the passenger property.
+         * Gets the value of the passengers property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the passenger property.
+         * This is why there is not a <CODE>set</CODE> method for the passengers property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getPassenger().add(newItem);
+         *    getPassengers().add(newItem);
          * </pre>
          * 
          * 
@@ -443,11 +446,11 @@ public class BookingRequirements {
          * 
          * 
          */
-        public List<BookingRequirements.Passengers.Passenger> getPassenger() {
-            if (passenger == null) {
-                passenger = new ArrayList<BookingRequirements.Passengers.Passenger>();
+        public List<BookingRequirements.Passengers.Passenger> getPassengers() {
+            if (passengers == null) {
+                passengers = new ArrayList<BookingRequirements.Passengers.Passenger>();
             }
-            return this.passenger;
+            return this.passengers;
         }
 
 
@@ -490,7 +493,8 @@ public class BookingRequirements {
         @XmlType(name = "", propOrder = {
 
         })
-        public static class Passenger {
+        public static class Passenger implements Serializable
+        {
 
             protected BookingRequirements.Passengers.Passenger.ContactInformation contactInformation;
             @XmlAttribute(name = "id", required = true)
@@ -762,7 +766,8 @@ public class BookingRequirements {
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "")
-            public static class ContactInformation {
+            public static class ContactInformation implements Serializable
+            {
 
                 @XmlAttribute(name = "residenceRequired")
                 protected Boolean residenceRequired;
@@ -837,7 +842,8 @@ public class BookingRequirements {
     @XmlType(name = "", propOrder = {
         "itineraries"
     })
-    public static class PaymentCardRequired {
+    public static class PaymentCardRequired implements Serializable
+    {
 
         @XmlElement(required = true)
         protected ItineraryIdList itineraries;

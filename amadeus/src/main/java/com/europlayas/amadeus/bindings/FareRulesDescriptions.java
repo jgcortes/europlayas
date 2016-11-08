@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,12 +31,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FareRulesDescriptions", propOrder = {
-    "fareRulesDescription"
+    "fareRulesDescriptions"
 })
-public class FareRulesDescriptions {
+public class FareRulesDescriptions implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<String> fareRulesDescription;
+    @XmlElement(name = "fareRulesDescription", required = true)
+    protected List<String> fareRulesDescriptions;
 
     /**
      * Default no-arg constructor
@@ -49,23 +51,23 @@ public class FareRulesDescriptions {
      * Fully-initialising value constructor
      * 
      */
-    public FareRulesDescriptions(final List<String> fareRulesDescription) {
-        this.fareRulesDescription = fareRulesDescription;
+    public FareRulesDescriptions(final List<String> fareRulesDescriptions) {
+        this.fareRulesDescriptions = fareRulesDescriptions;
     }
 
     /**
-     * Gets the value of the fareRulesDescription property.
+     * Gets the value of the fareRulesDescriptions property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the fareRulesDescription property.
+     * This is why there is not a <CODE>set</CODE> method for the fareRulesDescriptions property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getFareRulesDescription().add(newItem);
+     *    getFareRulesDescriptions().add(newItem);
      * </pre>
      * 
      * 
@@ -75,11 +77,11 @@ public class FareRulesDescriptions {
      * 
      * 
      */
-    public List<String> getFareRulesDescription() {
-        if (fareRulesDescription == null) {
-            fareRulesDescription = new ArrayList<String>();
+    public List<String> getFareRulesDescriptions() {
+        if (fareRulesDescriptions == null) {
+            fareRulesDescriptions = new ArrayList<String>();
         }
-        return this.fareRulesDescription;
+        return this.fareRulesDescriptions;
     }
 
 }

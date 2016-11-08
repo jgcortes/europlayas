@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PriceWithInfoResponsePricingsByItineraryGroup", propOrder = {
-    "pricingByItineraryGroup"
+    "pricingByItineraryGroups"
 })
-public class PriceWithInfoResponsePricingsByItineraryGroup {
+public class PriceWithInfoResponsePricingsByItineraryGroup implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<PriceWithInfoResponsePricingByItineraryGroup> pricingByItineraryGroup;
+    @XmlElement(name = "pricingByItineraryGroup", required = true)
+    protected List<PriceWithInfoResponsePricingByItineraryGroup> pricingByItineraryGroups;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class PriceWithInfoResponsePricingsByItineraryGroup {
      * Fully-initialising value constructor
      * 
      */
-    public PriceWithInfoResponsePricingsByItineraryGroup(final List<PriceWithInfoResponsePricingByItineraryGroup> pricingByItineraryGroup) {
-        this.pricingByItineraryGroup = pricingByItineraryGroup;
+    public PriceWithInfoResponsePricingsByItineraryGroup(final List<PriceWithInfoResponsePricingByItineraryGroup> pricingByItineraryGroups) {
+        this.pricingByItineraryGroups = pricingByItineraryGroups;
     }
 
     /**
-     * Gets the value of the pricingByItineraryGroup property.
+     * Gets the value of the pricingByItineraryGroups property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the pricingByItineraryGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the pricingByItineraryGroups property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPricingByItineraryGroup().add(newItem);
+     *    getPricingByItineraryGroups().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class PriceWithInfoResponsePricingsByItineraryGroup {
      * 
      * 
      */
-    public List<PriceWithInfoResponsePricingByItineraryGroup> getPricingByItineraryGroup() {
-        if (pricingByItineraryGroup == null) {
-            pricingByItineraryGroup = new ArrayList<PriceWithInfoResponsePricingByItineraryGroup>();
+    public List<PriceWithInfoResponsePricingByItineraryGroup> getPricingByItineraryGroups() {
+        if (pricingByItineraryGroups == null) {
+            pricingByItineraryGroups = new ArrayList<PriceWithInfoResponsePricingByItineraryGroup>();
         }
-        return this.pricingByItineraryGroup;
+        return this.pricingByItineraryGroups;
     }
 
 }

@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings.common;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "GlobalContactInformation", propOrder = {
 
 })
-public class GlobalContactInformation {
+public class GlobalContactInformation implements Serializable
+{
 
     protected NamedPostalAddress postalAddress;
     protected InternationalPhoneNumber travelAgentPhoneNumber;

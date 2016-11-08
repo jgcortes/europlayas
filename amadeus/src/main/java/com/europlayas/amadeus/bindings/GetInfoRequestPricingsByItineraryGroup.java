@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,12 +33,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GetInfoRequestPricingsByItineraryGroup", propOrder = {
-    "pricingByItineraryGroup"
+    "pricingByItineraryGroups"
 })
-public class GetInfoRequestPricingsByItineraryGroup {
+public class GetInfoRequestPricingsByItineraryGroup implements Serializable
+{
 
-    @XmlElement(required = true)
-    protected List<GetInfoRequestPricingByItineraryGroup> pricingByItineraryGroup;
+    @XmlElement(name = "pricingByItineraryGroup", required = true)
+    protected List<GetInfoRequestPricingByItineraryGroup> pricingByItineraryGroups;
 
     /**
      * Default no-arg constructor
@@ -51,23 +53,23 @@ public class GetInfoRequestPricingsByItineraryGroup {
      * Fully-initialising value constructor
      * 
      */
-    public GetInfoRequestPricingsByItineraryGroup(final List<GetInfoRequestPricingByItineraryGroup> pricingByItineraryGroup) {
-        this.pricingByItineraryGroup = pricingByItineraryGroup;
+    public GetInfoRequestPricingsByItineraryGroup(final List<GetInfoRequestPricingByItineraryGroup> pricingByItineraryGroups) {
+        this.pricingByItineraryGroups = pricingByItineraryGroups;
     }
 
     /**
-     * Gets the value of the pricingByItineraryGroup property.
+     * Gets the value of the pricingByItineraryGroups property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the pricingByItineraryGroup property.
+     * This is why there is not a <CODE>set</CODE> method for the pricingByItineraryGroups property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPricingByItineraryGroup().add(newItem);
+     *    getPricingByItineraryGroups().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +79,11 @@ public class GetInfoRequestPricingsByItineraryGroup {
      * 
      * 
      */
-    public List<GetInfoRequestPricingByItineraryGroup> getPricingByItineraryGroup() {
-        if (pricingByItineraryGroup == null) {
-            pricingByItineraryGroup = new ArrayList<GetInfoRequestPricingByItineraryGroup>();
+    public List<GetInfoRequestPricingByItineraryGroup> getPricingByItineraryGroups() {
+        if (pricingByItineraryGroups == null) {
+            pricingByItineraryGroups = new ArrayList<GetInfoRequestPricingByItineraryGroup>();
         }
-        return this.pricingByItineraryGroup;
+        return this.pricingByItineraryGroups;
     }
 
 }

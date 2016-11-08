@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -34,17 +35,18 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AccommodationPreference", propOrder = {
-    "seatNumber",
-    "seatPosition"
+    "seatPosition",
+    "seatNumber"
 })
 @XmlSeeAlso({
     SegmentAccommodationPreference.class
 })
-public class AccommodationPreference {
+public class AccommodationPreference implements Serializable
+{
 
-    protected String seatNumber;
     @XmlSchemaType(name = "string")
     protected SeatPosition seatPosition;
+    protected String seatNumber;
     @XmlAttribute(name = "mealCode")
     protected MealCode mealCode;
 
@@ -60,34 +62,10 @@ public class AccommodationPreference {
      * Fully-initialising value constructor
      * 
      */
-    public AccommodationPreference(final String seatNumber, final SeatPosition seatPosition, final MealCode mealCode) {
-        this.seatNumber = seatNumber;
+    public AccommodationPreference(final SeatPosition seatPosition, final String seatNumber, final MealCode mealCode) {
         this.seatPosition = seatPosition;
+        this.seatNumber = seatNumber;
         this.mealCode = mealCode;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad seatNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSeatNumber() {
-        return seatNumber;
-    }
-
-    /**
-     * Define el valor de la propiedad seatNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSeatNumber(String value) {
-        this.seatNumber = value;
     }
 
     /**
@@ -112,6 +90,30 @@ public class AccommodationPreference {
      */
     public void setSeatPosition(SeatPosition value) {
         this.seatPosition = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad seatNumber.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    /**
+     * Define el valor de la propiedad seatNumber.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSeatNumber(String value) {
+        this.seatNumber = value;
     }
 
     /**

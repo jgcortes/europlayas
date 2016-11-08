@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -26,16 +27,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BookFault")
 @XmlSeeAlso({
-    BookingFailureFault.class,
-    TicketIssuanceFailureFault.class,
-    SegmentSellFailureFault.class,
-    PassengerPriceDiscrepancyFault.class,
-    PriceDiscrepancyFault.class,
+    DuplicateBookingFault.class,
     InconsistentBookRequestFault.class,
-    DuplicateBookingFault.class
+    PriceDiscrepancyFault.class,
+    PassengerPriceDiscrepancyFault.class,
+    SegmentSellFailureFault.class,
+    TicketIssuanceFailureFault.class,
+    BookingFailureFault.class
 })
 public class BookFault
     extends Fault
+    implements Serializable
 {
 
 

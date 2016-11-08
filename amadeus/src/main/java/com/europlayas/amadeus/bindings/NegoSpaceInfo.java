@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -41,7 +42,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "NegoSpaceInfo")
-public class NegoSpaceInfo {
+public class NegoSpaceInfo implements Serializable
+{
 
     @XmlAttribute(name = "negotiatedSpaceMode", required = true)
     protected NegotiatedSpaceType negotiatedSpaceMode;

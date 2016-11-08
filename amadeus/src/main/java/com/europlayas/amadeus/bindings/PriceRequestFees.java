@@ -1,6 +1,7 @@
 
 package com.europlayas.amadeus.bindings;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,7 +35,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "PriceRequestFees", propOrder = {
 
 })
-public class PriceRequestFees {
+public class PriceRequestFees implements Serializable
+{
 
     @XmlElement(required = true)
     protected CurrencyAmount supplierFee;
