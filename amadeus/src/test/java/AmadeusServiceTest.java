@@ -55,31 +55,20 @@ public class AmadeusServiceTest {
     }
 
 
-    private LowFareSearchRequest createLowFareRequest() throws Exception{
+    private  LowFareSearchRequest createLowFareRequest() throws Exception{
         LowFareSearchRequest lowFareSearchRequest = new LowFareSearchRequest();
 
         LowFareSearchRequest.Journey journey = new LowFareSearchRequest.Journey();
         LowFareSearchRequest.Journey.OriginDestinations originDestinations = new LowFareSearchRequest.Journey.OriginDestinations();
         journey.setOriginDestinations(originDestinations);
-        OriginDestination originDestination = new OriginDestination();
-        originDestination.setId(1);
-        Area area = new Area();
-        IataLocation iataLocation = new IataLocation();
-        iataLocation.setCode("MAD");
-        area.setLocation(iataLocation);
-        originDestination.setOrigin(area);
-        area = new Area();
-        iataLocation = new IataLocation();
-        iataLocation.setCode("BCN");
-        area.setLocation(iataLocation);
-        originDestination.setDestination(area);
+
+        OriginDestination originDestination = getOriginDestination(1,"MAD","BCN","161216");
         originDestinations.getOriginDestinations().add(originDestination);
+        originDestination = getOriginDestination(2,"BCN","MAD","201216");
+        originDestinations.getOriginDestinations().add(originDestination);
+
         lowFareSearchRequest.setJourney(journey );
-        DateTimeRange dateTimeRange = new DateTimeRange();
-        DateTimeRange.DateRange dateRange = new  DateTimeRange.DateRange();
-        dateRange.setDate(getDate("161216"));
-        dateTimeRange.setDateRange(dateRange);
-        originDestination.setDepartureDateTimeRange(dateTimeRange);
+
 
 
         SeatedPassengerList seatedPassengerList = new SeatedPassengerList();
@@ -111,7 +100,29 @@ public class AmadeusServiceTest {
     }
 
 
-    private LocalDate getDate(String input) {
+    private   OriginDestination getOriginDestination(int id, String origin, String destination, String date){
+        OriginDestination originDestination = new OriginDestination();
+        originDestination.setId(id);
+        Area area = new Area();
+        IataLocation iataLocation = new IataLocation();
+        iataLocation.setCode(origin);
+        area.setLocation(iataLocation);
+        originDestination.setOrigin(area);
+        area = new Area();
+        iataLocation = new IataLocation();
+        iataLocation.setCode(destination);
+        area.setLocation(iataLocation);
+        originDestination.setDestination(area);
+        DateTimeRange dateTimeRange = new DateTimeRange();
+        DateTimeRange.DateRange dateRange = new  DateTimeRange.DateRange();
+        dateRange.setDate(getDate(date));
+        dateTimeRange.setDateRange(dateRange);
+        originDestination.setDepartureDateTimeRange(dateTimeRange);
+        return originDestination;
+    }
+
+
+    private  LocalDate getDate(String input) {
         DateTimeFormatter formatter =
                 DateTimeFormatter.ofPattern("ddMMyy");
 
