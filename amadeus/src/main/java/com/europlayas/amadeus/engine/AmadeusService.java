@@ -8,6 +8,8 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
+import org.apache.cxf.transport.common.gzip.GZIPInInterceptor;
+import org.apache.cxf.transport.common.gzip.GZIPOutInterceptor;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
 import org.apache.cxf.ws.addressing.AddressingProperties;
@@ -72,10 +74,10 @@ public class AmadeusService {
         setupWSAddressing(provider);
 
         Client client = ClientProxy.getClient(amadeuServicePort);
+        client.getInInterceptors().add(new GZIPInInterceptor());
+        client.getOutInterceptors().add(new GZIPOutInterceptor());
         client.getInInterceptors().add(new LogInInterceptor());
         client.getOutInterceptors().add(new LogOutInterceptor());
-
-
 
         HTTPConduit conduit = (HTTPConduit) client.getConduit();
         HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
